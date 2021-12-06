@@ -5,21 +5,19 @@
  */
 package SystemModel;
 
-
-
-//import Business.Employee.Employee;
-//import Business.Role.SystemAdministratorRole;
-//import Business.UserAccount.UserAccount;
+import SystemModel.Employee.Employee;
+import SystemModel.Role.SystemAdministratorRole;
+import SystemModel.UserAccount.UserAccount;
 /**
  *
- * @author Karan
+ * @author Karan 
  */
 public class SystemConfiguration {
      public static EcoSystem configure(){
    EcoSystem system= EcoSystem.getInstance();
    
-//   Employee employee= system.getEmployeeDirectory().createEmployee("SYSTEM ADMIN");
-//   UserAccount ua= system.getUserAccountDirectory().createUserAccount("username", "password", employee, new SystemAdministratorRole());
+   Employee employee= system.getEmployeeDirectory().createEmployee("SYSTEM ADMIN");
+   UserAccount ua= system.getUserAccountDirectory().createUserAccount("username", "password", employee, new SystemAdministratorRole());
     
     return system;
     }

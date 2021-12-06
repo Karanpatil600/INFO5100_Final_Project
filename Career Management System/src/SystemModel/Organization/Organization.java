@@ -3,10 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package SystemModel;
-//import SystemModel.Employee.EmployeeDirectory;
-//import SystemModel.Role.Role;
-//import SystemModel.UserAccount.UserAccountDirectory;
+package SystemModel.Organization;
+import SystemModel.Employee.EmployeeDirectory;
+import SystemModel.Role.Role;
+import SystemModel.UserAccount.UserAccountDirectory;
 //import SystemModel.Volunteer.VolunteerDirectory;
 //import SystemModel.WorkQueue.WorkQueue;
 import java.util.HashSet;
@@ -18,14 +18,14 @@ import java.util.HashSet;
 
 public abstract class Organization {
     
-//    private String name;
-//    private String organizationName;
+    private String name;
+    private String organizationName;
 //    private WorkQueue workQueue;
-//    private EmployeeDirectory employeeDirectory;
-//    private UserAccountDirectory userAccountDirectory;
-//    private int organizationID;
-//    private static int count=0;
-//    public HashSet<Role> role;
+    private EmployeeDirectory employeeDirectory;
+    private UserAccountDirectory userAccountDirectory;
+    private int organizationID;
+    private static int count=0;
+    public HashSet<Role> role;
     
     public enum Type 
     {
@@ -50,17 +50,17 @@ public abstract class Organization {
     
     public Organization (String name)
     {
-//      this.name = name;
-//      workQueue = new WorkQueue();
-//      employeeDirectory = new EmployeeDirectory();
-//      userAccountDirectory = new UserAccountDirectory();
-//      organizationID = count;
-//      role = new HashSet<>();
-//      ++count;        
+      this.name = name;
+      //workQueue = new WorkQueue();
+      employeeDirectory = new EmployeeDirectory();
+      userAccountDirectory = new UserAccountDirectory();
+      organizationID = count;
+      role = new HashSet<>();
+      ++count;        
     }
 
-    /*
-    public abstract HashSet<Role> getSupportedRole();
+    
+   public abstract HashSet<Role> getSupportedRole();
 
     public String getOrganizationName() {
         return organizationName;
@@ -75,8 +75,8 @@ public abstract class Organization {
         return employeeDirectory;
     }
 
-    public void setEmployeeDirectory(EmployeeDirectory employeeDirectory) {
-        this.employeeDirectory = employeeDirectory;
+   public void setEmployeeDirectory(EmployeeDirectory employeeDirectory) {
+       this.employeeDirectory = employeeDirectory;
     }
 
     public void setUserAccountDirectory(UserAccountDirectory userAccountDirectory) {
@@ -100,13 +100,13 @@ public abstract class Organization {
         this.name = name;
     }
 
-    public WorkQueue getWorkQueue() {
-        return workQueue;
-    }
-
-    public void setWorkQueue(WorkQueue workQueue) {
-        this.workQueue = workQueue;
-    }
+//    public WorkQueue getWorkQueue() {
+//        return workQueue;
+//    }
+//
+//    public void setWorkQueue(WorkQueue workQueue) {
+//        this.workQueue = workQueue;
+//    }
 
     
     
@@ -117,9 +117,6 @@ public abstract class Organization {
     {
         return name;
     }
-    
-    */
-    
 }
 
 

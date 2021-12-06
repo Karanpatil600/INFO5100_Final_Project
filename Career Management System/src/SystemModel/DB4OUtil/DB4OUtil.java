@@ -57,7 +57,7 @@ public class DB4OUtil
         } catch (Exception ex) {
             System.out.print(ex.getMessage());
         }
-        return null; 
+        return null;
     }
 
     public synchronized void storeSystem(EcoSystem system) 
