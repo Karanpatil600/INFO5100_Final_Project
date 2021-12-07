@@ -26,7 +26,7 @@ public class SystemAdministratorRole extends Role
     @Override
     public JPanel createWorkArea(JPanel workArea, UserAccount account,Organization organization,Enterprise enterprise,EcoSystem system)
     {
-        return new SystemAdministrator  (workArea , system);
+        return new SystemAdministrator  (system, workArea);
     }
         @Override
         public String toString()
