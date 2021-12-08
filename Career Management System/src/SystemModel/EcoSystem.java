@@ -5,25 +5,24 @@
  */
 package SystemModel;
 
-//import SystemModel.Enterprise.Enterprise;
-//import SystemModel.Network.Network;
-//import SystemModel.Organization.Organization;
-//import SystemModel.Role.Role;
-//import SystemModel.Role.SystemAdministratorRole;
-//import SystemModel.UserAccount.UserAccount;
+import SystemModel.Enterprise.Enterprise;
+import SystemModel.Network.Network;
+import SystemModel.Organization.Organization;
+import SystemModel.Role.Role;
+import SystemModel.Role.SystemAdministratorRole;
+import SystemModel.UserAccount.UserAccount;
+import SystemModel.Organization.Organization;
 import java.util.ArrayList;
 import java.util.HashSet;
-import SystemModel.Organization;
 
 /**
  *
  * @author Karan
  */
-
     public class EcoSystem extends Organization {
     
     private static EcoSystem business;
-   // private ArrayList<Network> networkList;
+    private ArrayList<Network> networkList;
     
     
     public static EcoSystem getInstance()
@@ -36,39 +35,39 @@ import SystemModel.Organization;
     }
     
     private EcoSystem()
-    {
+   {
         super(null);
-        //networkList = new ArrayList<>();
+        networkList = new ArrayList<>();
         
     }
 
-//    public ArrayList<Network> getNetworkList() {
-//        return networkList;
-//    }
+   public ArrayList<Network> getNetworkList() {
+        return networkList;
+    }
 
     public static void setInstance(EcoSystem system)
     {
         business = system;
     }
     
-//    public Network addNetwork()
-//    {
-//      Network  network = new Network();
-//      networkList.add(network);
-//      return network;
+    public Network addNetwork()
+    {
+      Network  network = new Network();
+      networkList.add(network);
+      return network;
     }
-    
-//    @Override
-//    public HashSet<Role> getSupportedRole(){
-//        role.add(new SystemAdministratorRole());
-//        
-//        return role;
-   // }
-    
-    
+   
+   @Override
+    public HashSet<Role> getSupportedRole(){
+        role.add(new SystemAdministratorRole());
+        
+        return role;
+   }
     
     
-    /*
+    
+    
+    
     public static boolean checkIfUsernameIsUnique(String username)
     {
         for(Network n : business.getNetworkList())
@@ -97,7 +96,6 @@ import SystemModel.Organization;
         }
         return true;
     }
-*/
     
     
-//}
+} 
