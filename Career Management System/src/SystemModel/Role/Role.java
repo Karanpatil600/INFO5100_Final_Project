@@ -26,10 +26,14 @@ public abstract class Role {
         HelpSeeker("HelpSeeker"),
         EnterpriseAdmin("EnterpriseAdmin"),
         HospitalAdmin("HospitalAdmin"),
-        SocialServiceAdminRole("SocialServiceAdminRole"),
-        NGOAdminRole("NGOAdminRole"),
-        NGOManagerRole("NGOManagerRole"),
-        SupplierAdminRole("SupplierAdminRole"),
+        
+        CareerServiceAdminRole("CareerServiceAdminRole"), 
+        
+        VentureCapitalAdminRole("VentureCapitalAdminRole"),
+        VentureCapitalRole("VentureCapitalRole"),
+        
+        SupplierServiceAdminRole("SupplierServiceAdminRole"),
+        
         SupplierManagerRole("SupplierManagerRole"),
         VolunteerAdminRole("VolunteerAdminRole"),
         VolunteerRole("VolunteerRole"),
