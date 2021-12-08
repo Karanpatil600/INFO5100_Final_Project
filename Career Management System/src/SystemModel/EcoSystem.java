@@ -67,7 +67,7 @@ import java.util.HashSet;
     
     
     
-    /*
+    
     public static boolean checkIfUsernameIsUnique(String username)
     {
         for(Network n : business.getNetworkList())
@@ -97,5 +97,5 @@ import java.util.HashSet;
         return true;
     }
     
-    */
+    
 } 

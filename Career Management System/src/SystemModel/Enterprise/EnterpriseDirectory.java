@@ -27,23 +27,23 @@ public class EnterpriseDirectory {
     }
     
     
-    /*
+    
     public Enterprise createAndAddEnterprise(String name, Enterprise.EnterpriseType type){
         Enterprise enterprise = null;
-        if(type == Enterprise.EnterpriseType.SocialService){
-            enterprise = new SocialServiceEnterprise(name);
+        if(type == Enterprise.EnterpriseType.CareerService){
+           enterprise = new CareerServiceEnterprise(name);
             enterpriseList.add(enterprise);
         }
-        else if(type == Enterprise.EnterpriseType.Supplier){
-            enterprise= new SupplierEnterprise(name);
+        else if(type == Enterprise.EnterpriseType.SupplierService){
+            enterprise= new SupplierServiceEnterprise(name);
             enterpriseList.add(enterprise);
         }
-        else if(type == Enterprise.EnterpriseType.NGO){
-            enterprise= new NGOEnterprise(name);
+        else if(type == Enterprise.EnterpriseType.VentureCapital){
+          enterprise= new VentureCapitalEnterprise(name);
             enterpriseList.add(enterprise);
         }
-        else if(type == Enterprise.EnterpriseType.Hospital){
-            enterprise= new HospitalEnterprise(name);
+        else if(type == Enterprise.EnterpriseType.GlobalCommunityEnterprise){
+            enterprise= new GlobalCommunityEnterprise(name);
             enterpriseList.add(enterprise);
         }
         
@@ -52,7 +52,7 @@ public class EnterpriseDirectory {
         
     }
    
-    */
+    
 }
 
 
