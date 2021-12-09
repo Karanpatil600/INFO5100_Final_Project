@@ -48,10 +48,11 @@ private EcoSystem ecosystem;
             {
                 for (UserAccount userAccount : enterprise.getUserAccountDirectory().getUserAccountList())
                 {
-                    Object[] row = new Object[3];
+                    Object[] row = new Object[4];
                     row[0] = enterprise.getName();
                     row[1] = network.getNetworkname();
                     row[2] = userAccount;
+                    row[3] = userAccount.getPassword();
 
                     model.addRow(row);
                 }
@@ -150,7 +151,7 @@ private EcoSystem ecosystem;
 
             },
             new String [] {
-                "Enterprise Name", "Network Name", "Enterprise Admin Username "
+                "Enterprise Name", "Network Name", "Enterprise Admin Username ", "Password"
             }
         ));
         jScrollPane1.setViewportView(enterpriseAdminJTable);
@@ -221,11 +222,11 @@ private EcoSystem ecosystem;
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addComponent(enterpriseTypeJComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 349, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(238, Short.MAX_VALUE))
+                .addContainerGap(187, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
