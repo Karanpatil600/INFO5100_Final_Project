@@ -27,21 +27,22 @@ public class OrganizationDirectory {
     }
     
     
-    /*
+    
     public Organization createOrganization(Organization.Type type,String name)
     {
     Organization organization = null;
         if (type.getValue().equals(Organization.Type.HelpProvider.getValue())){
             
-            organization = new HelpProviderOrganization();
+           // organization = new HelpProviderOrganization();
             organization.setOrganizationName(name);
             organizationList.add(organization);
         }
         else if (type.getValue().equals(Organization.Type.HelpSeeker.getValue())){
-            organization = new HelpSeekerOrganization();
+            //organization = new HelpSeekerOrganization();
             organization.setOrganizationName(name);
             organizationList.add(organization);
         }
+        /*
         else if (type.getValue().equals(Organization.Type.NGO.getValue())){
             organization = new NGOOrganization();
             organization.setOrganizationName(name);
@@ -56,23 +57,24 @@ public class OrganizationDirectory {
             organization = new DonorOrganization(name);
             organization.setOrganizationName(name);
             organizationList.add(organization);
-        }
+        }*/
         else if (type.getValue().equals(Organization.Type.Volunteer.getValue())){
-            organization = new VolunteerOrganization(name);
+            //organization = new VolunteerOrganization(name);
             organization.setOrganizationName(name);
             organizationList.add(organization);
         }
+        /*
         else if (type.getValue().equals(Organization.Type.Doctor.getValue())){
             organization = new DoctorOrganization(name);
             organization.setOrganizationName(name);
             organizationList.add(organization);
         }
-        
+        */
         
         return organization;
     }
 
-*/
+
     
 }
 
