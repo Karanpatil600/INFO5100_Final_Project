@@ -20,10 +20,10 @@ public abstract class Role {
     
     public enum RoleType{
         SystemAdministrator("SystemAdministrator"),
-        HelpProviderAdmin("HelpProviderAdmin"),
-        HelpProvider("HelpProvider"),
-        HelpSeekerAdmin("HelpSeekerAdmin"),
-        HelpSeeker("HelpSeeker"),
+        ServiceProviderAdmin("ServiceProviderAdmin"),
+        ServiceProvider("ServiceProvider"),
+        ServiceSeekerAdmin("ServiceSeekerAdmin"),
+        ServiceSeeker("ServiceSeeker"),
         EnterpriseAdmin("EnterpriseAdmin"),
         HospitalAdmin("HospitalAdmin"),
         
@@ -35,8 +35,8 @@ public abstract class Role {
         SupplierServiceAdminRole("SupplierServiceAdminRole"),
         
         SupplierManagerRole("SupplierManagerRole"),
-        VolunteerAdminRole("VolunteerAdminRole"),
-        VolunteerRole("VolunteerRole"),
+        CreatorAdminRole("CreatorAdminRole"),
+        CreatorRole("CreatorRole"),
         DonorRole("DonorRole"),
         DonorAdminRole("DonorAdminRole"),
         DoctorAdminRole("DoctorAdminRole"),

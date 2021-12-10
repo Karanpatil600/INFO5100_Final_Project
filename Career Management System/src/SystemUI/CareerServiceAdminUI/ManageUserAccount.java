@@ -8,16 +8,16 @@ package SystemUI.CareerServiceAdminUI;
 import SystemModel.EcoSystem;
 import SystemModel.Employee.Employee;
 import SystemModel.Enterprise.Enterprise;
-//import SystemModel.Organization.HelpProviderOrganization;
-//import SystemModel.Organization.HelpSeekerOrganization;
+import SystemModel.Organization.ServiceProviderOrganization;
+import SystemModel.Organization.ServiceSeekerOrganization;
 //import SystemModel.Organization.NGOOrganization;
 import SystemModel.Organization.Organization;
-//import SystemModel.Organization.VolunteerOrganization;
-//import SystemModel.Role.HelpProviderAdminRole;
-//import SystemModel.Role.HelpSeekerAdminRole;
+import SystemModel.Organization.CreatorOrganization;
+import SystemModel.Role.ServiceProviderAdminRole;
+import SystemModel.Role.ServiceSeekerAdminRole;
 //import SystemModel.Role.NGOManagerRole;
 import SystemModel.Role.Role;
-//import SystemModel.Role.VolunteerAdminRole;
+import SystemModel.Role.CreatorAdminRole;
 import SystemModel.UserAccount.UserAccount;
 import java.awt.CardLayout;
 import javax.swing.JOptionPane;
@@ -282,16 +282,16 @@ public class ManageUserAccount extends javax.swing.JPanel {
     private void populateRoleComboBox(Enterprise e) {
         EmployeeRoleJComboBox.removeAllItems();
 
-        /*Organization organization = (Organization) organizationJComboBox.getSelectedItem();
-        if (organization instanceof HelpProviderOrganization) {
-            EmployeeRoleJComboBox.addItem(new HelpProviderAdminRole());
+        Organization organization = (Organization) organizationJComboBox.getSelectedItem();
+        if (organization instanceof ServiceProviderOrganization) {
+            EmployeeRoleJComboBox.addItem(new ServiceProviderAdminRole());
         } 
-        else if (organization instanceof HelpSeekerOrganization) {
-            EmployeeRoleJComboBox.addItem(new HelpSeekerAdminRole());
+        else if (organization instanceof ServiceSeekerOrganization) {
+            EmployeeRoleJComboBox.addItem(new ServiceSeekerAdminRole());
         } 
-        else if (organization instanceof VolunteerOrganization) {
-            EmployeeRoleJComboBox.addItem(new VolunteerAdminRole());
-        } 
+        else if (organization instanceof CreatorOrganization) {
+            EmployeeRoleJComboBox.addItem(new CreatorAdminRole());
+        } /*
         else if (organization instanceof NGOOrganization) {
             EmployeeRoleJComboBox.addItem(new NGOManagerRole());
         }*/

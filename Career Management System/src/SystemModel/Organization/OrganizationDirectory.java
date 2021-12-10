@@ -31,14 +31,14 @@ public class OrganizationDirectory {
     public Organization createOrganization(Organization.Type type,String name)
     {
     Organization organization = null;
-        if (type.getValue().equals(Organization.Type.HelpProvider.getValue())){
+        if (type.getValue().equals(Organization.Type.ServiceProvider.getValue())){
             
-           // organization = new HelpProviderOrganization();
+            organization = new ServiceProviderOrganization();
             organization.setOrganizationName(name);
-            organizationList.add(organization);
+            organizationList.add(organization); 
         }
-        else if (type.getValue().equals(Organization.Type.HelpSeeker.getValue())){
-            //organization = new HelpSeekerOrganization();
+        else if (type.getValue().equals(Organization.Type.ServiceSeeker.getValue())){
+            organization = new ServiceSeekerOrganization();
             organization.setOrganizationName(name);
             organizationList.add(organization);
         }
@@ -58,8 +58,8 @@ public class OrganizationDirectory {
             organization.setOrganizationName(name);
             organizationList.add(organization);
         }*/
-        else if (type.getValue().equals(Organization.Type.Volunteer.getValue())){
-            //organization = new VolunteerOrganization(name);
+        else if (type.getValue().equals(Organization.Type.Creator.getValue())){
+            organization = new CreatorOrganization(name);
             organization.setOrganizationName(name);
             organizationList.add(organization);
         }

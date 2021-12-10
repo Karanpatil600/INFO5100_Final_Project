@@ -180,9 +180,9 @@ public class ManageOrganization extends javax.swing.JPanel {
     private void populateJComboBox() {
         organizationJComboBox.removeAllItems();
       
-        organizationJComboBox.addItem(Organization.Type.HelpProvider);
-        organizationJComboBox.addItem(Organization.Type.HelpSeeker);
-        organizationJComboBox.addItem(Organization.Type.Volunteer);
+        organizationJComboBox.addItem(Organization.Type.ServiceProvider);
+        organizationJComboBox.addItem(Organization.Type.ServiceSeeker);
+        organizationJComboBox.addItem(Organization.Type.Creator);
        
     }
 

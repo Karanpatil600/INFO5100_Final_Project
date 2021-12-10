@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package SystemUI.HelpProvider;
+package SystemUI.ServiceProvider;
 
 import SystemModel.EcoSystem;
 import SystemModel.Enterprise.Enterprise;
@@ -16,7 +16,7 @@ import javax.swing.JPanel;
  *
  * @author Ashish
  */
-public class HelpProviderAdminUI extends javax.swing.JPanel {
+public class ServiceProviderAdminUI extends javax.swing.JPanel {
     private JPanel workArea;
     private UserAccount account;
     private Organization organization;
@@ -26,7 +26,7 @@ public class HelpProviderAdminUI extends javax.swing.JPanel {
     /**
      * Creates new form HelpProviderAdminUI
      */
-    public HelpProviderAdminUI(JPanel workArea,Enterprise enterprise) {
+    public ServiceProviderAdminUI(JPanel workArea,Enterprise enterprise) {
         initComponents();
         this.workArea=workArea;
         this.enterprise=enterprise;
@@ -128,19 +128,19 @@ public class HelpProviderAdminUI extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void manageEmployeeBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manageEmployeeBtnActionPerformed
-//         ManageEmployee manageEmployeeJPanel = new ManageEmployee(downJPanel, enterprise.getOrganizationDirectory());
-//      downJPanel.add("GiverManageEmployee", manageEmployeeJPanel);
+//         ManageEmployee manageEmployeeJPanel = new ManageEmployee(workArea, enterprise.getOrganizationDirectory());
+//      workArea.add("GiverManageEmployee", manageEmployeeJPanel);
 //
-//        CardLayout layout = (CardLayout) downJPanel.getLayout();
-//        layout.next(downJPanel);
+//        CardLayout layout = (CardLayout) workArea.getLayout();
+//        layout.next(workArea);
     }//GEN-LAST:event_manageEmployeeBtnActionPerformed
 
     private void manageUserAccountBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manageUserAccountBtnActionPerformed
-//        ManageUserAccount muajp = new ManageUserAccount(downJPanel, enterprise);
-//        downJPanel.add("HelpProviderManageUserAccount", muajp);
+//        ManageUserAccount muajp = new ManageUserAccount(workArea, enterprise);
+//        workArea.add("HelpProviderManageUserAccount", muajp);
 //
-//        CardLayout layout = (CardLayout) downJPanel.getLayout();
-//        layout.next(downJPanel);
+//        CardLayout layout = (CardLayout) workArea.getLayout();
+//        layout.next(workArea);
     }//GEN-LAST:event_manageUserAccountBtnActionPerformed
 
 
