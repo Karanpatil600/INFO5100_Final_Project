@@ -5,7 +5,7 @@
  */
 package SystemModel.Enterprise;
 
-import SystemModel.Role.HelpProviderAdminRole;
+import SystemModel.Role.ServiceProviderAdminRole;
 import SystemModel.Role.Role;
 import java.util.HashSet;
 
@@ -24,7 +24,7 @@ public class CareerServiceEnterprise extends Enterprise{
     public HashSet<Role> getSupportedRole(){
        // role.add(new CommunityAdminRole());
        
-        role.add(new HelpProviderAdminRole());
+        role.add(new ServiceProviderAdminRole());
               
         //role.add(new HelpSeekerAdminRole());
         

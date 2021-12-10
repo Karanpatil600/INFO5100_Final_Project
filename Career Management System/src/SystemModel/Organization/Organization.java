@@ -7,7 +7,7 @@ package SystemModel.Organization;
 import SystemModel.Employee.EmployeeDirectory;
 import SystemModel.Role.Role;
 import SystemModel.UserAccount.UserAccountDirectory;
-//import SystemModel.Volunteer.VolunteerDirectory;
+import SystemModel.Creator.CreatorDirectory;
 //import SystemModel.WorkQueue.WorkQueue;
 import java.util.HashSet;
 
@@ -29,9 +29,9 @@ public abstract class Organization {
     
     public enum Type 
     {
-        HelpProvider("HelpProvider Organization"),
-        HelpSeeker("HelpSeeker Organization"),
-        Volunteer("Volunteer Organization"),
+        ServiceProvider("ServiceProvider Organization"),
+        ServiceSeeker("ServiceSeeker Organization"),
+        Creator("Creator Organization"),
         NGO("NGO Organization"),
         Donor("Donor Organization"),
         Supplier("Supplier Organization"),

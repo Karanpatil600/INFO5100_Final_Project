@@ -9,23 +9,23 @@ import SystemModel.EcoSystem;
 import SystemModel.Enterprise.Enterprise;
 import SystemModel.Organization.Organization;
 import SystemModel.UserAccount.UserAccount;
-import SystemUI.HelpProvider.HelpProviderAdminUI;
+import SystemUI.ServiceProvider.ServiceProviderAdminUI;
 import javax.swing.JPanel;
 
 /**
  *
  * @author Ashish
  */
-public class HelpProviderAdminRole extends Role {
+public class ServiceProviderAdminRole extends Role {
     
 @Override
 public JPanel createWorkArea(JPanel userProcessContainer,UserAccount account,Organization organization,Enterprise enterprise,EcoSystem system){
-        return new HelpProviderAdminUI(userProcessContainer,/*account,(ChangeMakerOrganization)organization,*/enterprise/*,system*/);
+        return new ServiceProviderAdminUI(userProcessContainer,/*account,(ChangeMakerOrganization)organization,*/enterprise/*,system*/);
        //return null;
     }   
         @Override
         public String toString()
 {
-   return Role.RoleType.HelpProviderAdmin.getValue();
+   return Role.RoleType.ServiceProviderAdmin.getValue();
 }  
 }
