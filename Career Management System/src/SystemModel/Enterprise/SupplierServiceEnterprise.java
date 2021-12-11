@@ -6,6 +6,7 @@
 package SystemModel.Enterprise;
 
 import SystemModel.Role.Role;
+import SystemModel.Role.SupplierManagerRole;
 import java.util.HashSet;
 
 /**
@@ -20,7 +21,7 @@ public class SupplierServiceEnterprise extends Enterprise  {
     } 
     @Override
     public HashSet<Role> getSupportedRole(){
-        //new SupplierManagerRole();
+        new SupplierManagerRole();
         return role;
         
     }

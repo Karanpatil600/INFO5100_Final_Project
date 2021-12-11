@@ -48,17 +48,17 @@ public class OrganizationDirectory {
             organization.setOrganizationName(name);
             organizationList.add(organization);
         }
-         /*
+         
         else if (type.getValue().equals(Organization.Type.Supplier.getValue())){
-            organization = new SupplierOrganization(name);
+            organization = new SupplierServiceOrganization(name);
             organization.setOrganizationName(name);
             organizationList.add(organization);
         }
         else if (type.getValue().equals(Organization.Type.Donor.getValue())){
-            organization = new DonorOrganization(name);
+            organization = new DonorServiceOrganization(name);
             organization.setOrganizationName(name);
             organizationList.add(organization);
-        }*/
+        }
         else if (type.getValue().equals(Organization.Type.Creator.getValue())){
             organization = new CreatorOrganization(name);
             organization.setOrganizationName(name);
@@ -77,7 +77,7 @@ public class OrganizationDirectory {
 
 
     
-}
+} 
 
 
 

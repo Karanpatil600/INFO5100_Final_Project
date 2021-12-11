@@ -4,16 +4,16 @@
  * and open the template in the editor.
  */
 package SystemModel.ServiceSeeker;
-//import SystemModel.WorkQueue.WorkQueue;
+import SystemModel.WorkQueue.WorkQueue;
 
 /**
  *
  * @author sudar
  */
 public class ServiceSeeker {
-    private String id;
+    private String id; 
     private String name;
-    //private WorkQueue workqueue;
+    private WorkQueue workqueue;
     
     private static int count;
     
@@ -23,15 +23,15 @@ public class ServiceSeeker {
         id= "SS"+(++count);
     }
 
-    //public WorkQueue getWorkqueue() 
-    //{
-    //   return workqueue;
-    //}
+    public WorkQueue getWorkqueue() 
+    {
+       return workqueue;
+    }
 
-    //public void setWorkqueue(WorkQueue workqueue) 
-    //{
-    //    this.workqueue = workqueue;
-    //}
+    public void setWorkqueue(WorkQueue workqueue) 
+    {
+        this.workqueue = workqueue;
+    }
  
      
     public String getName() {

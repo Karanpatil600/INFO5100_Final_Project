@@ -149,7 +149,7 @@ public class ManageUserAccount extends javax.swing.JPanel {
 
             },
             new String [] {
-                "Username", "Password", "Role"
+                "Username", "Role", "Password"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -264,7 +264,7 @@ public class ManageUserAccount extends javax.swing.JPanel {
             for (UserAccount ua : organization.getUserAccountDirectory().getUserAccountList()) {
                 Object row[] = new Object[3];
                 row[0] = ua;
-                row[0] = ua.getPassword();
+                row[2] = ua.getPassword();
                 row[1] = ua.getRole();
                 ((DefaultTableModel) userTable.getModel()).addRow(row);
             }

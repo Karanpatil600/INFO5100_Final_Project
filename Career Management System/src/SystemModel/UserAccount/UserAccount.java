@@ -7,7 +7,7 @@ package SystemModel.UserAccount;
 
 import SystemModel.Employee.Employee;
 import SystemModel.Role.Role;
-//import SystemModel.WorkQueue.WorkQueue;
+import SystemModel.WorkQueue.WorkQueue;
 
 /**
  *
@@ -20,12 +20,12 @@ public class UserAccount
     private String password;
    private Employee employee;
     private Role role; 
-//    private WorkQueue workQueue;
+    private WorkQueue workQueue;
     
-//    public UserAccount()
-//    {
-//        workQueue = new WorkQueue();
-//    }
+    public UserAccount()
+    {
+       workQueue = new WorkQueue();
+    }
 
     public String getUsername() 
     {
@@ -67,15 +67,15 @@ public class UserAccount
        this.role = role;
     }
 
-//    public WorkQueue getWorkQueue() 
-//    {
-//        return workQueue;
-//    }
-//
-//    public void setWorkQueue(WorkQueue workQueue) 
-//    {
-//        this.workQueue = workQueue;
-//    }
+    public WorkQueue getWorkQueue() 
+    {
+        return workQueue;
+    }
+
+   public void setWorkQueue(WorkQueue workQueue) 
+    {
+        this.workQueue = workQueue;
+    }
     
     @Override
     public String toString(){
@@ -84,5 +84,5 @@ public class UserAccount
     
 }
 
-
+ 
 

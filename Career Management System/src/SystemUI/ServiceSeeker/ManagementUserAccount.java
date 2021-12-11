@@ -62,11 +62,11 @@ public class ManagementUserAccount extends javax.swing.JPanel {
         roleJComboBox.removeAllItems();
         Organization organization = (Organization) organizationJComboBox.getSelectedItem();
         if(organization instanceof ServiceSeekerOrganization){
-       // for (Role role : e.getSupportedRole()){
+        for (Role role : e.getSupportedRole()){
             roleJComboBox.addItem(new ServiceSeekerRole());
         }
        
-       //}
+       }
     }
     
     public void popData() {

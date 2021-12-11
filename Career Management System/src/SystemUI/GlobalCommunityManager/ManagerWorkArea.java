@@ -8,10 +8,10 @@ import SystemModel.EcoSystem;
 import SystemModel.Enterprise.Enterprise;
 import SystemModel.Organization.Organization;
 import SystemModel.UserAccount.UserAccount;
-//import SystemModel.WorkQueue.HelpSeekerWorkReq;
-//import SystemModel.WorkQueue.NGOWorkReq;
-//import SystemModel.WorkQueue.NGOSupplyWorkReq;
-//import SystemModel.WorkQueue.WorkReq;
+import SystemModel.WorkQueue.ServiceSeekerWorkReq;
+import SystemModel.WorkQueue.GCOWorkReq;
+import SystemModel.WorkQueue.GCOSupplyWorkReq;
+import SystemModel.WorkQueue.WorkReq;
 //import com.sun.glass.events.KeyEvent;
 import java.awt.event.KeyEvent;
 import java.awt.CardLayout;
@@ -21,7 +21,7 @@ import java.util.Date;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
-
+//
 //import org.jfree.chart.ChartFactory;
 //import org.jfree.chart.ChartFrame;
 //import org.jfree.chart.JFreeChart;
@@ -53,51 +53,51 @@ public class ManagerWorkArea extends javax.swing.JPanel {
         completeBtn.setEnabled(false);
         d = new Date();
         s = new SimpleDateFormat("MM/dd/YY");
-        populateEventTable();
-        populateWorkQueueTable();
+        //populateEventTable();
+        //populateWorkQueueTable();
     }
     
     
     public void populateEventTable()
-    {/*
+    {
          DefaultTableModel model = (DefaultTableModel) ngoeventTbl.getModel();
         
         model.setRowCount(0);
         
         
         for (WorkReq work : org.getWorkQueue().getWorkRequestList()){
-           if(work instanceof NGOWorkReq){ 
+           if(work instanceof GCOWorkReq){ 
             Object[] row = new Object[10];
-            row[0] = ((NGOWorkReq) work).getTitle();
-            row[1] = ((NGOWorkReq) work).getDescription();
-            row[2] =  work.getDateOfRequest();
-            row[3] = ((NGOWorkReq) work).getLocation();
-            row[4] = ((NGOWorkReq) work).getVolunteerRequired();
-            row[5] = ((NGOWorkReq) work).getVolunteerAcquired();
+            row[0] = ((GCOWorkReq) work).getTitle();
+            row[1] = ((GCOWorkReq) work).getDescription();
+            row[2] =  "date";//work.getDateOfRequest();
+            row[3] = ((GCOWorkReq) work).getLocation();
+            row[4] = ((GCOWorkReq) work).getVolunteerRequired();
+            row[5] = ((GCOWorkReq) work).getVolunteerAcquired();
            // row[6] = work;
             
             model.addRow(row);
            }
-        } */
+        } 
     }
     
     public void populateWorkQueueTable(){
-        /*
+        
          DefaultTableModel model = (DefaultTableModel) requestJTable.getModel();
         
         model.setRowCount(0);
         
         
         for (WorkReq work : ESystem.getWorkQueue().getWorkRequestList()){
-           if(work instanceof HelpSeekerWorkReq){
+           if(work instanceof ServiceSeekerWorkReq){
                if((work.getStatus().equalsIgnoreCase("Assigned To NGO"))||(work.getStatus().equalsIgnoreCase("NGO ASSIGNED the Request"))){
                    
                
             Object[] row = new Object[10];
             row[0] = work.getSender().getEmployee().getEmpname();
             row[1] = work.getSubject();
-            row[2] = ((HelpSeekerWorkReq) work).getDescription();
-            row[3] = ((HelpSeekerWorkReq) work).getLocation();
+            row[2] = ((ServiceSeekerWorkReq) work).getDescription();
+            row[3] = ((ServiceSeekerWorkReq) work).getLocation();
             row[4] = work.getDateOfRequest();
             row[5] = work;
             row[6] = work.getReciever();
@@ -105,7 +105,7 @@ public class ManagerWorkArea extends javax.swing.JPanel {
             model.addRow(row);
            }
         }
-        } */
+        } 
     }
     
     /**
@@ -332,20 +332,20 @@ public class ManagerWorkArea extends javax.swing.JPanel {
                     return;
                 }
 
-//                NGOWorkReq request = new NGOWorkReq();
-//                request.setTitle(event);
-//                request.setDescription(desp);
-//                request.setLocation(location);
-//                request.setVolunteerRequired(req);
-//                request.setStatus("Not Joined");
+                GCOWorkReq request = new GCOWorkReq();
+                request.setTitle(event);
+                request.setDescription(desp);
+               request.setLocation(location);
+                request.setVolunteerRequired(req);
+                request.setStatus("Not Joined");
                 //  request.setvAcquired(req);
                 //request.setDateOfRequest(date);
 
                 //request.setStatus("Requested");request.setSender(account);
-//                org.getWorkQueue().getWorkRequestList().add(request);
-//                UserAccount.getWorkQueue().getWorkRequestList().add(request);
-//                ESystem.getWorkQueue().getWorkRequestList().add(request);
-//                populateEventTable();
+                org.getWorkQueue().getWorkRequestList().add(request);
+               UserAccount.getWorkQueue().getWorkRequestList().add(request);
+                ESystem.getWorkQueue().getWorkRequestList().add(request);
+                populateEventTable();
 
                 titleTxt.setText("");
                 vRequiredTxt.setText("");
@@ -367,7 +367,7 @@ public class ManagerWorkArea extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null, "Please select the row to assign the account", "Warning", JOptionPane.WARNING_MESSAGE);
         } else {
 
-           // HelpSeekerWorkReq p = (HelpSeekerWorkReq) requestJTable.getValueAt(selectedRow, 5);
+            ServiceSeekerWorkReq p = (ServiceSeekerWorkReq) requestJTable.getValueAt(selectedRow, 5);
 
             /* if (p.getReciever() != null) {
                 if (p.getStatus().equals("Pending")) {
@@ -387,10 +387,10 @@ public class ManagerWorkArea extends javax.swing.JPanel {
                             JOptionPane.showMessageDialog(null, "No Stock available. Request from Supplier.");
                         }
                     }*/
-//                    p.setStatus("Complete");
-//                    p.setReciever(UserAccount);
-//                    JOptionPane.showMessageDialog(null, "You have successfully completed the request");
-//                    populateWorkQueueTable();
+                    p.setStatus("Complete");
+                    p.setReciever(UserAccount);
+                   JOptionPane.showMessageDialog(null, "You have successfully completed the request");
+                   populateWorkQueueTable();
                     completeBtn.setEnabled(false);
                     /*populateAvailable();
                 } else {
@@ -410,12 +410,12 @@ public class ManagerWorkArea extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null, "Please select the row to assign the account", "Warning", JOptionPane.WARNING_MESSAGE);
         } else {
 
-          //  HelpSeekerWorkReq hswr = (HelpSeekerWorkReq) requestJTable.getValueAt(selectedRow, 5);
+           ServiceSeekerWorkReq hswr = (ServiceSeekerWorkReq) requestJTable.getValueAt(selectedRow, 5);
 
-         //   hswr.setStatus("NGO ASSIGNED the Request");
-          //  hswr.setReciever(UserAccount);
+            hswr.setStatus("NGO ASSIGNED the Request");
+            hswr.setReciever(UserAccount);
 
-          //  populateWorkQueueTable();
+            populateWorkQueueTable();
             completeBtn.setEnabled(true);
 
         }
@@ -426,17 +426,17 @@ public class ManagerWorkArea extends javax.swing.JPanel {
         userProcessContainer.add("VolunteerList", vl);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.next(userProcessContainer);*/
-//        DefaultCategoryDataset d = new DefaultCategoryDataset();
-//
-//        for (WorkReq work : org.getWorkQueue().getWorkRequestList()){
-//            if(work instanceof NGOWorkReq)
-//            {
-//
-//                d.setValue(((NGOWorkReq) work).getVolunteerAcquired(),"Event List",((NGOWorkReq) work).getTitle());
-//
-//            }
-//        }
-//
+        //DefaultCategoryDataset d = new DefaultCategoryDataset();
+
+        for (WorkReq work : org.getWorkQueue().getWorkRequestList()){
+            if(work instanceof GCOWorkReq)
+            {
+
+                //d.setValue(((GCOWorkReq) work).getVolunteerAcquired(),"Event List",((GCOWorkReq) work).getTitle());
+
+            }
+        }
+
 //        JFreeChart chart = ChartFactory.createBarChart("Volunteers Acquired", "Event Name", "Volunteers Participated", d, PlotOrientation.VERTICAL, false, true, false);
 //        CategoryPlot p = chart.getCategoryPlot();
 //        p.setRangeGridlinePaint(Color.blue);

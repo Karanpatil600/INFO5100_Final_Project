@@ -8,7 +8,8 @@ import SystemModel.Employee.EmployeeDirectory;
 import SystemModel.Role.Role;
 import SystemModel.UserAccount.UserAccountDirectory;
 import SystemModel.Creator.CreatorDirectory;
-//import SystemModel.WorkQueue.WorkQueue;
+import SystemModel.WorkQueue.WorkQueue;
+
 import java.util.HashSet;
 
 /**
@@ -20,7 +21,7 @@ public abstract class Organization {
     
     private String name;
     private String organizationName;
-//    private WorkQueue workQueue;
+   private WorkQueue workQueue;
     private EmployeeDirectory employeeDirectory;
     private UserAccountDirectory userAccountDirectory;
     private int organizationID;
@@ -51,7 +52,7 @@ public abstract class Organization {
     public Organization (String name)
     {
       this.name = name;
-      //workQueue = new WorkQueue();
+      workQueue = new WorkQueue();
       employeeDirectory = new EmployeeDirectory();
       userAccountDirectory = new UserAccountDirectory();
       organizationID = count;
@@ -100,13 +101,13 @@ public abstract class Organization {
         this.name = name;
     }
 
-//    public WorkQueue getWorkQueue() {
-//        return workQueue;
-//    }
-//
-//    public void setWorkQueue(WorkQueue workQueue) {
-//        this.workQueue = workQueue;
-//    }
+    public WorkQueue getWorkQueue() {
+        return workQueue;
+    }
+
+    public void setWorkQueue(WorkQueue workQueue) {
+        this.workQueue = workQueue;
+    }
 
     
     

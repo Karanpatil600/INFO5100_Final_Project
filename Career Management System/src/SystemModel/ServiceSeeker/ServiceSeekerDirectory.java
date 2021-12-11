@@ -37,9 +37,9 @@ public class ServiceSeekerDirectory {
         return ss;
     }
     
-    public void removeHelpSeeker(ServiceSeeker ss)
+    public void removeServiceSeeker(ServiceSeeker ss)
     {
-        serviceSeekerDirectory.remove(ss);
+        serviceSeekerDirectory.remove(ss);   
     }
     
 }

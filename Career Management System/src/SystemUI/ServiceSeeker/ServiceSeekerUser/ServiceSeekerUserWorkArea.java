@@ -8,8 +8,8 @@ import SystemModel.EcoSystem;
 import SystemModel.Enterprise.Enterprise;
 import SystemModel.Organization.Organization;
 import SystemModel.UserAccount.UserAccount;
-//import SystemModel.WorkQueue.HelpSeekerWorkReq;
-//import SystemModel.WorkQueue.WorkReq;
+import SystemModel.WorkQueue.ServiceSeekerWorkReq;
+import SystemModel.WorkQueue.WorkReq;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import javax.swing.JOptionPane;
@@ -36,7 +36,7 @@ public class ServiceSeekerUserWorkArea extends javax.swing.JPanel {
         this.org=org;
         this.Enterprise=Enterprise;
         this.ESystem=ESystem;
-        populateWorkQueueTable();
+        //populateWorkQueueTable();
     }
 
     /**
@@ -161,25 +161,25 @@ public class ServiceSeekerUserWorkArea extends javax.swing.JPanel {
         add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(545, 376, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
     public void populateWorkQueueTable(){
-         /*DefaultTableModel model = (DefaultTableModel) requestJTable.getModel();
+         DefaultTableModel model = (DefaultTableModel) requestJTable.getModel();
         
         model.setRowCount(0);
         
         
         for (WorkReq work : org.getWorkQueue().getWorkRequestList()){
-           if(work instanceof HelpSeekerWorkReq){ 
+           if(work instanceof ServiceSeekerWorkReq){ 
             Object[] row = new Object[10];
             row[0] = work.getSender().getEmployee().getEmpname();
             row[1] = work.getSubject();
-            row[2] = ((HelpSeekerWorkReq) work).getDescription();
-            row[3] = ((HelpSeekerWorkReq) work).getLocation();
+            row[2] = ((ServiceSeekerWorkReq) work).getDescription();
+            row[3] = ((ServiceSeekerWorkReq) work).getLocation();
             row[4] = work.getDateOfRequest();
             row[5] = work;
             row[6] = work.getReciever();
             
             model.addRow(row);
            }
-        }*/
+        }
     }
     private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed
         // TODO add your handling code here:
@@ -202,8 +202,8 @@ public class ServiceSeekerUserWorkArea extends javax.swing.JPanel {
                 JOptionPane.showMessageDialog(null, "Please enter valid request");
                 return;
             }
-/*
-            HelpSeekerWorkReq request = new HelpSeekerWorkReq();
+
+            ServiceSeekerWorkReq request = new ServiceSeekerWorkReq();
             request.setSubject(subject);
             request.setDescription(desp);
             request.setLocation(location);
@@ -219,7 +219,7 @@ public class ServiceSeekerUserWorkArea extends javax.swing.JPanel {
             subjectTextField.setText("");
             descriptionJTextArea.setText("");
             locationTextField.setText("");
-*/
+
         }
     }//GEN-LAST:event_postRequestBtnActionPerformed
 
