@@ -15,6 +15,8 @@ import java.awt.Toolkit;
 import java.util.ArrayList;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.tree.DefaultMutableTreeNode;
+import javax.swing.tree.DefaultTreeModel;
 
 /**
  *
@@ -29,10 +31,6 @@ public class SystemAdministrator extends javax.swing.JPanel {
     
     public SystemAdministrator(EcoSystem ecosystem, JPanel workArea) {
         initComponents();
-        
-        
-        
-        
         this.ecosystem=ecosystem;
         this.workArea=workArea;
     }
@@ -114,28 +112,85 @@ public class SystemAdministrator extends javax.swing.JPanel {
 
     private void btnManageEnterpriseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageEnterpriseActionPerformed
         // TODO add your handling code here:
-        //        ManageEnterprise system = new ManageEnterprise(downJPanel,ecosystem);
-        //        downJPanel.add("ManageEnterprise", system);
-        //        CardLayout layout= (CardLayout) downJPanel.getLayout();
-        //        layout.next(downJPanel);
+               EnterpriseManagement system = new EnterpriseManagement(workArea,ecosystem);
+               workArea.add("EnterpriseManagement", system);
+               CardLayout layout= (CardLayout) workArea.getLayout();
+               layout.next(workArea);
     }//GEN-LAST:event_btnManageEnterpriseActionPerformed
 
     private void btnManageEnterpriseAdministratorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageEnterpriseAdministratorActionPerformed
         // TODO add your handling code here:
-        //        ManageEnterpriseAdministrator system = new ManageEnterpriseAdministrator(downJPanel,ecosystem);
-        //        downJPanel.add("ManageEnterpriseAdmin", system);
-        //        CardLayout layout= (CardLayout) downJPanel.getLayout();
-        //        layout.next(downJPanel);
+               EnterpriseAdministrator system = new EnterpriseAdministrator(workArea,ecosystem);
+                workArea.add("EnterpriseAdministrator", system);
+                CardLayout layout= (CardLayout) workArea.getLayout();
+                layout.next(workArea);
     }//GEN-LAST:event_btnManageEnterpriseAdministratorActionPerformed
 
     private void btnManageNetworkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageNetworkActionPerformed
         // TODO add your handling code here:
-        //         ManageNetwork system = new ManageNetwork(downJPanel,ecosystem);
-        //        downJPanel.add("ManageNetwork", system);
-        //        CardLayout layout= (CardLayout) downJPanel.getLayout();
-        //        layout.next(downJPanel);
+               NetworkManagement system = new NetworkManagement(workArea,ecosystem);
+               workArea.add("NetworkManagement", system);
+               CardLayout layout= (CardLayout) workArea.getLayout();
+               layout.next(workArea);
+          
+        
     }//GEN-LAST:event_btnManageNetworkActionPerformed
-
+// public void populateTree(){
+//        DefaultTreeModel model = (DefaultTreeModel) networkJTree.getModel();
+//
+//        
+//        
+//        ArrayList<Network> networkList = ecosystem.getNetworkList();
+//        ArrayList<Enterprise> enterpriseList;
+//        ArrayList<Organization> organizationList;
+//        Network network;
+//        Enterprise enterprise;
+//        Organization organization;
+//
+//        DefaultMutableTreeNode networks = new DefaultMutableTreeNode("Networks");
+//        DefaultMutableTreeNode root = (DefaultMutableTreeNode) model.getRoot();
+//        root.removeAllChildren();
+//        root.insert(networks, 0);
+//
+//        DefaultMutableTreeNode networkNode;
+//        
+//        DefaultMutableTreeNode enterpriseNode;
+//        
+//        DefaultMutableTreeNode organizationNode;
+//        
+//        for (int i = 0; i < networkList.size(); i++) 
+//        {
+//            network = networkList.get(i);
+//            
+//            networkNode = new DefaultMutableTreeNode(network.getNetworkname());
+//            
+//            networks.insert(networkNode, i);
+//
+//            enterpriseList = network.getEnterpriseDirectory().getEnterpriseList();
+//
+//            for (int j = 0; j < enterpriseList.size(); j++) 
+//            {
+//                enterprise = enterpriseList.get(j);
+//                
+//                enterpriseNode = new DefaultMutableTreeNode(enterprise.getName());
+//                
+//                networkNode.insert(enterpriseNode, j);
+//
+//                organizationList = enterprise.getOrganizationDirectory().getOrganizationList();
+//                
+//                for (int k = 0; k < organizationList.size(); k++) 
+//                {
+//                    organization = organizationList.get(k);
+//                    
+//                    organizationNode = new DefaultMutableTreeNode(organization.getName());
+//                    
+//                    enterpriseNode.insert(organizationNode, k);
+//                }
+//            }
+//        }
+//
+//        model.reload();
+//    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnManageEnterprise;

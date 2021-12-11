@@ -27,10 +27,10 @@ public abstract class Enterprise extends Organization {
     
      public enum EnterpriseType
      {
-        SocialService("Social Service"),
-        Supplier("Supplier"),
-        NGO("NGO"),
-        Hospital("Hospital");
+        CareerService("Career Service"),
+        SupplierService("Supplier Service"),
+        VentureCapital("Venture Capital"),
+        GlobalCommunityEnterprise("Global Community Enterprise");
         
         
         private String value;
