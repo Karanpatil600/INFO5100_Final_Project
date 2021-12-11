@@ -7,7 +7,7 @@ package SystemUI.GlobalCommunityEnterprise;
 import SystemModel.EcoSystem;
 import SystemModel.Enterprise.Enterprise;
 import SystemModel.Organization.Organization;
-import SystemModel.UserAccount.UserAccount;
+import SystemModel.UserAccount.UserAccount; 
 import java.awt.CardLayout;
 import javax.swing.JPanel;
 /**

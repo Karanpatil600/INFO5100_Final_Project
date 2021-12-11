@@ -14,7 +14,7 @@ import javax.swing.JPanel;
  *
  * @author Ashish
  */
-public class CareerServiceAdminUI extends javax.swing.JPanel {
+public class CareerServiceAdminWorkArea extends javax.swing.JPanel {
 
     private JPanel workArea;
     private EcoSystem ecosystem;
@@ -23,7 +23,7 @@ public class CareerServiceAdminUI extends javax.swing.JPanel {
     /**
      * Creates new form CareerServiceAdminUI
      */
-    public CareerServiceAdminUI(JPanel workArea, EcoSystem ecosystem,Enterprise enterprise) {
+    public CareerServiceAdminWorkArea(JPanel workArea, EcoSystem ecosystem,Enterprise enterprise) {
         initComponents();
         this.workArea = workArea;
         this.ecosystem = ecosystem;

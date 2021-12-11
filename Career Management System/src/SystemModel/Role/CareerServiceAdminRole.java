@@ -5,7 +5,7 @@
  */
 package SystemModel.Role;
 
-import SystemUI.CareerServiceEnterprise.CareerServiceAdminUI;
+import SystemUI.CareerServiceEnterprise.CareerServiceAdminWorkArea;
 import SystemModel.EcoSystem;
 import SystemModel.Enterprise.Enterprise;
 import SystemModel.Organization.Organization;
@@ -19,7 +19,7 @@ import javax.swing.JPanel;
 public class CareerServiceAdminRole extends Role{
        @Override
     public JPanel createWorkArea(JPanel workArea,UserAccount account,Organization organization,Enterprise enterprise,EcoSystem system){
-        return new CareerServiceAdminUI(workArea,system, enterprise);
+        return new CareerServiceAdminWorkArea(workArea,system, enterprise);
     } 
         @Override
         public String toString()
