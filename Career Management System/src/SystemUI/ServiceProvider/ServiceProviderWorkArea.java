@@ -4,15 +4,15 @@
  * and open the template in the editor.
  */
 package SystemUI.ServiceProvider;
-
+ 
 import SystemModel.EcoSystem;
 import SystemModel.Enterprise.Enterprise;
 import SystemModel.Organization.Organization;
 import SystemModel.UserAccount.UserAccount;
 import SystemUI.CareerServiceEnterprise.ManageEmployee;
-import SystemUI.GlobalCommunityEnterprise.ManageUserAccount;
+import SystemUI.ServiceProvider.ManagementUserAccount;
 import java.awt.CardLayout;
-import javax.swing.JPanel;
+import javax.swing.JPanel; 
 
 /**
  *
@@ -95,7 +95,7 @@ public class ServiceProviderWorkArea extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void manageUserAccountBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manageUserAccountBtnActionPerformed
-        ManageUserAccount muajp = new ManageUserAccount(workArea, enterprise);
+        ManagementUserAccount muajp = new ManagementUserAccount(workArea, enterprise);
         workArea.add("HelpProviderManageUserAccount", muajp);
 
         CardLayout layout = (CardLayout) workArea.getLayout();

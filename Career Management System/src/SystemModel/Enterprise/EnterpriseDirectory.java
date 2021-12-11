@@ -42,7 +42,7 @@ public class EnterpriseDirectory {
           enterprise= new VentureCapitalEnterprise(name);
             enterpriseList.add(enterprise);
         }
-        else if(type == Enterprise.EnterpriseType.GlobalCommunityEnterprise){
+        else if(type == Enterprise.EnterpriseType.GlobalCommunity){
             enterprise= new GlobalCommunityEnterprise(name);
             enterpriseList.add(enterprise);
         }

@@ -25,7 +25,7 @@ public abstract class Role {
         ServiceSeekerAdmin("ServiceSeekerAdmin"),
         ServiceSeeker("ServiceSeeker"),
         EnterpriseAdmin("EnterpriseAdmin"),
-        HospitalAdmin("HospitalAdmin"),
+       
         GlobalCommunityAdminRole("GlobalCommunityAdminRole"),
         GlobalCommunityManagerRole("GlobalCommunityManagerRole"),
         CareerServiceAdminRole("CareerServiceAdminRole"), 
@@ -35,13 +35,16 @@ public abstract class Role {
         
         SupplierServiceAdminRole("SupplierServiceAdminRole"),
         
+        
         SupplierManagerRole("SupplierManagerRole"),
         CreatorAdminRole("CreatorAdminRole"),
         CreatorRole("CreatorRole"),
         DonorRole("DonorRole"),
         DonorAdminRole("DonorAdminRole"),
+        
         DoctorAdminRole("DoctorAdminRole"),
         DoctorUserRole("DoctorUserRole"),
+         HospitalAdmin("HospitalAdmin"),
         HospitalAdminRole("HospitalAdminRole");
         
         

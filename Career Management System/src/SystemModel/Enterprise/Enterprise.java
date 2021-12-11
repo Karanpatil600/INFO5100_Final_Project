@@ -25,12 +25,12 @@ public abstract class Enterprise extends Organization {
       organizationDirectory = new OrganizationDirectory();
     }
     
-     public enum EnterpriseType
+     public enum EnterpriseType 
      {
         CareerService("Career Service"),
         SupplierService("Supplier Service"),
         VentureCapital("Venture Capital"),
-        GlobalCommunityEnterprise("Global Community Enterprise");
+        GlobalCommunity("Global Community");
         
         
         private String value;

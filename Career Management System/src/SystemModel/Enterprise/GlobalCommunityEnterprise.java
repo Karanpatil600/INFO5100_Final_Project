@@ -16,11 +16,13 @@ import SystemModel.Role.GlobalCommunityAdminRole;
  */
 public class GlobalCommunityEnterprise extends Enterprise {
      public GlobalCommunityEnterprise(String name){
-        super(name,Enterprise.EnterpriseType.GlobalCommunityEnterprise);
+        super(name,Enterprise.EnterpriseType.GlobalCommunity);
     }
     
       @Override
     public HashSet<Role> getSupportedRole(){
+        role.add(new GlobalCommunityManagerRole()); 
+        //role.add(new VolunteerRole());
        // role.add(new HospitalAdminRole());
         return role;
         

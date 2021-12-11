@@ -25,13 +25,13 @@ import java.util.Date;
 
 public class GlobalCommunityManagerRole extends Role {
         @Override
-    public JPanel createWorkArea(JPanel downJPanel, UserAccount UserAccount, Organization org, Enterprise enterprise, EcoSystem ESystem){
-        return new ManagerWorkArea(downJPanel,UserAccount,(GlobalCommunityOrganization)org,enterprise, ESystem);
+    public JPanel createWorkArea(JPanel workArea, UserAccount UserAccount, Organization org, Enterprise enterprise, EcoSystem ESystem){
+        return new ManagerWorkArea(workArea,UserAccount,(GlobalCommunityOrganization)org,enterprise, ESystem);
     }
         @Override
         public String toString()
 {
-   return Role.RoleType.GlobalCommunityManagerRole.getValue();    
+   return Role.RoleType.GlobalCommunityManagerRole.getValue();       
 }
 }
 
