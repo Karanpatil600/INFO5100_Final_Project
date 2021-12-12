@@ -7,14 +7,14 @@ package SystemUI.VentureCapitalManager;
 import SystemModel.ServiceProvider.ServiceProvider;
 import SystemModel.EcoSystem;
 import SystemModel.Employee.Employee;
-import SystemModel.Enterprise.Enterprise;
+import SystemModel.EnterpriseManagement.Enterprise;
 import SystemModel.Organization.VentureCapitalOrganization;
 import SystemModel.Organization.ServiceProviderOrganization;
 import SystemModel.Organization.ServiceSeekerOrganization;
 import SystemModel.Organization.VentureCapitalOrganization;
 import SystemModel.Organization.Organization;
 import SystemModel.Role.VentureCapitalUserRole;
-import SystemModel.Role.DonorRole;
+import SystemModel.Role.SponsorRole;
 import SystemModel.Role.ServiceProviderRole;
 import SystemModel.Role.ServiceSeekerRole;
 import SystemModel.Role.Role;
@@ -66,12 +66,12 @@ public class ManageUserAccount extends javax.swing.JPanel {
         EmployeeRoleJComboBox.removeAllItems();
         Organization organization = (Organization) organizationJComboBox.getSelectedItem();
         if(organization instanceof VentureCapitalOrganization){
-       // for (Role role : e.getSupportedRole()){
+   
             EmployeeRoleJComboBox.addItem(new VentureCapitalUserRole());
         
         }
        
-       // }
+     
     }
     
     public void populateData() {
@@ -82,9 +82,10 @@ public class ManageUserAccount extends javax.swing.JPanel {
 
         for (Organization organization : enterprise.getOrganizationDirectory().getOrganizationList()) {
             for (UserAccount ua : organization.getUserAccountDirectory().getUserAccountList()) {
-                Object row[] = new Object[2];
+                Object row[] = new Object[3];
                 row[0] = ua;
                 row[1] = ua.getRole();
+                row[2] = ua.getPassword();
                 ((DefaultTableModel) userTable.getModel()).addRow(row);
             }
         }
@@ -161,8 +162,8 @@ public class ManageUserAccount extends javax.swing.JPanel {
         add(employeeJComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 130, 209, -1));
 
         jLabel3.setFont(new java.awt.Font("Century Gothic", 0, 13)); // NOI18N
-        jLabel3.setText("Employee   :");
-        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 130, -1, -1));
+        jLabel3.setText("Employee Name :");
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 130, 150, -1));
 
         organizationJComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         organizationJComboBox.addActionListener(new java.awt.event.ActionListener() {
@@ -200,7 +201,7 @@ public class ManageUserAccount extends javax.swing.JPanel {
         add(EmployeeRoleJComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 160, 209, -1));
 
         jLabel4.setFont(new java.awt.Font("Century Gothic", 0, 13)); // NOI18N
-        jLabel4.setText("Role            :");
+        jLabel4.setText("Role       :");
         add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 160, -1, -1));
 
         userTable.setModel(new javax.swing.table.DefaultTableModel(
@@ -208,11 +209,11 @@ public class ManageUserAccount extends javax.swing.JPanel {
 
             },
             new String [] {
-                "Username", "Role"
+                "Username", "Role", "Password"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false
+                false, false, true
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -251,7 +252,7 @@ public class ManageUserAccount extends javax.swing.JPanel {
                 if (organization instanceof ServiceProviderOrganization){
                     ServiceProvider hp= new ServiceProvider();
 
-                    hp.setName(employee.getEmpname());
+                    hp.setName(employee.getEmpolyeeName());
 
                     ((ServiceProviderOrganization) organization).getServiceproviderlist().getServiceProviderDirectory().add(hp);
 

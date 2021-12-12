@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package SystemModel.Supplier;
-import SystemModel.WorkQueue.WorkQueue;
+
 /**
  *
  * @author Karan
@@ -21,8 +21,7 @@ public class Supply {
     
     public Supply(){
         suppId="Supply"+(+supplyCount);
-     
-        
+         
     }
 
     public String getSuppId() {

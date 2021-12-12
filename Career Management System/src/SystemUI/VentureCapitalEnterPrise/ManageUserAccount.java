@@ -6,7 +6,7 @@
 package SystemUI.VentureCapitalEnterPrise;
 import SystemModel.EcoSystem;
 import SystemModel.Employee.Employee;
-import SystemModel.Enterprise.Enterprise;
+import SystemModel.EnterpriseManagement.Enterprise;
 import SystemModel.Organization.ServiceProviderOrganization;
 import SystemModel.Organization.ServiceSeekerOrganization;
 import SystemModel.Organization.GlobalCommunityOrganization;
@@ -74,9 +74,10 @@ public class ManageUserAccount extends javax.swing.JPanel {
 
         for (Organization organization : enterprise.getOrganizationDirectory().getOrganizationList()) {
             for (UserAccount ua : organization.getUserAccountDirectory().getUserAccountList()) {
-                Object row[] = new Object[2];
+                Object row[] = new Object[3];
                 row[0] = ua;
                 row[1] = ua.getRole();
+                 row[2] = ua.getPassword();
                 ((DefaultTableModel) userTable.getModel()).addRow(row);
             }
         }
@@ -148,8 +149,8 @@ public class ManageUserAccount extends javax.swing.JPanel {
         add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Century Gothic", 0, 13)); // NOI18N
-        jLabel3.setText("Employee    :");
-        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(149, 208, -1, -1));
+        jLabel3.setText("Employee Name  :");
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(102, 208, 120, -1));
 
         addBtn.setFont(new java.awt.Font("Century Gothic", 0, 13)); // NOI18N
         addBtn.setText("Add");
@@ -194,11 +195,11 @@ public class ManageUserAccount extends javax.swing.JPanel {
 
             },
             new String [] {
-                "Username", "Role"
+                "Username", "Role", "Password"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false
+                false, false, true
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {

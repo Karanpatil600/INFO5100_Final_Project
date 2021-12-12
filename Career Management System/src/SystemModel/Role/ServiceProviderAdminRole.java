@@ -6,7 +6,7 @@
 package SystemModel.Role;
 
 import SystemModel.EcoSystem;
-import SystemModel.Enterprise.Enterprise;
+import SystemModel.EnterpriseManagement.Enterprise;
 import SystemModel.Organization.Organization;
 import SystemModel.UserAccount.UserAccount;
 import SystemUI.ServiceProvider.ServiceProviderWorkArea;
@@ -17,15 +17,15 @@ import javax.swing.JPanel;
  * @author Ashish
  */
 public class ServiceProviderAdminRole extends Role {
-    
-@Override
-public JPanel createWorkArea(JPanel userProcessContainer,UserAccount account,Organization organization,Enterprise enterprise,EcoSystem system){
-        return new ServiceProviderWorkArea(userProcessContainer,/*account,(ChangeMakerOrganization)organization,*/enterprise/*,system*/);
-       //return null;
-    }   
-        @Override
-        public String toString()
-{
-   return Role.RoleType.ServiceProviderAdmin.getValue();
-}  
+  
+    @Override
+    public JPanel createWorkArea(JPanel workArea, UserAccount account, Organization organization, Enterprise enterprise, EcoSystem system) {
+        return new ServiceProviderWorkArea(workArea, enterprise);
+
+    }
+
+    @Override
+    public String toString() {
+        return Role.RoleType.ServiceProviderAdmin.getValue();
+    }
 }

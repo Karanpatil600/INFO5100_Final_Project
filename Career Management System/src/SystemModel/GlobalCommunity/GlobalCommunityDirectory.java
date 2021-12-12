@@ -14,33 +14,33 @@ import java.util.ArrayList;
 
 public class GlobalCommunityDirectory 
 {
-    private ArrayList<GlobalCommunity> gcdirectory;
+    private ArrayList<GlobalCommunity> gcDirectory;
 
     public GlobalCommunityDirectory() 
     {
-    gcdirectory= new ArrayList<>();
+    gcDirectory= new ArrayList<>();
     }
 
-    public ArrayList<GlobalCommunity> getGcdirectory()
+    public ArrayList<GlobalCommunity> getGcDirectory()
     {
-        return gcdirectory;
+        return gcDirectory;
     }
 
-    public void setGcdirectory(ArrayList<GlobalCommunity> gcdirectory) 
+    public void setGcDirectory(ArrayList<GlobalCommunity> gcDirectory) 
     {
-        this.gcdirectory = gcdirectory;
+        this.gcDirectory = gcDirectory;
     }
     
-    public GlobalCommunity addNGO()
+    public GlobalCommunity addGC()
     {
-        GlobalCommunity n =new GlobalCommunity();
-        gcdirectory.add(n);
-        return n;
+        GlobalCommunity gc =new GlobalCommunity();
+        gcDirectory.add(gc);
+        return gc;
     }
     
-    public void removeNGO(GlobalCommunity n)
+    public void removeGC(GlobalCommunity gc)
     {
-        gcdirectory.remove(n);   
+        gcDirectory.remove(gc);   
     }
 }
 

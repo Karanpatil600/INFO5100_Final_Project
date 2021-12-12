@@ -5,13 +5,10 @@
  */
 package SystemModel.Role;
 import SystemModel.EcoSystem;
-import SystemModel.Enterprise.Enterprise;
-import SystemModel.Organization.SupplierServiceOrganization;
+import SystemModel.EnterpriseManagement.Enterprise;
 import SystemModel.Organization.Organization;
-import SystemModel.Organization.DonorServiceOrganization;
 import SystemModel.Role.Role.RoleType;
 import SystemModel.UserAccount.UserAccount;
-import SystemUI.Donor.DonorAdminWorkArea;
 import SystemUI.VentureCapitalUser.VentureCapitalUser.VentureCapitalUserWorkArea;
 import javax.swing.JPanel;
 /**
@@ -19,15 +16,16 @@ import javax.swing.JPanel;
  * @author Ashish
  */
 public class VentureCapitalUserRole extends Role{
+    
     @Override
-    public JPanel createWorkArea(JPanel WorkArea,UserAccount UserAccount,Organization org,Enterprise enterprise,EcoSystem ESystem){
-        return new VentureCapitalUserWorkArea(WorkArea,UserAccount, org,enterprise,ESystem);
+    public JPanel createWorkArea(JPanel WorkArea, UserAccount UserAccount, Organization org, Enterprise enterprise, EcoSystem ESystem) {
+        return new VentureCapitalUserWorkArea(WorkArea, UserAccount, org, enterprise, ESystem);
     }
-        @Override
-        public String toString()
-{
-   return RoleType.VentureCapitalUserRole.getValue();
-} 
+
+    @Override
+    public String toString() {
+        return RoleType.VentureCapitalUserRole.getValue();
+    }
 }
 
 

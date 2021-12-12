@@ -6,11 +6,10 @@
 package SystemUI.ServiceProvider;
  
 import SystemModel.EcoSystem;
-import SystemModel.Enterprise.Enterprise;
+import SystemModel.EnterpriseManagement.Enterprise;
 import SystemModel.Organization.Organization;
 import SystemModel.UserAccount.UserAccount;
-import SystemUI.CareerServiceEnterprise.ManageEmployee;
-import SystemUI.ServiceProvider.ManagementUserAccount;
+import SystemUI.CareerServiceEnterprise.ManageCSEEmployee;
 import java.awt.CardLayout;
 import javax.swing.JPanel; 
 
@@ -54,7 +53,7 @@ public class ServiceProviderWorkArea extends javax.swing.JPanel {
 
         jLabel1.setFont(new java.awt.Font("Malayalam MN", 1, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("HELP PROVIDER ORGANIZATION");
+        jLabel1.setText("SERVICE PROVIDER ORGANIZATION");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -103,7 +102,7 @@ public class ServiceProviderWorkArea extends javax.swing.JPanel {
     }//GEN-LAST:event_manageUserAccountBtnActionPerformed
 
     private void manageEmployeeBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manageEmployeeBtnActionPerformed
-        ManageEmployee manageEmployeeJPanel = new ManageEmployee(workArea, enterprise.getOrganizationDirectory());
+        ManageCSEEmployee manageEmployeeJPanel = new ManageCSEEmployee(workArea, enterprise.getOrganizationDirectory());
        workArea.add("GiverManageEmployee", manageEmployeeJPanel);
 
         CardLayout layout = (CardLayout) workArea.getLayout();

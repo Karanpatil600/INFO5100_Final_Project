@@ -5,7 +5,7 @@
  */
 package SystemUI.VentureCapitalManager;
 import SystemModel.Employee.Employee;
-import SystemModel.Organization.DonorServiceOrganization;
+import SystemModel.Organization.SponsorOrganization;
 import SystemModel.Organization.VentureCapitalOrganization;
 import SystemModel.Organization.ServiceProviderOrganization;
 import SystemModel.Organization.Organization;
@@ -148,8 +148,8 @@ public class ManageEmployee extends javax.swing.JPanel {
         add(addBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 220, 240, -1));
 
         jLabel4.setFont(new java.awt.Font("Century Gothic", 0, 13)); // NOI18N
-        jLabel4.setText("Name          :");
-        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 170, 92, -1));
+        jLabel4.setText("Employee Name   :");
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(222, 170, 130, -1));
 
         add(selectOrganizationJComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 130, 240, -1));
 

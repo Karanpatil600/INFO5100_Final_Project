@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package SystemModel.Creator;
-import SystemModel.WorkQueue.WorkQueue;
+import SystemModel.WorkFlow.WorkRequestList;
 
 /**
  *
@@ -13,20 +13,21 @@ import SystemModel.WorkQueue.WorkQueue;
 public class Creator {
     private String creatorName;
     private String id;
-    private static int count=0;
-    private WorkQueue workqueue;
+    private static int count = 0;
+    private WorkRequestList workRequestList;
+    
     public Creator() 
     {
         id="Vol"+(++count);
-        workqueue= new WorkQueue();
+        workRequestList= new WorkRequestList();
     }
 
-    public WorkQueue getWorkqueue() {
-       return workqueue;
+    public WorkRequestList getWorkRequestList() {
+       return workRequestList;
     }
 
-    public void setWorkqueue(WorkQueue workqueue) {
-        this.workqueue = workqueue;
+    public void setWorkRequestList(WorkRequestList workRequestList) {
+        this.workRequestList = workRequestList;
     }
 
     
@@ -48,7 +49,7 @@ public class Creator {
     
     @Override
     public String toString(){
-    return creatorName;
-    
+        return creatorName;
+
     }
 }

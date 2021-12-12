@@ -11,35 +11,37 @@ package SystemModel.VentureCapital;
  * 
  */
 public class VentureCapital {
-    private String DocName;
-    private String docid;
+    
+    private String VentureName;
+    private String ventureId;
     private static int count;
     
     public VentureCapital() {
         
-        docid="ORG"+(++count);
+        ventureId="VEN"+(++count);
         
     }
 
-    public String getDocName() {
-        return DocName;
+    public String getVentureName() {
+        return VentureName;
     }
 
-    public void setDocName(String DocName) {
-        this.DocName = DocName;
+    public void setVentureName(String VentureName) {
+        this.VentureName = VentureName;
     }
 
-    public String getDocid() {
-        return docid;
+    public String getVentureId() {
+        return ventureId;
     }
 
-    public void setDocid(String docid) {
-        this.docid = docid;
+    public void setVentureId(String ventureId) {
+        this.ventureId = ventureId;
     }
-     @Override
-    public String toString(){
-        
-        return DocName;
+    
+    @Override
+    public String toString() {
+
+        return VentureName;
     }
 }
 

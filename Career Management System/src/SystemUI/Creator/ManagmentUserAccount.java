@@ -6,8 +6,8 @@
 package SystemUI.Creator;
 import SystemModel.EcoSystem;
 import SystemModel.Employee.Employee;
-import SystemModel.Enterprise.Enterprise;
-//import SystemModel.Organization.SupplierOrganization;
+import SystemModel.EnterpriseManagement.Enterprise;
+
 import SystemModel.Organization.CreatorOrganization;
 import SystemModel.Organization.Organization;
 import SystemModel.Role.Role;
@@ -58,9 +58,7 @@ public class ManagmentUserAccount extends javax.swing.JPanel {
     
     private void populateRoleComboBox(Enterprise e){
         roleComboBox.removeAllItems();
-        /*roleComboBox.addItem(Role.RoleType.ChangeMakerAdmin);
-        roleComboBox.addItem(Role.RoleType.ChangeSeekerAdmin);    
-        */
+        
         Organization organization = (Organization) orgComboBox.getSelectedItem();
         if(organization instanceof CreatorOrganization){
             roleComboBox.addItem(new CreatorRole());
@@ -71,16 +69,17 @@ public class ManagmentUserAccount extends javax.swing.JPanel {
     }
     public void populateData() {
 
-        DefaultTableModel model = (DefaultTableModel) userTbl.getModel();
+        DefaultTableModel model = (DefaultTableModel) tblUser.getModel();
 
         model.setRowCount(0);
 
         for (Organization organization : enterprise.getOrganizationDirectory().getOrganizationList()) {
             for (UserAccount ua : organization.getUserAccountDirectory().getUserAccountList()) {
-                Object row[] = new Object[2];
+                Object row[] = new Object[3];
                 row[0] = ua;
                 row[1] = ua.getRole();
-                ((DefaultTableModel) userTbl.getModel()).addRow(row);
+                row[2] = ua.getPassword();
+                ((DefaultTableModel) tblUser.getModel()).addRow(row);
             }
         }
     }
@@ -108,7 +107,7 @@ public class ManagmentUserAccount extends javax.swing.JPanel {
         empComboBox = new javax.swing.JComboBox();
         jLabel4 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        userTbl = new javax.swing.JTable();
+        tblUser = new javax.swing.JTable();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -189,8 +188,8 @@ public class ManagmentUserAccount extends javax.swing.JPanel {
         add(orgComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(324, 80, 209, -1));
 
         jLabel3.setFont(new java.awt.Font("Century Gothic", 0, 13)); // NOI18N
-        jLabel3.setText("Employee    :");
-        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 124, -1, -1));
+        jLabel3.setText("Employee  Name  :");
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(168, 124, 130, -1));
 
         empComboBox.setFont(new java.awt.Font("Century Gothic", 0, 13)); // NOI18N
         add(empComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(324, 121, 209, -1));
@@ -199,23 +198,23 @@ public class ManagmentUserAccount extends javax.swing.JPanel {
         jLabel4.setText("Role            :");
         add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 162, -1, -1));
 
-        userTbl.setModel(new javax.swing.table.DefaultTableModel(
+        tblUser.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Username", "Role"
+                "Username", "Role", "Password"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false
+                false, false, true
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(userTbl);
+        jScrollPane1.setViewportView(tblUser);
 
         add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 80, 442, 683));
     }// </editor-fold>//GEN-END:initComponents
@@ -240,8 +239,8 @@ public class ManagmentUserAccount extends javax.swing.JPanel {
                 if (organization instanceof CreatorOrganization){
                     Creator c= new Creator();
 
-                    c.setCreatorName(employee.getEmpname());
-                    ((CreatorOrganization) organization).getCreatorList().getCreatorrList().add(c);
+                    c.setCreatorName(employee.getEmpolyeeName());
+                    ((CreatorOrganization) organization).getCreatorList().getCreatorList().add(c);
 
                 }
 
@@ -282,7 +281,7 @@ public class ManagmentUserAccount extends javax.swing.JPanel {
     private javax.swing.JComboBox orgComboBox;
     private javax.swing.JPasswordField passwordTextField;
     private javax.swing.JComboBox roleComboBox;
-    private javax.swing.JTable userTbl;
+    private javax.swing.JTable tblUser;
     private javax.swing.JTextField usernameTxt;
     // End of variables declaration//GEN-END:variables
 }

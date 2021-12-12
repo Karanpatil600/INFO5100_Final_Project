@@ -157,8 +157,8 @@ public class ManagementEmployee extends javax.swing.JPanel {
         add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(223, 137, -1, -1));
 
         jLabel4.setFont(new java.awt.Font("Century Gothic", 0, 13)); // NOI18N
-        jLabel4.setText("Name          :");
-        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(223, 170, 92, -1));
+        jLabel4.setText("Employee Name :");
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(195, 170, 120, -1));
 
         nameTextField.setFont(new java.awt.Font("Century Gothic", 0, 13)); // NOI18N
         nameTextField.addKeyListener(new java.awt.event.KeyAdapter() {

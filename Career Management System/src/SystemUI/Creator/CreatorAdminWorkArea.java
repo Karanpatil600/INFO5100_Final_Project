@@ -5,7 +5,7 @@
  */
 package SystemUI.Creator;
 import SystemModel.EcoSystem;
-import SystemModel.Enterprise.Enterprise;
+import SystemModel.EnterpriseManagement.Enterprise;
 import java.awt.CardLayout;
 import javax.swing.JPanel;
 /**
@@ -46,7 +46,7 @@ public class CreatorAdminWorkArea extends javax.swing.JPanel {
 
         jLabel1.setFont(new java.awt.Font("Malayalam MN", 1, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Volunteer Organization ");
+        jLabel1.setText("Creator Organization ");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -90,7 +90,7 @@ public class CreatorAdminWorkArea extends javax.swing.JPanel {
         ManagementEmployee mng = new ManagementEmployee(workArea, enterprise.getOrganizationDirectory());
         workArea.add("ManageEmployee", mng);
         CardLayout layout = (CardLayout) workArea.getLayout();
-        layout.next(workArea);
+        layout.next(workArea); 
     }//GEN-LAST:event_manageEmployeeJBtnActionPerformed
 
     private void manageUserAccountJBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manageUserAccountJBtnActionPerformed

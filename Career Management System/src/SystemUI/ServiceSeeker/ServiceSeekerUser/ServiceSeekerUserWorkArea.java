@@ -5,11 +5,11 @@
  */
 package SystemUI.ServiceSeeker.ServiceSeekerUser;
 import SystemModel.EcoSystem;
-import SystemModel.Enterprise.Enterprise;
+import SystemModel.EnterpriseManagement.Enterprise;
 import SystemModel.Organization.Organization;
 import SystemModel.UserAccount.UserAccount;
-import SystemModel.WorkQueue.ServiceSeekerWorkReq;
-import SystemModel.WorkQueue.WorkReq;
+import SystemModel.WorkFlow.ServiceSeekerWorkReqest;
+import SystemModel.WorkFlow.WorkRequest;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import javax.swing.JOptionPane;
@@ -36,7 +36,7 @@ public class ServiceSeekerUserWorkArea extends javax.swing.JPanel {
         this.org=org;
         this.Enterprise=Enterprise;
         this.ESystem=ESystem;
-        //populateWorkQueueTable();
+        populateWorkQueueTable();
     }
 
     /**
@@ -50,7 +50,6 @@ public class ServiceSeekerUserWorkArea extends javax.swing.JPanel {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        backBtn = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         requestJTable = new javax.swing.JTable();
         jLabel3 = new javax.swing.JLabel();
@@ -71,35 +70,23 @@ public class ServiceSeekerUserWorkArea extends javax.swing.JPanel {
 
         jLabel1.setFont(new java.awt.Font("Malayalam MN", 1, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Help Seeker Work Area");
-
-        backBtn.setFont(new java.awt.Font("Century Gothic", 0, 13)); // NOI18N
-        backBtn.setText("BACK");
-        backBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                backBtnActionPerformed(evt);
-            }
-        });
+        jLabel1.setText("Service Seeker Work Area");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(backBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(196, 196, 196)
+                .addGap(291, 291, 291)
                 .addComponent(jLabel1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(403, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(24, 24, 24)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(backBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(22, Short.MAX_VALUE))
+                .addComponent(jLabel1)
+                .addContainerGap(28, Short.MAX_VALUE))
         );
 
         add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 994, -1));
@@ -109,7 +96,7 @@ public class ServiceSeekerUserWorkArea extends javax.swing.JPanel {
 
             },
             new String [] {
-                "Name", "Subject", "Description", "Location", "Date", "Status", "Help Provider"
+                "Name", "Subject", "Description", "Location", "Date", "Status", "Service Provider"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -157,7 +144,7 @@ public class ServiceSeekerUserWorkArea extends javax.swing.JPanel {
         add(postRequestBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(311, 501, 222, -1));
 
         jLabel5.setFont(new java.awt.Font("Lucida Grande", 2, 10)); // NOI18N
-        jLabel5.setText("*Please input \"Hospital\" as subject for Hospital/Doctor related Help. ");
+        jLabel5.setText("*Please input \"Funding\" as subject for Venture Capital related Help. ");
         add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(545, 376, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
     public void populateWorkQueueTable(){
@@ -166,13 +153,13 @@ public class ServiceSeekerUserWorkArea extends javax.swing.JPanel {
         model.setRowCount(0);
         
         
-        for (WorkReq work : org.getWorkQueue().getWorkRequestList()){
-           if(work instanceof ServiceSeekerWorkReq){ 
+        for (WorkRequest work : org.getWorkRequestList().getWorkRequestList()){
+           if(work instanceof ServiceSeekerWorkReqest){ 
             Object[] row = new Object[10];
-            row[0] = work.getSender().getEmployee().getEmpname();
+            row[0] = work.getSender().getEmployee().getEmpolyeeName();
             row[1] = work.getSubject();
-            row[2] = ((ServiceSeekerWorkReq) work).getDescription();
-            row[3] = ((ServiceSeekerWorkReq) work).getLocation();
+            row[2] = ((ServiceSeekerWorkReqest) work).getDescription();
+            row[3] = ((ServiceSeekerWorkReqest) work).getLocation();
             row[4] = work.getDateOfRequest();
             row[5] = work;
             row[6] = work.getReciever();
@@ -181,10 +168,6 @@ public class ServiceSeekerUserWorkArea extends javax.swing.JPanel {
            }
         }
     }
-    private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_backBtnActionPerformed
-
     private void postRequestBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_postRequestBtnActionPerformed
         if(subjectTextField.getText().isEmpty() || descriptionJTextArea.getText().isEmpty() || locationTextField.getText().isEmpty()){
             JOptionPane.showMessageDialog(null,"Any of the above field(s) can't be Empty");
@@ -203,16 +186,16 @@ public class ServiceSeekerUserWorkArea extends javax.swing.JPanel {
                 return;
             }
 
-            ServiceSeekerWorkReq request = new ServiceSeekerWorkReq();
+            ServiceSeekerWorkReqest request = new ServiceSeekerWorkReqest();
             request.setSubject(subject);
             request.setDescription(desp);
             request.setLocation(location);
             request.setStatus("Requested");
             request.setSender(UserAccount);
             request.setDateOfRequest(d);
-            org.getWorkQueue().getWorkRequestList().add(request);
+            org.getWorkRequestList().getWorkRequestList().add(request);
             UserAccount.getWorkQueue().getWorkRequestList().add(request);
-            ESystem.getWorkQueue().getWorkRequestList().add(request);
+            ESystem.getWorkRequestList().getWorkRequestList().add(request);
 
             populateWorkQueueTable();
 
@@ -225,7 +208,6 @@ public class ServiceSeekerUserWorkArea extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton backBtn;
     private javax.swing.JTextArea descriptionJTextArea;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

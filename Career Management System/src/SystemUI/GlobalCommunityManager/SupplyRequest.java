@@ -4,26 +4,28 @@
  * and open the template in the editor.
  */
 package SystemUI.GlobalCommunityManager;
-//import SystemModel.Supplier.Supplier;
+import SystemModel.Supplier.Supplier;
 import SystemModel.EcoSystem;
-import SystemModel.Enterprise.Enterprise;
+import SystemModel.EnterpriseManagement.Enterprise;
 import SystemModel.Organization.Organization;
 import SystemModel.UserAccount.UserAccount;
-//import SystemModel.WorkQueue.NGOSupplyWorkReq;
-//import SystemModel.WorkQueue.WorkReq;
+import SystemModel.WorkFlow.GCOSupplyWorkRequest;
+import SystemModel.WorkFlow.WorkRequest;
 //import com.sun.glass.events.KeyEvent;
 import java.awt.event.KeyEvent;
 import java.awt.CardLayout;
 import java.awt.Color;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
-//import org.jfree.chart.ChartFactory;
-//import org.jfree.chart.ChartFrame;
-//import org.jfree.chart.JFreeChart;
-//import org.jfree.chart.plot.CategoryPlot;
-//import org.jfree.chart.plot.PlotOrientation;
-//import org.jfree.data.category.DefaultCategoryDataset;
+import org.jfree.chart.ChartFactory;
+import org.jfree.chart.ChartFrame;
+import org.jfree.chart.JFreeChart;
+import org.jfree.chart.plot.CategoryPlot;
+import org.jfree.chart.plot.PlotOrientation;
+import org.jfree.data.category.DefaultCategoryDataset;
 /**
  *
  * @author Karan
@@ -34,7 +36,7 @@ public class SupplyRequest extends javax.swing.JPanel {
     private Organization org;
     private Enterprise enterprise;
     private EcoSystem ESystem;
-   // private Supplier s;
+    private Supplier s;
     /**
      * Creates new form SupplyRequest
      */
@@ -49,25 +51,25 @@ public class SupplyRequest extends javax.swing.JPanel {
     }
 
     public void populateSupplyTable()
-    { /*
+    { 
       DefaultTableModel model = (DefaultTableModel) ngoReqTbl.getModel();
         
         model.setRowCount(0);
         
         
-        for (WorkReq work : ESystem.getWorkQueue().getWorkRequestList()){
-           if(work instanceof NGOSupplyWorkReq){ 
+        for (WorkRequest work : ESystem.getWorkRequestList().getWorkRequestList()){
+           if(work instanceof GCOSupplyWorkRequest){ 
             Object[] row = new Object[10];
-            row[0] = ((NGOSupplyWorkReq) work).getReqType();
-            row[1] = ((NGOSupplyWorkReq) work).getRequest();
-            row[2] = ((NGOSupplyWorkReq) work).getQuantity();
+            row[0] = ((GCOSupplyWorkRequest) work).getReqType();
+            row[1] = ((GCOSupplyWorkRequest) work).getRequest();
+            row[2] = ((GCOSupplyWorkRequest) work).getQuantity();
             row[3] = work;
             row[4] = work.getSender();
            
             
             model.addRow(row);
            }
-        } */
+        } 
     }
     
     /**
@@ -93,6 +95,7 @@ public class SupplyRequest extends javax.swing.JPanel {
         submitBtn = new javax.swing.JButton();
         comboReqType = new javax.swing.JComboBox<>();
         barChartBtn = new javax.swing.JButton();
+        lblCheckReq = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -171,6 +174,9 @@ public class SupplyRequest extends javax.swing.JPanel {
         add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(21, 375, 141, -1));
 
         reqTxt.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                reqTxtKeyReleased(evt);
+            }
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 reqTxtKeyTyped(evt);
             }
@@ -202,13 +208,14 @@ public class SupplyRequest extends javax.swing.JPanel {
         add(comboReqType, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 344, 162, -1));
 
         barChartBtn.setFont(new java.awt.Font("Century Gothic", 0, 13)); // NOI18N
-        barChartBtn.setText("See Bar Chart");
+        barChartBtn.setText("See Supplies Bar Chart");
         barChartBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 barChartBtnActionPerformed(evt);
             }
         });
         add(barChartBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(762, 80, 171, 35));
+        add(lblCheckReq, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 370, 330, 20));
     }// </editor-fold>//GEN-END:initComponents
 
     private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed
@@ -218,11 +225,11 @@ public class SupplyRequest extends javax.swing.JPanel {
     }//GEN-LAST:event_backBtnActionPerformed
 
     private void reqTxtKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_reqTxtKeyTyped
-        char c= evt.getKeyChar();
+        /*char c= evt.getKeyChar();
         if(!(Character.isAlphabetic(c)) || (c==KeyEvent.VK_DELETE) || (c==KeyEvent.VK_BACK_SPACE))
         {
             evt.consume();
-        }
+        }*/
     }//GEN-LAST:event_reqTxtKeyTyped
 
     private void qtyTxtKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_qtyTxtKeyTyped
@@ -249,24 +256,24 @@ public class SupplyRequest extends javax.swing.JPanel {
                 JOptionPane.showMessageDialog(null, "Quantity has to be number");    
             }
 
-            /*
-            NGOSupplyWorkReq request = new NGOSupplyWorkReq();
+            
+            GCOSupplyWorkRequest request = new GCOSupplyWorkRequest();
 
             request.setReqType(rType);
             request.setRequest(req);
             request.setQuantity(quantity);
             request.setStatus("Requested");
             request.setSender(UserAccount);
-            // s.getWorkQueue().getWorkRequestList().add(request);
-            org.getWorkQueue().getWorkRequestList().add(request);
+
+            org.getWorkRequestList().getWorkRequestList().add(request);
             UserAccount.getWorkQueue().getWorkRequestList().add(request);
-            ESystem.getWorkQueue().getWorkRequestList().add(request);
+            ESystem.getWorkRequestList().getWorkRequestList().add(request);
 
             populateSupplyTable();
 
             reqTxt.setText("");
-            //requestTypeTxt.setText("");
-            qtyTxt.setText("");  */
+            
+            qtyTxt.setText("");  
         } 
 
         catch(NumberFormatException e){} 
@@ -278,47 +285,66 @@ public class SupplyRequest extends javax.swing.JPanel {
     }//GEN-LAST:event_comboReqTypeActionPerformed
 
     private void barChartBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_barChartBtnActionPerformed
-        /*
+        
         DefaultCategoryDataset d = new DefaultCategoryDataset();
         int a=0;
         int b=0;
         int c=0;
         int m=0;
         int n=0;
-        for (WorkReq work : org.getWorkQueue().getWorkRequestList()){
-            if(work instanceof NGOSupplyWorkReq)
+        for (WorkRequest work : org.getWorkRequestList().getWorkRequestList()){
+            if(work instanceof GCOSupplyWorkRequest)
             {
-                if(((NGOSupplyWorkReq) work).getReqType().equals("Furniture")){
+                if(((GCOSupplyWorkRequest) work).getReqType().equals("Technical_Lab")){
                     a=a+1;
                 }
-                if(((NGOSupplyWorkReq) work).getReqType().equals("Food")){
+                if(((GCOSupplyWorkRequest) work).getReqType().equals("Workstation_PC")){
                     b=b+1;
                 }
-                if(((NGOSupplyWorkReq) work).getReqType().equals("Clothes")){
+                if(((GCOSupplyWorkRequest) work).getReqType().equals("Softwares")){
                     c=c+1;
                 }
-                if(((NGOSupplyWorkReq) work).getReqType().equals("Medicine")){
+                if(((GCOSupplyWorkRequest) work).getReqType().equals("Empty_Labs")){
                     m=m+1;
                 }
-                if(((NGOSupplyWorkReq) work).getReqType().equals("Education")){
+                if(((GCOSupplyWorkRequest) work).getReqType().equals("Labs_Assistance")){
                     n=n+1;
                 }
             }
         }
-        d.setValue(b, "Request Type","Food");
-        d.setValue(c, "Request Type","Clothes");
-        d.setValue(m, "Request Type","Medicine");
-        d.setValue(n, "Request Type","Education");
-        d.setValue(a, "Request Type","Furniture");
+        
+        d.setValue(a, "Request Type","Technical_Lab");
+        d.setValue(b, "Request Type","Workstation_PC");
+        d.setValue(c, "Request Type","Softwares");
+        d.setValue(m, "Request Type","Empty_Labs");
+        d.setValue(n, "Request Type","Labs_Assistance");
 
         JFreeChart chart = ChartFactory.createBarChart("Request Fulfilled", "Request Type", "type", d, PlotOrientation.VERTICAL, false, true, false);
         CategoryPlot p = chart.getCategoryPlot();
         p.setRangeGridlinePaint(Color.blue);
         ChartFrame f = new ChartFrame("Request Analysis",chart);
         f.setVisible(true);
-        f.setSize(500,400); */
+        f.setSize(500,400); 
 
     }//GEN-LAST:event_barChartBtnActionPerformed
+
+    private void reqTxtKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_reqTxtKeyReleased
+        // TODO add your handling code here:
+        
+        String validReq = "^[A-Za-z0-9\\s]{1,50}$";
+        Pattern pattern = Pattern.compile(validReq);
+        Matcher match = pattern.matcher(reqTxt.getText());
+
+        if (!match.matches()) {
+
+            lblCheckReq.setText("Please Enter Valid Requirements with aplhabets and number");
+
+        } else {
+
+            lblCheckReq.setText(null);
+
+        }
+    }//GEN-LAST:event_reqTxtKeyReleased
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -332,6 +358,7 @@ public class SupplyRequest extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lblCheckReq;
     private javax.swing.JTable ngoReqTbl;
     private javax.swing.JTextField qtyTxt;
     private javax.swing.JTextField reqTxt;

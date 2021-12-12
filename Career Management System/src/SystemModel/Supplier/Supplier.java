@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package SystemModel.Supplier;
-import SystemModel.WorkQueue.WorkQueue;
+import SystemModel.WorkFlow.WorkRequestList;
 /**
  *
  * @author Karan
@@ -16,13 +16,13 @@ public class Supplier
     private String supplierName;
     private String id;
     private static int count=0;
-    private WorkQueue workqueue;
+    private WorkRequestList workRequestList;
     private SupplyDirectory supplyDirectory;
     private Supply supply;
     public Supplier() 
     {
         id="Sup"+(++count);
-        workqueue= new WorkQueue();
+        workRequestList= new WorkRequestList();
         supplyDirectory = new SupplyDirectory();
         supply = new Supply();
     }
@@ -45,12 +45,12 @@ public class Supplier
     
     
 
-    public WorkQueue getWorkqueue() {
-        return workqueue;
+    public WorkRequestList getWorkRequestList() {
+        return workRequestList;
     }
 
-    public void setWorkqueue(WorkQueue workqueue) {
-        this.workqueue = workqueue;
+    public void setWorkRequestList(WorkRequestList workRequestList) {
+        this.workRequestList = workRequestList;
     }
 
     

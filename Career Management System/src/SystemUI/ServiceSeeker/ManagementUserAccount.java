@@ -7,7 +7,7 @@ package SystemUI.ServiceSeeker;
 import SystemModel.ServiceSeeker.ServiceSeeker;
 import SystemModel.EcoSystem;
 import SystemModel.Employee.Employee;
-import SystemModel.Enterprise.Enterprise;
+import SystemModel.EnterpriseManagement.Enterprise;
 import SystemModel.Organization.ServiceSeekerOrganization;
 import SystemModel.Organization.Organization;
 import SystemModel.Role.ServiceSeekerRole;
@@ -77,9 +77,10 @@ public class ManagementUserAccount extends javax.swing.JPanel {
 
         for (Organization organization : enterprise.getOrganizationDirectory().getOrganizationList()) {
             for (UserAccount ua : organization.getUserAccountDirectory().getUserAccountList()) {
-                Object row[] = new Object[2];
+                Object row[] = new Object[3];
                 row[0] = ua;
                 row[1] = ua.getRole();
+                row[2] = ua.getPassword();
                 ((DefaultTableModel) userJTable.getModel()).addRow(row);
             }
         }
@@ -150,11 +151,11 @@ public class ManagementUserAccount extends javax.swing.JPanel {
 
             },
             new String [] {
-                "Username", "Role"
+                "Username", "Role", "Password"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false
+                false, false, true
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -166,16 +167,16 @@ public class ManagementUserAccount extends javax.swing.JPanel {
         add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(638, 112, 344, 651));
 
         jLabel3.setFont(new java.awt.Font("Century Gothic", 0, 13)); // NOI18N
-        jLabel3.setText("Employee    :");
-        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(324, 156, -1, -1));
+        jLabel3.setText("Employee  Name  :");
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 156, 120, -1));
 
         employeeJComboBox.setFont(new java.awt.Font("Century Gothic", 0, 13)); // NOI18N
         employeeJComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         add(employeeJComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(425, 153, 206, -1));
 
         jLabel4.setFont(new java.awt.Font("Century Gothic", 0, 13)); // NOI18N
-        jLabel4.setText("Role            :");
-        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(324, 194, -1, -1));
+        jLabel4.setText("Emloyee Role :");
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(313, 194, 100, -1));
 
         roleJComboBox.setFont(new java.awt.Font("Century Gothic", 0, 13)); // NOI18N
         roleJComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
@@ -239,7 +240,7 @@ public class ManagementUserAccount extends javax.swing.JPanel {
                 if (organization instanceof ServiceSeekerOrganization){
                     ServiceSeeker ss= new ServiceSeeker();
 
-                    ss.setName(employee.getEmpname());
+                    ss.setName(employee.getEmpolyeeName());
 
                     ((ServiceSeekerOrganization) organization).getServiceSeekerlist().getServiceSeekerDirectory().add(ss);
 

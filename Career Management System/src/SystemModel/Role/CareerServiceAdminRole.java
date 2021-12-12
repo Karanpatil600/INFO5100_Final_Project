@@ -7,7 +7,7 @@ package SystemModel.Role;
 
 import SystemUI.CareerServiceEnterprise.CareerServiceAdminWorkArea;
 import SystemModel.EcoSystem;
-import SystemModel.Enterprise.Enterprise;
+import SystemModel.EnterpriseManagement.Enterprise;
 import SystemModel.Organization.Organization;
 import SystemModel.UserAccount.UserAccount;
 import javax.swing.JPanel;

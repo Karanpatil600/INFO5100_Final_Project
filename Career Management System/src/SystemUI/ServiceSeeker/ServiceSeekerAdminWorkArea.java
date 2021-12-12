@@ -6,7 +6,7 @@
 package SystemUI.ServiceSeeker;
 
 import SystemModel.EcoSystem;
-import SystemModel.Enterprise.Enterprise;
+import SystemModel.EnterpriseManagement.Enterprise;
 import SystemModel.Organization.Organization;
 import SystemModel.UserAccount.UserAccount;
 import java.awt.CardLayout;
@@ -71,7 +71,7 @@ public class ServiceSeekerAdminWorkArea extends javax.swing.JPanel {
 
         jLabel3.setFont(new java.awt.Font("Malayalam MN", 1, 24)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("Help Seeker Organization");
+        jLabel3.setText("Service Seeker Organization");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -80,7 +80,7 @@ public class ServiceSeekerAdminWorkArea extends javax.swing.JPanel {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(313, 313, 313)
                 .addComponent(jLabel3)
-                .addContainerGap(391, Short.MAX_VALUE))
+                .addContainerGap(356, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

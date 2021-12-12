@@ -4,15 +4,14 @@
  * and open the template in the editor.
  */
 package SystemModel.Role;
-import SystemModel.Enterprise.Enterprise;
+import SystemModel.EnterpriseManagement.Enterprise;
 import SystemModel.Organization.VentureCapitalOrganization;
 import SystemModel.Organization.Organization;
 import SystemModel.UserAccount.UserAccount;
 import javax.swing.JPanel;
 import SystemModel.EcoSystem;
-//import Business.Organization.DonorOrganization;
 import SystemUI.VentureCapitalManager.VentureCapitalManagerWorkArea;
-import SystemUI.GlobalCommunityManager.ManagerWorkArea;
+
 import java.text.SimpleDateFormat;
 import java.util.Date;
 /**

@@ -6,8 +6,8 @@
 package SystemUI.SystemAdministrator;
 
 import SystemModel.EcoSystem;
-import SystemModel.Enterprise.Enterprise;
-import SystemModel.Network.Network;
+import SystemModel.EnterpriseManagement.Enterprise;
+import SystemModel.Location.Location;
 import java.awt.CardLayout;
 import java.awt.Component;
 import javax.swing.JOptionPane;
@@ -36,7 +36,7 @@ private EcoSystem ecosystem;
         DefaultTableModel model = (DefaultTableModel) enterpriseTbl.getModel();
 
         model.setRowCount(0);
-        for (Network network : ecosystem.getNetworkList()) 
+        for (Location network : ecosystem.getLocationList()) 
         {
             for (Enterprise enterprise : network.getEnterpriseDirectory().getEnterpriseList()) 
             {
@@ -44,7 +44,7 @@ private EcoSystem ecosystem;
                 
                 row[0] = enterprise;
                 
-                row[1] = network.getNetworkname();
+                row[1] = network.getLocationName();
                 
                 row[2] = enterprise.getEnterpriseType().getValue();
 
@@ -57,7 +57,7 @@ private EcoSystem ecosystem;
                 networkJComboBox.removeAllItems();
                 enterpriseTypeJComboBox.removeAllItems();
 
-                for (Network network : ecosystem.getNetworkList()) 
+                for (Location network : ecosystem.getLocationList()) 
                 {
                     networkJComboBox.addItem(network);
                 }
@@ -138,7 +138,7 @@ private EcoSystem ecosystem;
 
             },
             new String [] {
-                "Name ", "Network", "Type"
+                "Name ", "Location", "Type"
             }
         ));
         jScrollPane1.setViewportView(enterpriseTbl);
@@ -271,7 +271,7 @@ private EcoSystem ecosystem;
     private void addBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addBtnActionPerformed
         // TODO add your handling code here:
 
-        Network network = (Network) networkJComboBox.getSelectedItem();
+        Location network = (Location) networkJComboBox.getSelectedItem();
         Enterprise.EnterpriseType type = (Enterprise.EnterpriseType) enterpriseTypeJComboBox.getSelectedItem();
 
         if (network == null || type == null) {
@@ -304,7 +304,7 @@ private EcoSystem ecosystem;
 
             Enterprise p=(Enterprise) enterpriseTbl.getValueAt(selectedRow, 0);
 
-            for (Network network : ecosystem.getNetworkList()) {
+            for (Location network : ecosystem.getLocationList()) {
                 for (Enterprise enterprise : network.getEnterpriseDirectory().getEnterpriseList()) {
 
                     if(p==enterprise){
