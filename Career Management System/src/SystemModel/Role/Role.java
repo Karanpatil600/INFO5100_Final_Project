@@ -30,8 +30,8 @@ public abstract class Role {
         GlobalCommunityManagerRole("GlobalCommunityManagerRole"),
         CareerServiceAdminRole("CareerServiceAdminRole"), 
         
-        VentureCapitalAdminRole("VentureCapitalAdminRole"),
-        VentureCapitalRole("VentureCapitalRole"),
+       // VentureCapitalAdminRole("VentureCapitalAdminRole"),
+        //VentureCapitalRole("VentureCapitalRole"),
         
         SupplierServiceAdminRole("SupplierServiceAdminRole"),
         
@@ -42,10 +42,10 @@ public abstract class Role {
         DonorRole("DonorRole"),
         DonorAdminRole("DonorAdminRole"),
         
-        DoctorAdminRole("DoctorAdminRole"),
-        DoctorUserRole("DoctorUserRole"),
-         HospitalAdmin("HospitalAdmin"),
-        HospitalAdminRole("HospitalAdminRole");
+        VentureCapitalManagerRole("VentureCapitalManagerRole"),
+        VentureCapitalUserRole("VentureCapitalUserRole"),
+         VentureCapitalAdmin("VentureCapitalAdmin"),
+        VentureCapitalAdminRole("VentureCapitalAdminRole");
         
         
         

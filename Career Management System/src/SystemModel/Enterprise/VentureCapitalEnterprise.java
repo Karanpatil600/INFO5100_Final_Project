@@ -5,9 +5,9 @@
  */
 package SystemModel.Enterprise;
 
-//import SystemModel.Role.CreatorRole;
-//import SystemModel.Role.GlobalCommunityManagerRole; 
-//import SystemModel.Role.VentureCapitalAdminRole
+import SystemModel.Role.CreatorRole;
+import SystemModel.Role.GlobalCommunityManagerRole; 
+import SystemModel.Role.VentureCapitalAdminRole;
 import SystemModel.Role.Role;
 import java.util.HashSet;
 
@@ -22,8 +22,8 @@ public class VentureCapitalEnterprise extends Enterprise{
     
     @Override
     public HashSet<Role> getSupportedRole(){
-       // role.add(new GlobalCommunityManagerRole());
-       // role.add(new CreatorRole());
+        role.add(new GlobalCommunityManagerRole());
+        role.add(new CreatorRole());
         return role;       
     }
 }

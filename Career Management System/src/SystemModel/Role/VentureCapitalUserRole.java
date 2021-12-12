@@ -4,26 +4,30 @@
  * and open the template in the editor.
  */
 package SystemModel.Role;
-
 import SystemModel.EcoSystem;
 import SystemModel.Enterprise.Enterprise;
+import SystemModel.Organization.SupplierServiceOrganization;
 import SystemModel.Organization.Organization;
+import SystemModel.Organization.DonorServiceOrganization;
+import SystemModel.Role.Role.RoleType;
 import SystemModel.UserAccount.UserAccount;
-import SystemUI.VentureCapitalEnterPrise.VentureCapitalAdminWorkArea;
+import SystemUI.Donor.DonorAdminWorkArea;
+import SystemUI.VentureCapitalUser.VentureCapitalUser.VentureCapitalUserWorkArea;
 import javax.swing.JPanel;
-
 /**
  *
  * @author Ashish
  */
-public class VentureCapitalAdminRole extends Role{
-        @Override
+public class VentureCapitalUserRole extends Role{
+    @Override
     public JPanel createWorkArea(JPanel WorkArea,UserAccount UserAccount,Organization org,Enterprise enterprise,EcoSystem ESystem){
-        return new VentureCapitalAdminWorkArea(WorkArea,UserAccount,org,enterprise,ESystem);
-    }   
+        return new VentureCapitalUserWorkArea(WorkArea,UserAccount, org,enterprise,ESystem);
+    }
         @Override
         public String toString()
 {
-   return RoleType.VentureCapitalAdminRole.getValue();
+   return RoleType.VentureCapitalUserRole.getValue();
+} 
 }
-}
+
+

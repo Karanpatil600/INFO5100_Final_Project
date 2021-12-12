@@ -3,32 +3,33 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package SystemUI.CareerServiceAdminUI;
-
+package SystemUI.VentureCapitalEnterPrise;
 import SystemModel.EcoSystem;
 import SystemModel.Enterprise.Enterprise;
+import SystemModel.Organization.Organization;
+import SystemModel.UserAccount.UserAccount;
 import java.awt.CardLayout;
 import javax.swing.JPanel;
-
 /**
  *
  * @author Ashish
  */
-public class CareerServiceAdminUI extends javax.swing.JPanel {
-
+public class VentureCapitalAdminWorkArea extends javax.swing.JPanel {
     private JPanel workArea;
-    private EcoSystem ecosystem;
+    private EcoSystem ESystem;
     private Enterprise enterprise;
-    
+    private Organization org;
+    private UserAccount UserAccount;
     /**
-     * Creates new form CareerServiceAdminUI
+     * Creates new form VentureCapitalAdminWorkArea
      */
-    public CareerServiceAdminUI(JPanel workArea, EcoSystem ecosystem,Enterprise enterprise) {
+    public VentureCapitalAdminWorkArea(JPanel workArea,UserAccount UserAccount,Organization org,Enterprise enterprise,EcoSystem ESystem) {
         initComponents();
         this.workArea = workArea;
-        this.ecosystem = ecosystem;
+        this.ESystem = ESystem;
         this.enterprise = enterprise;
-        
+        this.UserAccount = UserAccount;
+        this.org = org;
     }
 
     /**
@@ -41,41 +42,38 @@ public class CareerServiceAdminUI extends javax.swing.JPanel {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         mngOrganisationBtn = new javax.swing.JButton();
         mngEmployeeBtn = new javax.swing.JButton();
         mngUserAccountBtn = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jPanel2.setBackground(new java.awt.Color(66, 160, 236));
+        jPanel1.setBackground(new java.awt.Color(66, 160, 236));
 
         jLabel1.setFont(new java.awt.Font("Malayalam MN", 1, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Career Service Admin Enterprise");
+        jLabel1.setText("Venture Capital Enterprise");
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(332, 332, 332)
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(351, 351, 351)
                 .addComponent(jLabel1)
-                .addContainerGap(293, Short.MAX_VALUE))
+                .addContainerGap(452, Short.MAX_VALUE))
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(49, 49, 49)
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(27, 27, 27)
                 .addComponent(jLabel1)
-                .addContainerGap(75, Short.MAX_VALUE))
+                .addContainerGap(29, Short.MAX_VALUE))
         );
 
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1000, -1));
+        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         mngOrganisationBtn.setText("Manage Organization");
         mngOrganisationBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -83,7 +81,7 @@ public class CareerServiceAdminUI extends javax.swing.JPanel {
                 mngOrganisationBtnActionPerformed(evt);
             }
         });
-        jPanel1.add(mngOrganisationBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(356, 230, 213, 53));
+        add(mngOrganisationBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(308, 192, 241, 49));
 
         mngEmployeeBtn.setText("Manage Organization Employee");
         mngEmployeeBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -91,7 +89,7 @@ public class CareerServiceAdminUI extends javax.swing.JPanel {
                 mngEmployeeBtnActionPerformed(evt);
             }
         });
-        jPanel1.add(mngEmployeeBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(356, 301, 210, 46));
+        add(mngEmployeeBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(308, 263, 241, 52));
 
         mngUserAccountBtn.setText("Manage User Account");
         mngUserAccountBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -99,46 +97,29 @@ public class CareerServiceAdminUI extends javax.swing.JPanel {
                 mngUserAccountBtnActionPerformed(evt);
             }
         });
-        jPanel1.add(mngUserAccountBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(356, 365, 213, 52));
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1000, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 800, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 705, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 95, Short.MAX_VALUE)))
-        );
+        add(mngUserAccountBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(308, 333, 241, 52));
     }// </editor-fold>//GEN-END:initComponents
 
     private void mngOrganisationBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mngOrganisationBtnActionPerformed
         // TODO add your handling code here:
-        ManageOrganization manageOrganization = new ManageOrganization(workArea, enterprise.getOrganizationDirectory());
-        workArea.add("ManageOrganization", manageOrganization);
+        ManageOrganization mng = new ManageOrganization(workArea, enterprise.getOrganizationDirectory());
+        workArea.add("ManageOrganization", mng);
         CardLayout layout = (CardLayout) workArea.getLayout();
         layout.next(workArea);
     }//GEN-LAST:event_mngOrganisationBtnActionPerformed
 
     private void mngEmployeeBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mngEmployeeBtnActionPerformed
         // TODO add your handling code here:
-        ManageEmployee manageOrganizationEmployee = new ManageEmployee(workArea, enterprise.getOrganizationDirectory());
-        workArea.add("ManageEmployee", manageOrganizationEmployee);
+        ManageOrganizationEmployee mng = new ManageOrganizationEmployee(workArea, enterprise.getOrganizationDirectory());
+        workArea.add("ManageEmployee", mng);
         CardLayout layout = (CardLayout) workArea.getLayout();
         layout.next(workArea);
     }//GEN-LAST:event_mngEmployeeBtnActionPerformed
 
     private void mngUserAccountBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mngUserAccountBtnActionPerformed
         // TODO add your handling code here:
-        ManageUserAccount manageUserAccount = new ManageUserAccount(workArea, enterprise);
-        workArea.add("ManageUserAccount", manageUserAccount);
+        ManageUserAccount mng = new ManageUserAccount(workArea, enterprise);
+        workArea.add("ManageUserAccount", mng);
         CardLayout layout = (CardLayout) workArea.getLayout();
         layout.next(workArea);
     }//GEN-LAST:event_mngUserAccountBtnActionPerformed
@@ -147,9 +128,9 @@ public class CareerServiceAdminUI extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JButton mngEmployeeBtn;
     private javax.swing.JButton mngOrganisationBtn;
     private javax.swing.JButton mngUserAccountBtn;
     // End of variables declaration//GEN-END:variables
 }
+

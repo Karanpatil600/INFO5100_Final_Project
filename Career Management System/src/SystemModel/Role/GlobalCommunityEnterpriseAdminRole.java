@@ -24,6 +24,6 @@ public class GlobalCommunityEnterpriseAdminRole extends Role{
         @Override
         public String toString()
 {
-   return Role.RoleType.HospitalAdmin.getValue();
+   return Role.RoleType.VentureCapitalAdmin.getValue();
 }
 }
