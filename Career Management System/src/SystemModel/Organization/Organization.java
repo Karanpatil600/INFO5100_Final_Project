@@ -36,7 +36,7 @@ public abstract class Organization {
         GCO("GlobalCommunity Organization"),
         Donor("Donor Organization"),
         Supplier("Supplier Organization"),
-        Doctor("Doctor Organization");
+        VentureCapital("VentureCapital Organisation");
         
         private String value;
         private Type(String value)

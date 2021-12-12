@@ -64,13 +64,13 @@ public class OrganizationDirectory {
             organization.setOrganizationName(name);
             organizationList.add(organization);
         }
-        /*
-        else if (type.getValue().equals(Organization.Type.Doctor.getValue())){
-            organization = new DoctorOrganization(name);
+        
+        else if (type.getValue().equals(Organization.Type.VentureCapital.getValue())){
+            organization = new VentureCapitalOrganization(name);
             organization.setOrganizationName(name);
             organizationList.add(organization);
         }
-        */
+        
         
         return organization;
     }
