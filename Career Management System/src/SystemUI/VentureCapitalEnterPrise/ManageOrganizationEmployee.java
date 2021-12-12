@@ -61,7 +61,7 @@ public class ManageOrganizationEmployee extends javax.swing.JPanel {
         for (Employee employee : organization.getEmployeeDirectory().getEmployeeList()){
             Object[] row = new Object[3];
             row[2] = employee.getId();
-            row[0] = employee.getEmpname();
+            row[0] = employee.getEmpolyeeName();
             row[1] = organization.getName();
             model.addRow(row);
         }
@@ -136,8 +136,8 @@ public class ManageOrganizationEmployee extends javax.swing.JPanel {
         add(selectOrganizationJComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(367, 159, 240, -1));
 
         jLabel4.setFont(new java.awt.Font("Century Gothic", 0, 13)); // NOI18N
-        jLabel4.setText("Name          :");
-        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 194, 92, -1));
+        jLabel4.setText("Employee Name:");
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(252, 194, 110, -1));
 
         nameTxtField.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {

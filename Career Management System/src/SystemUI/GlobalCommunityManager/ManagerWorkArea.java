@@ -5,14 +5,14 @@
  */
 package SystemUI.GlobalCommunityManager;
 import SystemModel.EcoSystem;
-import SystemModel.Enterprise.Enterprise;
+import SystemModel.EnterpriseManagement.Enterprise;
 import SystemModel.Organization.Organization;
 import SystemModel.UserAccount.UserAccount;
-import SystemModel.WorkQueue.ServiceSeekerWorkReq;
-import SystemModel.WorkQueue.GCOWorkReq;
-import SystemModel.WorkQueue.GCOSupplyWorkReq;
-import SystemModel.WorkQueue.WorkReq;
+import SystemModel.WorkFlow.ServiceSeekerWorkReqest;
+import SystemModel.WorkFlow.GCOWorkRequest;
+import SystemModel.WorkFlow.WorkRequest;
 //import com.sun.glass.events.KeyEvent;
+
 import java.awt.event.KeyEvent;
 import java.awt.CardLayout;
 import java.awt.Color;
@@ -21,13 +21,13 @@ import java.util.Date;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
-//
-//import org.jfree.chart.ChartFactory;
-//import org.jfree.chart.ChartFrame;
-//import org.jfree.chart.JFreeChart;
-//import org.jfree.chart.plot.CategoryPlot;
-//import org.jfree.chart.plot.PlotOrientation;
-//import org.jfree.data.category.DefaultCategoryDataset;
+
+import org.jfree.chart.ChartFactory;
+import org.jfree.chart.ChartFrame;
+import org.jfree.chart.JFreeChart;
+import org.jfree.chart.plot.CategoryPlot;
+import org.jfree.chart.plot.PlotOrientation;
+import org.jfree.data.category.DefaultCategoryDataset;
 /**
  *
  * @author Karan
@@ -53,27 +53,28 @@ public class ManagerWorkArea extends javax.swing.JPanel {
         completeBtn.setEnabled(false);
         d = new Date();
         s = new SimpleDateFormat("MM/dd/YY");
-        //populateEventTable();
-        //populateWorkQueueTable();
+        populateEventTable();
+        populateWorkQueueTable();
+        
     }
     
     
     public void populateEventTable()
     {
-         DefaultTableModel model = (DefaultTableModel) ngoeventTbl.getModel();
+         DefaultTableModel model = (DefaultTableModel) gcEventTbl.getModel();
         
         model.setRowCount(0);
         
         
-        for (WorkReq work : org.getWorkQueue().getWorkRequestList()){
-           if(work instanceof GCOWorkReq){ 
+        for (WorkRequest work : org.getWorkRequestList().getWorkRequestList()){
+           if(work instanceof GCOWorkRequest){ 
             Object[] row = new Object[10];
-            row[0] = ((GCOWorkReq) work).getTitle();
-            row[1] = ((GCOWorkReq) work).getDescription();
-            row[2] =  "date";//work.getDateOfRequest();
-            row[3] = ((GCOWorkReq) work).getLocation();
-            row[4] = ((GCOWorkReq) work).getVolunteerRequired();
-            row[5] = ((GCOWorkReq) work).getVolunteerAcquired();
+            row[0] = ((GCOWorkRequest) work).getTitle();
+            row[1] = ((GCOWorkRequest) work).getDescription();
+            row[2] =  work.getDateOfRequest();
+            row[3] = ((GCOWorkRequest) work).getLocation();
+            row[4] = ((GCOWorkRequest) work).getCreatorRequired();
+            row[5] = ((GCOWorkRequest) work).getCreatorAcquired();
            // row[6] = work;
             
             model.addRow(row);
@@ -83,29 +84,27 @@ public class ManagerWorkArea extends javax.swing.JPanel {
     
     public void populateWorkQueueTable(){
         
-         DefaultTableModel model = (DefaultTableModel) requestJTable.getModel();
-        
+        DefaultTableModel model = (DefaultTableModel) requestJTable.getModel();
+
         model.setRowCount(0);
-        
-        
-        for (WorkReq work : ESystem.getWorkQueue().getWorkRequestList()){
-           if(work instanceof ServiceSeekerWorkReq){
-               if((work.getStatus().equalsIgnoreCase("Assigned To NGO"))||(work.getStatus().equalsIgnoreCase("NGO ASSIGNED the Request"))){
-                   
-               
-            Object[] row = new Object[10];
-            row[0] = work.getSender().getEmployee().getEmpname();
-            row[1] = work.getSubject();
-            row[2] = ((ServiceSeekerWorkReq) work).getDescription();
-            row[3] = ((ServiceSeekerWorkReq) work).getLocation();
-            row[4] = work.getDateOfRequest();
-            row[5] = work;
-            row[6] = work.getReciever();
-            
-            model.addRow(row);
-           }
+
+        for (WorkRequest work : ESystem.getWorkRequestList().getWorkRequestList()) {
+            if (work instanceof ServiceSeekerWorkReqest) {
+                if ((work.getStatus().equalsIgnoreCase("Assigned To GC")) || (work.getStatus().equalsIgnoreCase("GC ASSIGNED the Request"))) {
+
+                    Object[] row = new Object[10];
+                    row[0] = work.getSender().getEmployee().getEmpolyeeName();
+                    row[1] = work.getSubject();
+                    row[2] = ((ServiceSeekerWorkReqest) work).getDescription();
+                    row[3] = ((ServiceSeekerWorkReqest) work).getLocation();
+                    row[4] = work.getDateOfRequest();
+                    row[5] = work;
+                    row[6] = work.getReciever();
+
+                    model.addRow(row);
+                }
+            }
         }
-        } 
     }
     
     /**
@@ -119,9 +118,8 @@ public class ManagerWorkArea extends javax.swing.JPanel {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        backBtn = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        ngoeventTbl = new javax.swing.JTable();
+        gcEventTbl = new javax.swing.JTable();
         requestBtn = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
         vRequiredTxt = new javax.swing.JTextField();
@@ -141,6 +139,7 @@ public class ManagerWorkArea extends javax.swing.JPanel {
         jScrollPane5 = new javax.swing.JScrollPane();
         requestJTable = new javax.swing.JTable();
         volunteerBtn = new javax.swing.JButton();
+        dateChooser = new com.toedter.calendar.JDateChooser();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -151,43 +150,31 @@ public class ManagerWorkArea extends javax.swing.JPanel {
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Global Community Manager Work Area");
 
-        backBtn.setFont(new java.awt.Font("Century Gothic", 0, 13)); // NOI18N
-        backBtn.setText("BACK");
-        backBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                backBtnActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(backBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(278, 278, 278)
+                .addGap(378, 378, 378)
                 .addComponent(jLabel1)
                 .addContainerGap(393, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(12, 12, 12)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(backBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(25, Short.MAX_VALUE))
+                .addGap(13, 13, 13)
+                .addComponent(jLabel1)
+                .addContainerGap(32, Short.MAX_VALUE))
         );
 
         add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
-        ngoeventTbl.setModel(new javax.swing.table.DefaultTableModel(
+        gcEventTbl.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Event Title", "Description", "Date", "Location", "Volunteers Required", "Volunteers acquired"
+                "Event Title", "Description", "Date", "Location", "Creators Required", "Creators acquired"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -198,12 +185,12 @@ public class ManagerWorkArea extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(ngoeventTbl);
+        jScrollPane1.setViewportView(gcEventTbl);
 
         add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 127, 1035, 133));
 
         requestBtn.setFont(new java.awt.Font("Century Gothic", 0, 13)); // NOI18N
-        requestBtn.setText("Request for supplies");
+        requestBtn.setText("Request for Supplies");
         requestBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 requestBtnActionPerformed(evt);
@@ -280,7 +267,7 @@ public class ManagerWorkArea extends javax.swing.JPanel {
 
             },
             new String [] {
-                "Name", "Subject", "Description", "Location", "Date", "Status", "Help Provider"
+                "Name", "Subject", "Description", "Location", "Date", "Status", "Service Provider"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -296,13 +283,14 @@ public class ManagerWorkArea extends javax.swing.JPanel {
         add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 446, 1035, 91));
 
         volunteerBtn.setFont(new java.awt.Font("Century Gothic", 0, 13)); // NOI18N
-        volunteerBtn.setText(" Volunteer Analysis");
+        volunteerBtn.setText(" Creator Analysis");
         volunteerBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 volunteerBtnActionPerformed(evt);
             }
         });
         add(volunteerBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(716, 84, 159, 36));
+        add(dateChooser, new org.netbeans.lib.awtextra.AbsoluteConstraints(658, 305, 217, -1));
     }// </editor-fold>//GEN-END:initComponents
     
     
@@ -323,28 +311,27 @@ public class ManagerWorkArea extends javax.swing.JPanel {
                 String event = titleTxt.getText();
                 String desp = descTxt.getText();
                 String location = locationTxt.getText();
-              //  Date date = dateChooser.getDate();
+                //Date date = dateChooser.getDate();
                 int req = Integer.parseInt(vRequiredTxt.getText());
 
-                if(event.equals("") || event.isEmpty() && desp.equals("") || desp.isEmpty() && location.equals("")|| location.isEmpty())
-                {
+                if (event.equals("") || event.isEmpty() && desp.equals("") || desp.isEmpty() && location.equals("") || location.isEmpty()) {
                     JOptionPane.showMessageDialog(null, "Please enter valid request");
                     return;
                 }
 
-                GCOWorkReq request = new GCOWorkReq();
+                GCOWorkRequest request = new GCOWorkRequest();
                 request.setTitle(event);
                 request.setDescription(desp);
-               request.setLocation(location);
-                request.setVolunteerRequired(req);
+                request.setLocation(location);
+                request.setCreatorRequired(req);
                 request.setStatus("Not Joined");
-                //  request.setvAcquired(req);
+                
                 //request.setDateOfRequest(date);
 
-                //request.setStatus("Requested");request.setSender(account);
-                org.getWorkQueue().getWorkRequestList().add(request);
-               UserAccount.getWorkQueue().getWorkRequestList().add(request);
-                ESystem.getWorkQueue().getWorkRequestList().add(request);
+                
+                org.getWorkRequestList().getWorkRequestList().add(request);
+                UserAccount.getWorkQueue().getWorkRequestList().add(request);
+                ESystem.getWorkRequestList().getWorkRequestList().add(request);
                 populateEventTable();
 
                 titleTxt.setText("");
@@ -357,50 +344,20 @@ public class ManagerWorkArea extends javax.swing.JPanel {
 
     }//GEN-LAST:event_createBtnActionPerformed
 
-    private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed
-
-    }//GEN-LAST:event_backBtnActionPerformed
-
     private void completeBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_completeBtnActionPerformed
         int selectedRow = requestJTable.getSelectedRow();
         if (selectedRow < 0) {
             JOptionPane.showMessageDialog(null, "Please select the row to assign the account", "Warning", JOptionPane.WARNING_MESSAGE);
         } else {
 
-            ServiceSeekerWorkReq p = (ServiceSeekerWorkReq) requestJTable.getValueAt(selectedRow, 5);
+            ServiceSeekerWorkReqest p = (ServiceSeekerWorkReqest) requestJTable.getValueAt(selectedRow, 5);
 
-            /* if (p.getReciever() != null) {
-                if (p.getStatus().equals("Pending")) {
-                    UserAccount a = p.getSender();
-                    if (s.getVaccineList().getVaccineList().size() <= 0) {
-                        JOptionPane.showMessageDialog(null, "No Stock available. Request from Supplier");
-                        return;
-                    }
-                    for (Vaccine v : s.getVaccineList().getVaccineList()) {
-                        if (p.getVaccine().getVaccineName().equals(v.getVaccineName())) {
-                            if (v.getQuantity() - p.getQuantity() < 0) {
-                                JOptionPane.showMessageDialog(null, "No enough Vaccines for supply. Wait for sometime");
-                                return;
-                            }
-                            v.setQuantity(v.getQuantity() - p.getQuantity());
-                        } else {
-                            JOptionPane.showMessageDialog(null, "No Stock available. Request from Supplier.");
-                        }
-                    }*/
-                    p.setStatus("Complete");
-                    p.setReciever(UserAccount);
-                   JOptionPane.showMessageDialog(null, "You have successfully completed the request");
-                   populateWorkQueueTable();
-                    completeBtn.setEnabled(false);
-                    /*populateAvailable();
-                } else {
-                    JOptionPane.showMessageDialog(null, "You cannot complete it two times.");
-                }
-            } else {
-                JOptionPane.showMessageDialog(null, "Please assign first");
-            }
-
-            */
+            p.setStatus("Complete");
+            p.setReciever(UserAccount);
+            JOptionPane.showMessageDialog(null, "You have successfully completed the request");
+            populateWorkQueueTable();
+            completeBtn.setEnabled(false);
+           
         }   // TODO add your handling code here:
     }//GEN-LAST:event_completeBtnActionPerformed
 
@@ -410,9 +367,9 @@ public class ManagerWorkArea extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null, "Please select the row to assign the account", "Warning", JOptionPane.WARNING_MESSAGE);
         } else {
 
-           ServiceSeekerWorkReq hswr = (ServiceSeekerWorkReq) requestJTable.getValueAt(selectedRow, 5);
+           ServiceSeekerWorkReqest hswr = (ServiceSeekerWorkReqest) requestJTable.getValueAt(selectedRow, 5);
 
-            hswr.setStatus("NGO ASSIGNED the Request");
+            hswr.setStatus("GC ASSIGNED the Request");
             hswr.setReciever(UserAccount);
 
             populateWorkQueueTable();
@@ -422,36 +379,34 @@ public class ManagerWorkArea extends javax.swing.JPanel {
     }//GEN-LAST:event_AssignTomeBtnActionPerformed
 
     private void volunteerBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_volunteerBtnActionPerformed
-        /*        VolunteerList vl= new VolunteerList(userProcessContainer,account,organization, enterprise,system);
-        userProcessContainer.add("VolunteerList", vl);
-        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-        layout.next(userProcessContainer);*/
-        //DefaultCategoryDataset d = new DefaultCategoryDataset();
+        
+        DefaultCategoryDataset d = new DefaultCategoryDataset();
 
-        for (WorkReq work : org.getWorkQueue().getWorkRequestList()){
-            if(work instanceof GCOWorkReq)
+        for (WorkRequest work : org.getWorkRequestList().getWorkRequestList()){
+            if(work instanceof GCOWorkRequest)
             {
 
-                //d.setValue(((GCOWorkReq) work).getVolunteerAcquired(),"Event List",((GCOWorkReq) work).getTitle());
+                d.setValue(((GCOWorkRequest) work).getCreatorAcquired(),"Event List",((GCOWorkRequest) work).getTitle());
 
             }
         }
 
-//        JFreeChart chart = ChartFactory.createBarChart("Volunteers Acquired", "Event Name", "Volunteers Participated", d, PlotOrientation.VERTICAL, false, true, false);
-//        CategoryPlot p = chart.getCategoryPlot();
-//        p.setRangeGridlinePaint(Color.blue);
-//        ChartFrame f = new ChartFrame("Volunteer Analysis",chart);
-//        f.setVisible(true);
-//        f.setSize(500,400);
+        JFreeChart chart = ChartFactory.createBarChart("Volunteers Acquired", "Event Name", "Volunteers Participated", d, PlotOrientation.VERTICAL, false, true, false);
+        CategoryPlot p = chart.getCategoryPlot();
+        p.setRangeGridlinePaint(Color.blue);
+        ChartFrame f = new ChartFrame("Volunteer Analysis",chart);
+        f.setVisible(true);
+        f.setSize(500,400);
     }//GEN-LAST:event_volunteerBtnActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton AssignTomeBtn;
-    private javax.swing.JButton backBtn;
     private javax.swing.JButton completeBtn;
     private javax.swing.JButton createBtn;
+    private com.toedter.calendar.JDateChooser dateChooser;
     private javax.swing.JTextArea descTxt;
+    private javax.swing.JTable gcEventTbl;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -465,7 +420,6 @@ public class ManagerWorkArea extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JTextField locationTxt;
-    private javax.swing.JTable ngoeventTbl;
     private javax.swing.JButton requestBtn;
     private javax.swing.JTable requestJTable;
     private javax.swing.JTextField titleTxt;

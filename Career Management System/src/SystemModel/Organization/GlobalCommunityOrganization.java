@@ -5,9 +5,7 @@
  */
 package SystemModel.Organization;
 import SystemModel.GlobalCommunity.GlobalCommunityDirectory;
-import SystemModel.Role.GlobalCommunityAdminRole;
 import SystemModel.Role.GlobalCommunityManagerRole;
-
 import SystemModel.Role.Role;
 import java.util.HashSet;
 
@@ -18,20 +16,20 @@ import java.util.HashSet;
 
 public class GlobalCommunityOrganization extends Organization {
    
-    GlobalCommunityDirectory gclist;
+    GlobalCommunityDirectory gcList;
     
     public GlobalCommunityOrganization()
     {
         super(Organization.Type.GCO.getValue());
-        gclist=new GlobalCommunityDirectory();
+        gcList=new GlobalCommunityDirectory();
     }
 
-    public GlobalCommunityDirectory getNgolist() {
-        return gclist;
+    public GlobalCommunityDirectory getGcList() {
+        return gcList;
     }
 
-    public void setNgolist(GlobalCommunityDirectory ngolist) {
-        this.gclist = ngolist;
+    public void setGcList(GlobalCommunityDirectory gcList) {
+        this.gcList = gcList;
     }
 
  

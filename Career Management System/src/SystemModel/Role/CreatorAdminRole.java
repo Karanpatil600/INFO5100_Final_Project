@@ -5,7 +5,7 @@
  */
 package SystemModel.Role;
 import SystemModel.EcoSystem;
-import SystemModel.Enterprise.Enterprise;
+import SystemModel.EnterpriseManagement.Enterprise;
 import SystemModel.Organization.Organization;
 import SystemModel.UserAccount.UserAccount;
 import SystemUI.Creator.CreatorAdminWorkArea;
@@ -19,8 +19,8 @@ import javax.swing.JPanel;
 public class CreatorAdminRole extends Role {
     
     @Override
-    public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, Organization organization, Enterprise enterprise, EcoSystem system) {
-        return new CreatorAdminWorkArea(userProcessContainer,/*account,(ChangeMakerOrganization)organization,*/ enterprise/*,system*/);
+    public JPanel createWorkArea(JPanel workArea, UserAccount account, Organization organization, Enterprise enterprise, EcoSystem system) {
+        return new CreatorAdminWorkArea(workArea, enterprise);
     }
 
     @Override

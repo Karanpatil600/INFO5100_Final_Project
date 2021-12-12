@@ -13,41 +13,37 @@ package SystemModel.Employee;
 public class Employee 
 {
  
-    private String empname;
+    private String empolyeeName;
     private int id;
     private static int count=1;
     
     public Employee()
     {
-        id=count;
+        id = count;
         count++;
     }
 
-    public String getEmpname() 
+    public String getEmpolyeeName() 
     {
-        return empname;
+        return empolyeeName;
     }
 
-    public void setEmpname(String empname)
+    public void setEmpolyeeName(String empolyeeName)
     {
-        this.empname = empname;
+        this.empolyeeName = empolyeeName;
     }
-
-   
-
-    public int getId() 
-    {
+    
+    public int getId() {
         return id;
     }
 
-    public void setId(int id)
-    {
+    public void setId(int id) {
         this.id = id;
     }
+
     @Override
-    public String toString()
-    {
-        return empname;
+    public String toString() {
+        return empolyeeName;
     }
     
 }

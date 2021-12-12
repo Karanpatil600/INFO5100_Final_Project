@@ -7,8 +7,7 @@ package SystemModel.Organization;
 import SystemModel.Employee.EmployeeDirectory;
 import SystemModel.Role.Role;
 import SystemModel.UserAccount.UserAccountDirectory;
-import SystemModel.Creator.CreatorDirectory;
-import SystemModel.WorkQueue.WorkQueue;
+import SystemModel.WorkFlow.WorkRequestList;
 
 import java.util.HashSet;
 
@@ -21,7 +20,7 @@ public abstract class Organization {
     
     private String name;
     private String organizationName;
-   private WorkQueue workQueue;
+   private WorkRequestList workRequestList;
     private EmployeeDirectory employeeDirectory;
     private UserAccountDirectory userAccountDirectory;
     private int organizationID;
@@ -34,7 +33,7 @@ public abstract class Organization {
         ServiceSeeker("ServiceSeeker Organization"),
         Creator("Creator Organization"),
         GCO("GlobalCommunity Organization"),
-        Donor("Donor Organization"),
+        Sponsor("Sponsor Organization"),
         Supplier("Supplier Organization"),
         VentureCapital("VentureCapital Organisation");
         
@@ -52,7 +51,7 @@ public abstract class Organization {
     public Organization (String name)
     {
       this.name = name;
-      workQueue = new WorkQueue();
+      workRequestList = new WorkRequestList();
       employeeDirectory = new EmployeeDirectory();
       userAccountDirectory = new UserAccountDirectory();
       organizationID = count;
@@ -101,18 +100,14 @@ public abstract class Organization {
         this.name = name;
     }
 
-    public WorkQueue getWorkQueue() {
-        return workQueue;
+    public WorkRequestList getWorkRequestList() {
+        return workRequestList;
     }
 
-    public void setWorkQueue(WorkQueue workQueue) {
-        this.workQueue = workQueue;
+    public void setWorkRequestList(WorkRequestList workRequestList) {
+        this.workRequestList = workRequestList;
     }
 
-    
-    
-    
-    
     @Override
     public String toString()
     {

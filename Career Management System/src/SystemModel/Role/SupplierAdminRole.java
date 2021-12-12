@@ -5,12 +5,11 @@
  */
 package SystemModel.Role;
 
-import SystemModel.Enterprise.Enterprise;
+import SystemModel.EnterpriseManagement.Enterprise;
 import SystemModel.Organization.Organization;
 import SystemModel.UserAccount.UserAccount;
 import javax.swing.JPanel;
 import SystemModel.EcoSystem;
-import SystemModel.Role.Role.RoleType;
 import SystemUI.SupplierServiceEnterprise.SupplierAdministratorWorkArea;
 
 
@@ -27,7 +26,7 @@ public class SupplierAdminRole extends Role {
         @Override
         public String toString()
 {
-   return Role.RoleType.SupplierServiceAdminRole.getValue();
+   return Role.RoleType.SupplierAdminRole.getValue();
 }
 }
 

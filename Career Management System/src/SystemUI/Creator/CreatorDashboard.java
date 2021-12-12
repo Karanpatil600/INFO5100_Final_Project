@@ -6,15 +6,15 @@
 
 package SystemUI.Creator;
 import SystemModel.EcoSystem;
-import SystemModel.Enterprise.Enterprise;
+import SystemModel.EnterpriseManagement.Enterprise;
 import SystemModel.Organization.Organization;
 import SystemModel.Organization.CreatorOrganization;
 import SystemModel.UserAccount.UserAccount;
 import SystemModel.Creator.Creator;
 import SystemModel.Creator.CreatorDirectory;
-//import SystemModel.WorkQueue.NGOWorkReq;
-//import SystemModel.WorkQueue.WorkQueue;
-//import SystemModel.WorkQueue.WorkReq;
+import SystemModel.WorkFlow.GCOWorkRequest;
+import SystemModel.WorkFlow.WorkRequestList;
+import SystemModel.WorkFlow.WorkRequest;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
@@ -41,22 +41,22 @@ public class CreatorDashboard extends javax.swing.JPanel {
         this.enterprise=enterprise;
         this.ESystem=ESystem;
         
-        for (Creator creator:((CreatorOrganization)org).getCreatorList().getCreatorrList())
+        for (Creator creator:((CreatorOrganization)org).getCreatorList().getCreatorList())
         {
-            if (UserAccount.getEmployee().getEmpname().equals(creator.getCreatorName())) {
+            if (UserAccount.getEmployee().getEmpolyeeName().equals(creator.getCreatorName())) {
                  c = creator;
                  
-                System.out.println("Volunteer Name" + c.getCreatorName());
+                System.out.println("Creator Name" + c.getCreatorName());
             }
             
         }
     
     
-        /*if(v.getWorkqueue()== null){
-            WorkQueue w = new WorkQueue();
-            v.setWorkqueue(w);
+        if(c.getWorkRequestList()== null){
+            WorkRequestList w = new WorkRequestList();
+            c.setWorkRequestList(w);
             
-        }*/
+        }
         
         
         populateEventTable();
@@ -64,28 +64,26 @@ public class CreatorDashboard extends javax.swing.JPanel {
     
     public void populateEventTable()
     {
-         //DefaultTableModel model = (DefaultTableModel) ngoeventTbl.getModel();
-        
-        //model.setRowCount(0);
-        /*
-        
-        for (WorkReq work : ESystem.getWorkQueue().getWorkRequestList()){
-           if(work instanceof NGOWorkReq){ 
-          // if((work.getStatus().equals("Not Joined"))){
-            Object[] row = new Object[10];
-            row[0] = ((NGOWorkReq) work).getTitle();
-            row[1] = ((NGOWorkReq) work).getDescription();
-            row[2] =  work.getDateOfRequest();
-            row[3] = ((NGOWorkReq) work).getLocation();
-            row[4] = ((NGOWorkReq) work).getVolunteerRequired();
-            row[5] =  ((NGOWorkReq) work).getVolunteerAcquired();
-            row[6] = work;
-          //  row[7] = work.getStatus();
-            
-            model.addRow(row);
-           }
-           */
-        
+         DefaultTableModel model = (DefaultTableModel) gcEventTbl.getModel();
+
+        model.setRowCount(0);
+
+        for (WorkRequest work : ESystem.getWorkRequestList().getWorkRequestList()) {
+            if (work instanceof GCOWorkRequest) {
+
+                Object[] row = new Object[10];
+                row[0] = ((GCOWorkRequest) work).getTitle();
+                row[1] = ((GCOWorkRequest) work).getDescription();
+                row[2] = work.getDateOfRequest();
+                row[3] = ((GCOWorkRequest) work).getLocation();
+                row[4] = ((GCOWorkRequest) work).getCreatorRequired();
+                row[5] = ((GCOWorkRequest) work).getCreatorAcquired();
+                row[6] = work;
+
+                model.addRow(row);
+            }
+
+        }
     }
     
     
@@ -104,7 +102,7 @@ public class CreatorDashboard extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         backBtn = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        ngoeventTbl = new javax.swing.JTable();
+        gcEventTbl = new javax.swing.JTable();
         vRequiredTxt = new javax.swing.JTextField();
         dateTxt = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
@@ -159,12 +157,12 @@ public class CreatorDashboard extends javax.swing.JPanel {
 
         add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
-        ngoeventTbl.setModel(new javax.swing.table.DefaultTableModel(
+        gcEventTbl.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Event Title", "Description", "Date", "Location", "Volunteers Required", "Volunteers acquired", "Status"
+                "Event Title", "Description", "Date", "Location", "Creators Required", "Creators acquired", "Status"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -175,11 +173,11 @@ public class CreatorDashboard extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(ngoeventTbl);
-        if (ngoeventTbl.getColumnModel().getColumnCount() > 0) {
-            ngoeventTbl.getColumnModel().getColumn(6).setMinWidth(0);
-            ngoeventTbl.getColumnModel().getColumn(6).setPreferredWidth(0);
-            ngoeventTbl.getColumnModel().getColumn(6).setMaxWidth(0);
+        jScrollPane1.setViewportView(gcEventTbl);
+        if (gcEventTbl.getColumnModel().getColumnCount() > 0) {
+            gcEventTbl.getColumnModel().getColumn(6).setMinWidth(0);
+            gcEventTbl.getColumnModel().getColumn(6).setPreferredWidth(0);
+            gcEventTbl.getColumnModel().getColumn(6).setMaxWidth(0);
         }
 
         add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 174, 970, 265));
@@ -238,49 +236,37 @@ public class CreatorDashboard extends javax.swing.JPanel {
     }//GEN-LAST:event_backBtnActionPerformed
 
     private void viewBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewBtnActionPerformed
-       /* int selectedRow = ngoeventTbl.getSelectedRow();
+        int selectedRow = gcEventTbl.getSelectedRow();
         if (selectedRow < 0) {
             JOptionPane.showMessageDialog(null, "Please select the row to assign the account", "Warning", JOptionPane.WARNING_MESSAGE);
         } else {
 
-            NGOWorkReq p = (NGOWorkReq) ngoeventTbl.getValueAt(selectedRow, 6);
+            GCOWorkRequest p = (GCOWorkRequest) gcEventTbl.getValueAt(selectedRow, 6);
             titleTxt.setText(p.getTitle());
             descTxt.setText(p.getDescription());
             locationTxt.setText(p.getLocation());
             dateTxt.setText(p.getDateOfRequest().toString());
-            vRequiredTxt.setText(String.valueOf(p.getVolunteerRequired()));
-        }*/
+            //dateTxt.setText("date");
+            vRequiredTxt.setText(String.valueOf(p.getCreatorRequired()));
+        }
     }//GEN-LAST:event_viewBtnActionPerformed
 
     private void joinBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_joinBtnActionPerformed
-        /*int selectedRow = ngoeventTbl.getSelectedRow();
+        int selectedRow = gcEventTbl.getSelectedRow();
         if (selectedRow < 0) {
             JOptionPane.showMessageDialog(null, "Please select the row to assign the account", "Warning", JOptionPane.WARNING_MESSAGE);
         } else {
-        NGOWorkReq p = (NGOWorkReq) ngoeventTbl.getValueAt(selectedRow, 6);
-      //  if(p.getVolunteer().getVolunteerName()==null){
-        // p.setStatus("Joined");
-        p.setVolunteerRequired(p.getVolunteerRequired()-1);
-        p.setVolunteerAcquired(p.getVolunteerAcquired()+1);
-        p.setVolunteer(v);
-        //ngoeventTbl.setEditingRow(false);
-        
-        
-        
-       // }
-       // else{
-            JOptionPane.showMessageDialog(null, "You Successfully registered for an Event! \n The number of volunteers acquired so far for this event are "+p.getVolunteerAcquired()+"\n The number of volunteers now required for this event are"+p.getVolunteerRequired());
-            DefaultTableModel model = (DefaultTableModel) ngoeventTbl.getModel();
-            model.removeRow(ngoeventTbl.getSelectedRow());
-       // }
-       
-       
-        
-       // populateEventTable();
-       
-        
-        //joinBtn.setEnabled(false);
-        }*/
+            GCOWorkRequest p = (GCOWorkRequest) gcEventTbl.getValueAt(selectedRow, 6);
+           
+            p.setCreatorRequired(p.getCreatorRequired() - 1);
+            p.setCreatorAcquired(p.getCreatorAcquired() + 1);
+            p.setCreator(c);
+
+            JOptionPane.showMessageDialog(null, "You Successfully registered for an Event! \n The number of Creators acquired so far for this event are " + p.getCreatorAcquired() + "\n The number of Creators now required for this event are" + p.getCreatorRequired());
+            DefaultTableModel model = (DefaultTableModel) gcEventTbl.getModel();
+            model.removeRow(gcEventTbl.getSelectedRow());
+
+        }
     }//GEN-LAST:event_joinBtnActionPerformed
 
 
@@ -288,6 +274,7 @@ public class CreatorDashboard extends javax.swing.JPanel {
     private javax.swing.JButton backBtn;
     private javax.swing.JTextField dateTxt;
     private javax.swing.JTextArea descTxt;
+    private javax.swing.JTable gcEventTbl;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -299,7 +286,6 @@ public class CreatorDashboard extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JButton joinBtn;
     private javax.swing.JTextField locationTxt;
-    private javax.swing.JTable ngoeventTbl;
     private javax.swing.JTextField titleTxt;
     private javax.swing.JTextField vRequiredTxt;
     private javax.swing.JButton viewBtn;

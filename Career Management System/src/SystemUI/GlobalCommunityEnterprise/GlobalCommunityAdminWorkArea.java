@@ -5,7 +5,7 @@
  */
 package SystemUI.GlobalCommunityEnterprise;
 import SystemModel.EcoSystem;
-import SystemModel.Enterprise.Enterprise;
+import SystemModel.EnterpriseManagement.Enterprise;
 import SystemModel.Organization.Organization;
 import SystemModel.UserAccount.UserAccount; 
 import java.awt.CardLayout;
@@ -102,7 +102,7 @@ public class GlobalCommunityAdminWorkArea extends javax.swing.JPanel {
 
     private void mngUserAccountBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mngUserAccountBtnActionPerformed
         // TODO add your handling code here:
-        ManageUserAccount mng = new ManageUserAccount(workArea, enterprise);
+        ManageGCUserAccount mng = new ManageGCUserAccount(workArea, enterprise);
         workArea.add("ManageUserAccount", mng);
         CardLayout layout = (CardLayout) workArea.getLayout();
         layout.next(workArea);
@@ -110,7 +110,7 @@ public class GlobalCommunityAdminWorkArea extends javax.swing.JPanel {
 
     private void mngEmployeeBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mngEmployeeBtnActionPerformed
         // TODO add your handling code here:
-        ManageOrganizationEmployee mng = new ManageOrganizationEmployee(workArea, enterprise.getOrganizationDirectory());
+        ManageGCOrganizationEmployee mng = new ManageGCOrganizationEmployee(workArea, enterprise.getOrganizationDirectory());
         workArea.add("ManageEmployee", mng);
         CardLayout layout = (CardLayout) workArea.getLayout();
         layout.next(workArea);
@@ -118,7 +118,7 @@ public class GlobalCommunityAdminWorkArea extends javax.swing.JPanel {
 
     private void mngOrganisationBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mngOrganisationBtnActionPerformed
         // TODO add your handling code here:
-        ManageOrganization mng = new ManageOrganization(workArea, enterprise.getOrganizationDirectory());
+        ManageGCOrganization mng = new ManageGCOrganization(workArea, enterprise.getOrganizationDirectory());
         workArea.add("ManageOrganization", mng);
         CardLayout layout = (CardLayout) workArea.getLayout();
         layout.next(workArea);

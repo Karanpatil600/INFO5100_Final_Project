@@ -8,12 +8,12 @@ package SystemModel.GlobalCommunity;
 public class GlobalCommunity {
  
     private String gcName;
-    private String gcid;
+    private String gcId;
     private static int count;
 
     public GlobalCommunity() {
         
-        gcid="ORG"+(++count);
+        gcId="ORG"+(++count);
         
     }
 
@@ -26,12 +26,12 @@ public class GlobalCommunity {
     }
 
   
-    public String getGcid() {
-        return gcid;
+    public String getGcId() {
+        return gcId;
     }
 
-    public void setGcid(String gcid) {
-        this.gcid = gcid;
+    public void setGcId(String gcId) {
+        this.gcId = gcId;
     }
     
     @Override

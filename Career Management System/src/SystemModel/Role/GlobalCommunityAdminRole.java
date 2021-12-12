@@ -5,32 +5,25 @@
  */
 package SystemModel.Role;
 
-
 import SystemModel.EcoSystem;
-import SystemModel.Enterprise.Enterprise;
+import SystemModel.EnterpriseManagement.Enterprise;
 import SystemModel.Organization.Organization;
 import SystemModel.UserAccount.UserAccount;
-import SystemUI.GlobalCommunityEnterprise.GlobalCommunityAdminWorkArea ;
-
+import SystemUI.GlobalCommunityEnterprise.GlobalCommunityAdminWorkArea;
 import javax.swing.JPanel;
-
 
 /**
  *
  * @author Karan
  */
-public class GlobalCommunityAdminRole extends Role {
-    
-    
-    @Override
-    public JPanel createWorkArea(JPanel workArea,UserAccount UserAccount,Organization org,Enterprise enterprise,EcoSystem ESystem){
-        return new GlobalCommunityAdminWorkArea(workArea,UserAccount,org,enterprise,ESystem);
+public class GlobalCommunityAdminRole extends Role{
+        @Override
+    public JPanel createWorkArea(JPanel workArea,UserAccount UserAccount,Organization organization,Enterprise enterprise,EcoSystem ecoSystem){
+        return new GlobalCommunityAdminWorkArea(workArea,UserAccount,organization,enterprise,ecoSystem);
     }   
         @Override
         public String toString()
 {
-   return RoleType.GlobalCommunityAdminRole.getValue();
+   return Role.RoleType.VentureCapitalAdmin.getValue();
 }
-    
-   
 }

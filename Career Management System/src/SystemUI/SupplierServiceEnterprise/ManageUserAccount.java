@@ -6,15 +6,15 @@
 package SystemUI.SupplierServiceEnterprise;
 import SystemModel.EcoSystem;
 import SystemModel.Employee.Employee;
-import SystemModel.Enterprise.Enterprise;
-import SystemModel.Organization.DonorServiceOrganization;
+import SystemModel.EnterpriseManagement.Enterprise;
+import SystemModel.Organization.SponsorOrganization;
 import SystemModel.Organization.ServiceProviderOrganization ;
 import SystemModel.Organization.ServiceSeekerOrganization;
 import SystemModel.Organization.GlobalCommunityOrganization;
 import SystemModel.Organization.Organization;
-import SystemModel.Organization.SupplierServiceOrganization;
+import SystemModel.Organization.SupplierOrganization;
 import SystemModel.Organization.CreatorOrganization;
-import SystemModel.Role.DonorAdminRole;
+import SystemModel.Role.SponsorAdminRole;
 import SystemModel.Role.ServiceProviderAdminRole;
 import SystemModel.Role.ServiceSeekerAdminRole;
 import SystemModel.Role.GlobalCommunityManagerRole;
@@ -65,16 +65,12 @@ public class ManageUserAccount extends javax.swing.JPanel {
         EmployeeRoleJComboBox.removeAllItems();
         
         Organization organization = (Organization) organizationJComboBox.getSelectedItem();
-        if(organization instanceof SupplierServiceOrganization){
+        if(organization instanceof SupplierOrganization){
             EmployeeRoleJComboBox.addItem(new SupplierManagerRole());
            
-        }else if(organization instanceof DonorServiceOrganization){
-            EmployeeRoleJComboBox.addItem(new DonorAdminRole());
-//        }else if(organization instanceof VolunteerOrganization){
-//            EmployeeRoleJComboBox.addItem(new VolunteerAdminRole());
-//        }else if(organization instanceof NGOOrganization){
-//            EmployeeRoleJComboBox.addItem(new NGOManagerRole());
-//        
+        }else if(organization instanceof SponsorOrganization){
+            EmployeeRoleJComboBox.addItem(new SponsorAdminRole());
+
         }
         
     }
@@ -88,9 +84,10 @@ public class ManageUserAccount extends javax.swing.JPanel {
 
         for (Organization organization : enterprise.getOrganizationDirectory().getOrganizationList()) {
             for (UserAccount ua : organization.getUserAccountDirectory().getUserAccountList()) {
-                Object row[] = new Object[2];
+                Object row[] = new Object[3];
                 row[0] = ua;
                 row[1] = ua.getRole();
+                row[2] = ua.getPassword();
                 ((DefaultTableModel) userTable.getModel()).addRow(row);
             }
         }
@@ -208,11 +205,11 @@ public class ManageUserAccount extends javax.swing.JPanel {
 
             },
             new String [] {
-                "Username", "Role"
+                "Username", "Role", "Password"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false
+                false, false, true
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {

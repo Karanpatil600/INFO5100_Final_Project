@@ -7,8 +7,8 @@ package SystemUI;
 
 import SystemModel.DB4OUtil.DB4OUtil;
 import SystemModel.EcoSystem;
-import SystemModel.Enterprise.Enterprise;
-import SystemModel.Network.Network;
+import SystemModel.EnterpriseManagement.Enterprise;
+import SystemModel.Location.Location;
 import SystemModel.Organization.Organization;
 import SystemModel.UserAccount.UserAccount;
 
@@ -16,7 +16,7 @@ import java.awt.CardLayout;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.event.ActionListener; 
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import javax.swing.JFrame;
@@ -38,7 +38,7 @@ public class MainJFrame extends javax.swing.JFrame {
     public MainJFrame() {
         initComponents();
         
-          Toolkit toolkit = getToolkit();
+        Toolkit toolkit = getToolkit();
         Dimension size = toolkit.getScreenSize();
         setSize(550, 350);
         
@@ -46,7 +46,7 @@ public class MainJFrame extends javax.swing.JFrame {
         setExtendedState(JFrame.MAXIMIZED_BOTH);
         
         
-         ecosystem=db4outil.retrieveSystem();
+        ecosystem=db4outil.retrieveSystem();
         EcoSystem.setInstance(ecosystem);
         
         Time();
@@ -58,20 +58,20 @@ public class MainJFrame extends javax.swing.JFrame {
         new Timer(0, new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-            Date d= new Date();
-            SimpleDateFormat sdf = new SimpleDateFormat("hh:mm:ss");
-            //timeLabel.setText(sdf.format(d));   
+                Date d = new Date();
+                SimpleDateFormat sdf = new SimpleDateFormat("hh:mm:ss");
+                //timeLabel.setText(sdf.format(d));   
             }
-        
+
         }
         ).start();
     }
     
     
-     public void Date(){
-    
-    Date d= new Date();
-    SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
+    public void Date() {
+
+        Date d = new Date();
+        SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
 //    dateLabel.setText(sdf.format(d));
     }
 
@@ -98,17 +98,17 @@ public class MainJFrame extends javax.swing.JFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         SplitPane.setBackground(new java.awt.Color(255, 255, 255));
-        SplitPane.setDividerLocation(150);
+        SplitPane.setDividerLocation(160);
         SplitPane.setOrientation(javax.swing.JSplitPane.VERTICAL_SPLIT);
 
         controlArea.setBackground(new java.awt.Color(255, 102, 102));
         controlArea.setFont(new java.awt.Font("Malayalam MN", 0, 13)); // NOI18N
 
-        lblusername.setFont(new java.awt.Font("Georgia", 1, 18)); // NOI18N
+        lblusername.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
         lblusername.setText("Username:");
 
         lblpassword.setBackground(new java.awt.Color(255, 255, 255));
-        lblpassword.setFont(new java.awt.Font("Georgia", 1, 18)); // NOI18N
+        lblpassword.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
         lblpassword.setText("Password:");
 
         txtusername.setBackground(java.awt.Color.black);
@@ -198,123 +198,97 @@ public class MainJFrame extends javax.swing.JFrame {
 
     private void btnloginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnloginActionPerformed
         // TODO add your handling code here:
-        
-    
-    String userName= txtusername.getText();
-   
-    char[] passwordArray= txtpassword.getPassword();
-    
-    String password= String.valueOf(passwordArray);
-    
-    if(userName.equals("")|| password.equals("")){
-    
-    JOptionPane.showMessageDialog(null, " All fields are necessary ");
-                return;
-        
-    }
-    else{
+
+        String username = txtusername.getText();
+        char[] passwordArray = txtpassword.getPassword();
+        String password = String.valueOf(passwordArray);
+        if (username.equals("") || password.equals("")){
+
+            JOptionPane.showMessageDialog(null, " All fields are necessary ");
+            return;
+        }
+        else{
  
-    UserAccount useraccount=ecosystem.getUserAccountDirectory().authenticateUser(userName, password);
-    
-    Enterprise inEnterprise=null;
-    
-    Organization inOrganization=null;
-    
-    if(useraccount==null)
-    {
-     
-        for(Network network:ecosystem.getNetworkList())
-        {
-        
-            for(Enterprise enterprise: network.getEnterpriseDirectory().getEnterpriseList())
-            {
-                
-                useraccount=enterprise.getUserAccountDirectory().authenticateUser(userName, password);
-                
-                if(useraccount==null){
-                   
-                    for(Organization organization:enterprise.getOrganizationDirectory().getOrganizationList())
-                    {
-                        
-                        useraccount=organization.getUserAccountDirectory().authenticateUser(userName, password);
-                        
-                        if(useraccount!=null)
-                        {
+            UserAccount useraccount = ecosystem.getUserAccountDirectory().authenticateUser(username, password);
+            Enterprise inEnterprise = null;
+            Organization inOrganization = null;
+
+            if (useraccount == null) {
+                for (Location network : ecosystem.getLocationList()){
+                    
+                    for (Enterprise enterprise : network.getEnterpriseDirectory().getEnterpriseList()) {
+                        useraccount = enterprise.getUserAccountDirectory().authenticateUser(username, password);
+                        if (useraccount == null) {
                             
-                            inEnterprise=enterprise;
-                            
-                            inOrganization=organization;
-                            
+                            for (Organization organization : enterprise.getOrganizationDirectory().getOrganizationList()) {
+                                useraccount = organization.getUserAccountDirectory().authenticateUser(username, password);
+
+                                if (useraccount != null) {
+                                    inEnterprise = enterprise;
+                                    inOrganization = organization;
+                                    break;
+                                }
+                            }
+                        }
+                        else{
+                            inEnterprise = enterprise;
+                            break;
+                        }
+                        if (inEnterprise != null) {
+                            break;
+                        }
+                        if (inEnterprise != null) {
                             break;
                         }
                     }
-                }else{
-                    inEnterprise=enterprise;
-                    break;
                 }
-                if(inEnterprise!=null){
-                    break;
-                }
-                if(inEnterprise!=null){
-                    break;
-                }
-                        }
-                    }
-                }
-            if(useraccount==null)
-            {
+            }
+            if (useraccount == null) {
                 JOptionPane.showMessageDialog(null, "Incorrect Username/Password, Please try again!");
                 return;
-            }else
-            {
-                CardLayout layout=(CardLayout) workArea.getLayout();
-               
-                
-                workArea.add("workArea",useraccount.getRole().createWorkArea(workArea, useraccount, inOrganization, inEnterprise, ecosystem));
-                
+            } else {
+                CardLayout layout = (CardLayout) workArea.getLayout();
+
+                workArea.add("workArea", useraccount.getRole().createWorkArea(workArea, useraccount, inOrganization, inEnterprise, ecosystem));
+
                 layout.next(workArea);
             }
             btnlogin.setEnabled(false);
             btnlogout.setEnabled(true);
             txtusername.setEnabled(false);
             txtpassword.setEnabled(false);
-                                           
 
-        
-    } 
+        }
     }//GEN-LAST:event_btnloginActionPerformed
 
     private void btnlogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnlogoutActionPerformed
         // TODO add your handling code here:
-       String userName= txtusername.getText();
-   
-    char[] passwordArray= txtpassword.getPassword();
-    
-    String password= String.valueOf(passwordArray);
-    
-    if(userName.equals("")|| password.equals("")){
-    
-    JOptionPane.showMessageDialog(null, " Please first Login");
-                return;
-        
-    }
-    else{ 
-    btnlogout.setEnabled(false);
-    btnlogin.setEnabled(true);
-    txtusername.setEnabled(true);
-    txtpassword.setEnabled(true);
-    
-    txtusername.setText("");
-    txtpassword.setText("");
-    
-    workArea.removeAll();
-    JPanel blankJPanel= new JPanel();
-    workArea.add("blank",blankJPanel);
-    CardLayout crdLyt=(CardLayout)workArea.getLayout();
-    crdLyt.next(workArea);
-    db4outil.storeSystem(ecosystem);
+        String userName = txtusername.getText();
+        char[] passwordArray = txtpassword.getPassword();
+        String password = String.valueOf(passwordArray);
+
+        if (userName.equals("") || password.equals("")){
+            JOptionPane.showMessageDialog(null, " Please first Login");
+            return;
+
+        }
+        else {
+            btnlogout.setEnabled(false);
+            btnlogin.setEnabled(true);
+            txtusername.setEnabled(true);
+            txtpassword.setEnabled(true);
+
+            txtusername.setText("");
+            txtpassword.setText("");
+
+            workArea.removeAll();
+            JPanel blankJPanel = new JPanel();
+            workArea.add("blank", blankJPanel);
+            CardLayout crdLyt = (CardLayout) workArea.getLayout();
+            crdLyt.next(workArea);
+            db4outil.storeSystem(ecosystem);
     }//GEN-LAST:event_btnlogoutActionPerformed
-}
+    }
     /**
      * @param args the command line arguments
      */

@@ -7,7 +7,7 @@ package SystemModel.Role;
 import SystemModel.EcoSystem;
 
 import SystemModel.UserAccount.UserAccount;
-import SystemModel.Enterprise.Enterprise;
+import SystemModel.EnterpriseManagement.Enterprise;
 import SystemModel.Organization.Organization;
 import javax.swing.JPanel;
 
@@ -20,31 +20,32 @@ public abstract class Role {
     
     public enum RoleType{
         SystemAdministrator("SystemAdministrator"),
+        
         ServiceProviderAdmin("ServiceProviderAdmin"),
         ServiceProvider("ServiceProvider"),
+        
         ServiceSeekerAdmin("ServiceSeekerAdmin"),
         ServiceSeeker("ServiceSeeker"),
+        
         EnterpriseAdmin("EnterpriseAdmin"),
        
         GlobalCommunityAdminRole("GlobalCommunityAdminRole"),
         GlobalCommunityManagerRole("GlobalCommunityManagerRole"),
+        
         CareerServiceAdminRole("CareerServiceAdminRole"), 
-        
-       // VentureCapitalAdminRole("VentureCapitalAdminRole"),
-        //VentureCapitalRole("VentureCapitalRole"),
-        
-        SupplierServiceAdminRole("SupplierServiceAdminRole"),
-        
-        
+
+        SupplierAdminRole("SupplierAdminRole"),
         SupplierManagerRole("SupplierManagerRole"),
+        
         CreatorAdminRole("CreatorAdminRole"),
         CreatorRole("CreatorRole"),
-        DonorRole("DonorRole"),
-        DonorAdminRole("DonorAdminRole"),
+        
+        SponsorRole("SponsorRole"),
+        SponsorAdminRole("SponsorAdminRole"),
         
         VentureCapitalManagerRole("VentureCapitalManagerRole"),
         VentureCapitalUserRole("VentureCapitalUserRole"),
-         VentureCapitalAdmin("VentureCapitalAdmin"),
+        VentureCapitalAdmin("VentureCapitalAdmin"),
         VentureCapitalAdminRole("VentureCapitalAdminRole");
         
         

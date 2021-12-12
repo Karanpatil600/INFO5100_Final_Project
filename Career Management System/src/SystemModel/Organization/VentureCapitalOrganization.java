@@ -15,24 +15,21 @@ import java.util.HashSet;
  * @author Ashish
  */
 public class VentureCapitalOrganization extends Organization{
-     VentureCapitalDirectory doclist;
+     
+    VentureCapitalDirectory vcList;
     
     public VentureCapitalOrganization(String name)
     {
         super(Organization.Type.VentureCapital.getValue());
-        doclist=new VentureCapitalDirectory();
+        vcList=new VentureCapitalDirectory();
     }
 
-    
-
-   
-
-    public VentureCapitalDirectory getDoclist() {
-        return doclist;
+    public VentureCapitalDirectory getVcList() {
+        return vcList;
     }
 
-    public void setDoclist(VentureCapitalDirectory doclist) {
-        this.doclist = doclist;
+    public void setVcList(VentureCapitalDirectory vcList) {
+        this.vcList = vcList;
     }
 
  

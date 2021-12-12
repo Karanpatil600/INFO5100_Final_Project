@@ -19,12 +19,12 @@ public class CreatorDirectory {
         
     }
 
-    public ArrayList<Creator> getCreatorrList() 
+    public ArrayList<Creator> getCreatorList() 
     {
         return creatorList;
     }
 
-    public void setCreatorrList(ArrayList<Creator> creatorList) 
+    public void setCreatorList(ArrayList<Creator> creatorList) 
     {
         this.creatorList = creatorList;
     }

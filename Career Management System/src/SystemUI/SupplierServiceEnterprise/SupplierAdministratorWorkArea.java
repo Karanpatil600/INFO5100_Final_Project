@@ -5,7 +5,7 @@
  */
 package SystemUI.SupplierServiceEnterprise;
 import SystemModel.EcoSystem;
-import SystemModel.Enterprise.Enterprise;
+import SystemModel.EnterpriseManagement.Enterprise;
 import SystemModel.Organization.Organization;
 import SystemModel.UserAccount.UserAccount;
 import java.awt.CardLayout;
@@ -89,7 +89,7 @@ public class SupplierAdministratorWorkArea extends javax.swing.JPanel {
                 mngEmployeeBtnActionPerformed(evt);
             }
         });
-        add(mngEmployeeBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(378, 340, -1, 52));
+        add(mngEmployeeBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(378, 340, 210, 52));
 
         mngUserAccountBtn.setText("Manage User Account");
         mngUserAccountBtn.addActionListener(new java.awt.event.ActionListener() {

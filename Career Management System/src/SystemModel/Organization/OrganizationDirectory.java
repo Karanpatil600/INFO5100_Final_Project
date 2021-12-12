@@ -4,7 +4,6 @@
  * and open the template in the editor.
  */
 package SystemModel.Organization;
-import SystemModel.Organization.Organization.Type;
 import java.util.ArrayList;
 
 /**
@@ -30,7 +29,7 @@ public class OrganizationDirectory {
     
     public Organization createOrganization(Organization.Type type,String name)
     {
-    Organization organization = null;
+        Organization organization = null;
         if (type.getValue().equals(Organization.Type.ServiceProvider.getValue())){
             
             organization = new ServiceProviderOrganization();
@@ -50,12 +49,12 @@ public class OrganizationDirectory {
         }
          
         else if (type.getValue().equals(Organization.Type.Supplier.getValue())){
-            organization = new SupplierServiceOrganization(name);
+            organization = new SupplierOrganization(name);
             organization.setOrganizationName(name);
             organizationList.add(organization);
         }
-        else if (type.getValue().equals(Organization.Type.Donor.getValue())){
-            organization = new DonorServiceOrganization(name);
+        else if (type.getValue().equals(Organization.Type.Sponsor.getValue())){
+            organization = new SponsorOrganization(name);
             organization.setOrganizationName(name);
             organizationList.add(organization);
         }

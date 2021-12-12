@@ -2,7 +2,7 @@
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
- */
+ */ 
 package SystemUI.ServiceProvider;
 import SystemModel.Organization.Organization;
 import SystemModel.Organization.OrganizationDirectory;
@@ -151,8 +151,8 @@ public class ManageOrganization extends javax.swing.JPanel {
         add(addBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(226, 241, 271, -1));
 
         jLabel3.setFont(new java.awt.Font("Century Gothic", 0, 13)); // NOI18N
-        jLabel3.setText("Name:");
-        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(155, 205, 53, 22));
+        jLabel3.setText("Name Of Organisation:");
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(58, 205, 150, 22));
 
         organizationName.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {

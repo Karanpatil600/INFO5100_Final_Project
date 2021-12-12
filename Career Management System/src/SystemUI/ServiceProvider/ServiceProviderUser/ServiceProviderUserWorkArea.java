@@ -8,15 +8,14 @@ package SystemUI.ServiceProvider.ServiceProviderUser;
 
 import SystemModel.ServiceProvider.ServiceProvider;
 import SystemModel.EcoSystem;
-import SystemModel.Enterprise.Enterprise;
-import SystemModel.Organization.ServiceProviderOrganization;
+import SystemModel.EnterpriseManagement.Enterprise;
 import SystemModel.Organization.ServiceProviderOrganization;
 import SystemModel.Organization.Organization;
-
 import SystemModel.UserAccount.UserAccount;
-//import SystemModel.WorkQueue.HelpSeekerWorkReq;
-//import SystemModel.WorkQueue.WorkQueue;
-//import SystemModel.WorkQueue.WorkReq;
+import SystemModel.WorkFlow.ServiceSeekerWorkReqest;
+import SystemModel.WorkFlow.WorkRequestList;
+import SystemModel.WorkFlow.WorkRequest;
+
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import javax.swing.JOptionPane;
@@ -36,7 +35,7 @@ public class ServiceProviderUserWorkArea extends javax.swing.JPanel {
     private EcoSystem ESystem;
     ServiceProvider sp;
     /**
-     * Creates new form HelpProviderUserWorkArea
+     * Creates new form ServiceProviderUserWorkArea
      */
     public ServiceProviderUserWorkArea(JPanel workArea,UserAccount UserAccount,Organization org,Enterprise Enterprise,EcoSystem ESystem) {
         initComponents();
@@ -47,42 +46,42 @@ public class ServiceProviderUserWorkArea extends javax.swing.JPanel {
         this.ESystem=ESystem;
         completeWorkBtn.setEnabled(false);
         
-        /* for (ServiceProvider serviceProvider : ((ServiceProviderOrganization)org).getServiceProviderlist.getServiceProviderDirectory()) {
-            if (UserAccount.getEmployee().getEmpname().equals(serviceProvider.getName())) {
+        for (ServiceProvider serviceProvider : ((ServiceProviderOrganization)org).getServiceproviderlist().getServiceProviderDirectory()) {
+            if (UserAccount.getEmployee().getEmpolyeeName().equals(serviceProvider.getName())) {
                  sp=serviceProvider;
                 System.out.println("ServiceProvider User Name" + sp.getName());
             }
         }
-        System.out.println("busi" + ESystem.getWorkQueue().getWorkRequestList().size());
-        if (sp.getWorkQueue() == null) {
-            WorkQueue w = new WorkQueue();
-            sp.setWorkQueue(w);
+        System.out.println("busi" + ESystem.getWorkRequestList().getWorkRequestList().size());
+        if (sp.getWorkRequestList()== null) {
+            WorkRequestList w = new WorkRequestList();
+            sp.setWorkRequestList(w);
         }
-        */
+        
        
         populateWorkQueueTable();
     }
     
      public void populateWorkQueueTable(){
-         /*DefaultTableModel model = (DefaultTableModel) WorkReqJTable.getModel();
+         DefaultTableModel model = (DefaultTableModel) WorkReqJTable.getModel();
         
         model.setRowCount(0);
         
         
-        for (WorkReq work : ESystem.getWorkQueue().getWorkRequestList()){
-           if(work instanceof HelpSeekerWorkReq){ 
+        for (WorkRequest work : ESystem.getWorkRequestList().getWorkRequestList()){
+           if(work instanceof ServiceSeekerWorkReqest){ 
             Object[] row = new Object[10];
-            row[0] = work.getSender().getEmployee().getEmpname();
+            row[0] = work.getSender().getEmployee().getEmpolyeeName();
             row[1] = work.getSubject();
-            row[2] = ((HelpSeekerWorkReq) work).getDescription();
-            row[3] = ((HelpSeekerWorkReq) work).getLocation();
+            row[2] = ((ServiceSeekerWorkReqest) work).getDescription();
+            row[3] = ((ServiceSeekerWorkReqest) work).getLocation();
             row[4] = work.getDateOfRequest();
             row[5] = work;
             row[6] = work.getReciever();
             
             model.addRow(row);
            }
-        }*/
+        }
     }
 
     /**
@@ -118,7 +117,7 @@ public class ServiceProviderUserWorkArea extends javax.swing.JPanel {
 
         jLabel1.setFont(new java.awt.Font("Malayalam MN", 1, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Help Provider User Work Area");
+        jLabel1.setText("Service Provider User Work Area");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -127,7 +126,7 @@ public class ServiceProviderUserWorkArea extends javax.swing.JPanel {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(356, 356, 356)
                 .addComponent(jLabel1)
-                .addContainerGap(297, Short.MAX_VALUE))
+                .addContainerGap(260, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -144,7 +143,7 @@ public class ServiceProviderUserWorkArea extends javax.swing.JPanel {
 
             },
             new String [] {
-                "Name", "Subject", "Description", "Location", "Date", "Status", "Help Provider"
+                "Name", "Subject", "Description", "Location", "Date", "Status", "Service Provider"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -178,7 +177,7 @@ public class ServiceProviderUserWorkArea extends javax.swing.JPanel {
         add(completeWorkBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(182, 371, 221, 36));
 
         reqNGOBtn.setFont(new java.awt.Font("Century Gothic", 0, 13)); // NOI18N
-        reqNGOBtn.setText("FORWARD REQUEST TO NGO");
+        reqNGOBtn.setText("FORWARD REQUEST TO GCO");
         reqNGOBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 reqNGOBtnActionPerformed(evt);
@@ -186,7 +185,7 @@ public class ServiceProviderUserWorkArea extends javax.swing.JPanel {
         });
         add(reqNGOBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(421, 371, 316, 36));
 
-        reqDocBtn.setText("FORWARD REQUEST TO DOCTOR");
+        reqDocBtn.setText("FORWARD REQUEST TO VENTURE BELT");
         reqDocBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 reqDocBtnActionPerformed(evt);
@@ -225,14 +224,14 @@ public class ServiceProviderUserWorkArea extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void assignWorkBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_assignWorkBtnActionPerformed
-        /*int selectedRow = WorkReqJTable.getSelectedRow();
+        int selectedRow = WorkReqJTable.getSelectedRow();
         if (selectedRow < 0) {
             JOptionPane.showMessageDialog(null, "Please first select a row to assign the account", "Warning", JOptionPane.WARNING_MESSAGE);
         } else {
 
-            HelpSeekerWorkReq cswr = (HelpSeekerWorkReq) WorkReqJTable.getValueAt(selectedRow, 5);
-           if(cswr.getSubject().equalsIgnoreCase("Hospital")){
-               JOptionPane.showMessageDialog(null, "Sorry this request can't be completed by you as it comes under Hospital domain, Kindly Forward this request to Doctor", "Warning", JOptionPane.WARNING_MESSAGE);
+            ServiceSeekerWorkReqest cswr = (ServiceSeekerWorkReqest) WorkReqJTable.getValueAt(selectedRow, 5);
+           if(cswr.getSubject().equalsIgnoreCase("Funding")){
+               JOptionPane.showMessageDialog(null, "Sorry this request can't be completed by you as it comes under Venture Belt domain, Kindly Forward this request to Venture Belt", "Warning", JOptionPane.WARNING_MESSAGE);
            }
            else
            {
@@ -243,86 +242,78 @@ public class ServiceProviderUserWorkArea extends javax.swing.JPanel {
             completeWorkBtn.setEnabled(true);
            }
 
-        }*/
+        }
     }//GEN-LAST:event_assignWorkBtnActionPerformed
 
     private void completeWorkBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_completeWorkBtnActionPerformed
-        /*int selectedRow = WorkReqJTable.getSelectedRow();
+        int selectedRow = WorkReqJTable.getSelectedRow();
         if (selectedRow < 0) {
             JOptionPane.showMessageDialog(null, "Please first select a row to assign the account", "Warning", JOptionPane.WARNING_MESSAGE);
-        } 
-        
-        else 
-        
-        {
+        } else {
 
-            HelpSeekerWorkReq hs = (HelpSeekerWorkReq) WorkReqJTable.getValueAt(selectedRow, 5);
- if(hs.getSubject().equalsIgnoreCase("Hospital")){
-               JOptionPane.showMessageDialog(null, "Sorry this request can't be completed by you as it comes under Hospital domain, Kindly Forward this request to Doctor", "Warning", JOptionPane.WARNING_MESSAGE);
-           }
-           else
-           {
-        
-                    hs.setStatus("Complete");
-                    JOptionPane.showMessageDialog(null, "The request has been completed successfully");
-                    populateWorkQueueTable();
-                    completeWorkBtn.setEnabled(false);
-           }
-                    
-        }*/
+            ServiceSeekerWorkReqest hs = (ServiceSeekerWorkReqest) WorkReqJTable.getValueAt(selectedRow, 5);
+            if (hs.getSubject().equalsIgnoreCase("Funding")) {
+                JOptionPane.showMessageDialog(null, "Sorry this request can't be completed by you as it comes under Venture Belt domain, Kindly Forward this request to Venture Capital", "Warning", JOptionPane.WARNING_MESSAGE);
+            } else {
+
+                hs.setStatus("Complete");
+                JOptionPane.showMessageDialog(null, "The request has been completed successfully");
+                populateWorkQueueTable();
+                completeWorkBtn.setEnabled(false);
+            }
+
+        }
     }//GEN-LAST:event_completeWorkBtnActionPerformed
 
     private void reqNGOBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reqNGOBtnActionPerformed
-        /*int selectedRow = WorkReqJTable.getSelectedRow();
+        int selectedRow = WorkReqJTable.getSelectedRow();
         if (selectedRow < 0) {
-            JOptionPane.showMessageDialog(null, "Please request to forward to the NGO", "Warning", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Please request to forward to the Global Community", "Warning", JOptionPane.WARNING_MESSAGE);
         } else {
 
-            HelpSeekerWorkReq hswr = (HelpSeekerWorkReq) WorkReqJTable.getValueAt(selectedRow, 5);
-if(hswr.getSubject().equalsIgnoreCase("Hospital")){
-               JOptionPane.showMessageDialog(null, "Sorry this request can't be forwarded to NGO as it comes under Hospital domain, Kindly Forward this request to Doctor", "Warning", JOptionPane.WARNING_MESSAGE);
-           }
-           else
-           {
-            hswr.setStatus("Assigned To NGO");
-            populateWorkQueueTable();
-           }
+            ServiceSeekerWorkReqest hswr = (ServiceSeekerWorkReqest) WorkReqJTable.getValueAt(selectedRow, 5);
+            if (hswr.getSubject().equalsIgnoreCase("Funding")) {
+                JOptionPane.showMessageDialog(null, "Sorry this request can't be forwarded to NGO as it comes under Hospital domain, Kindly Forward this request to Doctor", "Warning", JOptionPane.WARNING_MESSAGE);
+            } else {
+                hswr.setStatus("Assigned To GC");
+                populateWorkQueueTable();
+            }
 
         }
-*/
+
     }//GEN-LAST:event_reqNGOBtnActionPerformed
 
     private void reqDocBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reqDocBtnActionPerformed
         // TODO add your handling code here:
-        /*int selectedRow = WorkReqJTable.getSelectedRow();
+        int selectedRow = WorkReqJTable.getSelectedRow();
         if (selectedRow < 0) {
             JOptionPane.showMessageDialog(null, "Please request to forward to the Doctor", "Warning", JOptionPane.WARNING_MESSAGE);
         } else {
 
-            HelpSeekerWorkReq hswr = (HelpSeekerWorkReq) WorkReqJTable.getValueAt(selectedRow, 5);
-             if(hswr.getSubject().equalsIgnoreCase("Hospital")){
-            hswr.setStatus("Assigned To Doctor");
+            ServiceSeekerWorkReqest hswr = (ServiceSeekerWorkReqest) WorkReqJTable.getValueAt(selectedRow, 5);
+             if(hswr.getSubject().equalsIgnoreCase("Funding")){
+            hswr.setStatus("Assigned To VC");
             populateWorkQueueTable();
              }
              else{
-                 JOptionPane.showMessageDialog(null, "Sorry this request can't be processed to Doctor", "Warning", JOptionPane.WARNING_MESSAGE);
+                 JOptionPane.showMessageDialog(null, "Sorry this request can't be processed to VC", "Warning", JOptionPane.WARNING_MESSAGE);
              }
 
-        }*/
+        }
         
     }//GEN-LAST:event_reqDocBtnActionPerformed
 
     private void viewBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewBtnActionPerformed
-       /* int selectedRow = WorkReqJTable.getSelectedRow();
+        int selectedRow = WorkReqJTable.getSelectedRow();
         if (selectedRow < 0) {
             JOptionPane.showMessageDialog(null, "Please select the row to assign the account", "Warning", JOptionPane.WARNING_MESSAGE);
         } else {
-            HelpSeekerWorkReq p = (HelpSeekerWorkReq) WorkReqJTable.getValueAt(selectedRow, 5);
+            ServiceSeekerWorkReqest p = (ServiceSeekerWorkReqest) WorkReqJTable.getValueAt(selectedRow, 5);
             subjectTxt.setText(p.getSubject());
             descriptionTxt.setText(p.getDescription());
             locationTxt.setText(p.getLocation());
         }
-*/
+
     }//GEN-LAST:event_viewBtnActionPerformed
 
 

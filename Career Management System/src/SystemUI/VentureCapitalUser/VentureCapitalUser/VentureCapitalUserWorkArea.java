@@ -6,16 +6,11 @@
 package SystemUI.VentureCapitalUser.VentureCapitalUser;
 
 import SystemModel.EcoSystem; 
-import SystemModel.Enterprise.Enterprise;
-
+import SystemModel.EnterpriseManagement.Enterprise;
 import SystemModel.Organization.Organization;
-
-
 import SystemModel.UserAccount.UserAccount;
-
-//import SystemModel.WorkQueue.HelpSeekerWorkReq;
-
-import SystemModel.WorkQueue.WorkReq;
+import SystemModel.WorkFlow.ServiceSeekerWorkReqest;
+import SystemModel.WorkFlow.WorkRequest;
 import javax.swing.JOptionPane;
 
 import javax.swing.JPanel;
@@ -41,7 +36,7 @@ public class VentureCapitalUserWorkArea extends javax.swing.JPanel {
         this.Enterprise=enterprise;
         this.ESystem=ESystem;
         
-       // populateWorkQueueTable();
+        populateWorkQueueTable();
     }
     public void populateWorkQueueTable(){
     DefaultTableModel model = (DefaultTableModel) requestJTable.getModel();
@@ -49,23 +44,23 @@ public class VentureCapitalUserWorkArea extends javax.swing.JPanel {
         model.setRowCount(0);
         
         
-//        for (WorkReq work : ESystem.getWorkQueue().getWorkRequestList()){
-//           if((work instanceof HelpSeekerWorkReq)&& (work.getSubject().equalsIgnoreCase("Hospital")))
-//               {
-//                   
-//               
-//            Object[] row = new Object[10];
-//            row[0] = work.getSender().getEmployee().getEmpname();
-//            row[1] = work.getSubject();
-//            row[2] = ((HelpSeekerWorkReq) work).getDescription();
-//            row[3] = ((HelpSeekerWorkReq) work).getLocation();
-//            row[4] = work.getDateOfRequest();
-//            row[5] = work;
-//            row[6] = work.getReciever();
-//            
-//            model.addRow(row);
-//           }
-//        }
+        for (WorkRequest work : ESystem.getWorkRequestList().getWorkRequestList()){
+           if((work instanceof ServiceSeekerWorkReqest)&& (work.getSubject().equalsIgnoreCase("Funding")))
+               {
+                   
+               
+            Object[] row = new Object[10];
+            row[0] = work.getSender().getEmployee().getEmpolyeeName();
+            row[1] = work.getSubject();
+            row[2] = ((ServiceSeekerWorkReqest) work).getDescription();
+            row[3] = ((ServiceSeekerWorkReqest) work).getLocation();
+            row[4] = work.getDateOfRequest();
+            row[5] = work;
+            row[6] = work.getReciever();
+            
+            model.addRow(row);
+           }
+        }
         
     }
     /**
@@ -116,7 +111,7 @@ public class VentureCapitalUserWorkArea extends javax.swing.JPanel {
 
             },
             new String [] {
-                "Name", "Subject", "Description", "Location", "Date", "Status", "Help Provider"
+                "Name", "Subject", "Description", "Location", "Date", "Status", "Service Provider"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -145,14 +140,13 @@ public class VentureCapitalUserWorkArea extends javax.swing.JPanel {
         int selectedRow = requestJTable.getSelectedRow();
         if (selectedRow < 0) {
             JOptionPane.showMessageDialog(null, "Please first select a row to assign the account", "Warning", JOptionPane.WARNING_MESSAGE);
-        } else
+        } 
+        else{
 
-        {
+            ServiceSeekerWorkReqest ss = (ServiceSeekerWorkReqest) requestJTable.getValueAt(selectedRow, 5);
 
-           // HelpSeekerWorkReq hs = (HelpSeekerWorkReq) requestJTable.getValueAt(selectedRow, 5);
-
-            //hs.setStatus("Complete");
-           // hs.setReciever(UserAccount);
+            ss.setStatus("Complete");
+            ss.setReciever(UserAccount);
             JOptionPane.showMessageDialog(null, "The request has been completed successfully");
             populateWorkQueueTable();
 

@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package SystemModel.ServiceProvider;
-import SystemModel.WorkQueue.WorkQueue;
+import SystemModel.WorkFlow.WorkRequestList;
 
 /**
  *
@@ -13,22 +13,22 @@ import SystemModel.WorkQueue.WorkQueue;
 public class ServiceProvider {
     private String id;
     private String name;
-    private WorkQueue workQueue;
+    private WorkRequestList workRequestList;
     
     private static int count;
     
     public ServiceProvider() {
 
-        id = "HP" + (++count);
-        workQueue = new WorkQueue();
+        id = "SP" + (++count);
+        workRequestList = new WorkRequestList();
     }
 
-    public WorkQueue getWorkQueue() {
-        return workQueue;
+    public WorkRequestList getWorkRequestList() {
+        return workRequestList;
     }
 
-    public void setWorkQueue(WorkQueue workQueue) {
-        this.workQueue = workQueue;
+    public void setWorkRequestList(WorkRequestList workRequestList) {
+        this.workRequestList = workRequestList;
     }
 
      

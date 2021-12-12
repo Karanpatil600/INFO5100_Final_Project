@@ -5,41 +5,41 @@
  */
 package SystemModel.VentureCapital;
 
-import SystemModel.VentureCapital.VentureCapital;
 import java.util.ArrayList;
 
 /**
  *
  * @author Ashish
  */
+
 public class VentureCapitalDirectory {
-    private ArrayList<VentureCapital> docdirectory;
+    private ArrayList<VentureCapital> venturedirectory;
 
     public VentureCapitalDirectory() 
     {
-    docdirectory= new ArrayList<>();
+    venturedirectory= new ArrayList<>();
     }
 
-    public ArrayList<VentureCapital> getDocdirectory()
+    public ArrayList<VentureCapital> getVenturedirectory()
     {
-        return docdirectory;
+        return venturedirectory;
     }
 
-    public void setDocdirectory(ArrayList<VentureCapital> docdirectory) 
+    public void setVenturedirectory(ArrayList<VentureCapital> venturedirectory) 
     {
-        this.docdirectory = docdirectory;
+        this.venturedirectory = venturedirectory;
     }
     
     public VentureCapital addDoc()
     {
-        VentureCapital d =new VentureCapital();
-        docdirectory.add(d);
-        return d;
+        VentureCapital ven =new VentureCapital();
+        venturedirectory.add(ven);
+        return ven;
     }
     
-    public void removeDoc(VentureCapital d)
+    public void removeDoc(VentureCapital ven)
     {
-        docdirectory.remove(d);   
+        venturedirectory.remove(ven);   
     }
 }
 

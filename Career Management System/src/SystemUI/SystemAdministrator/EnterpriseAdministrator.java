@@ -7,10 +7,10 @@ package SystemUI.SystemAdministrator;
 
 import SystemModel.EcoSystem;
 import SystemModel.Employee.Employee;
-import SystemModel.Enterprise.Enterprise;
-import SystemModel.Network.Network;
+import SystemModel.EnterpriseManagement.Enterprise;
+import SystemModel.Location.Location;
 import SystemModel.Role.CareerServiceAdminRole;
-import SystemModel.Role.GlobalCommunityEnterpriseAdminRole;
+import SystemModel.Role.GlobalCommunityAdminRole;
 import SystemModel.Role.SupplierServiceAdminRole;
 import SystemModel.Role.VentureCapitalAdminRole;
 import SystemModel.UserAccount.UserAccount;
@@ -42,7 +42,7 @@ private EcoSystem ecosystem;
         DefaultTableModel model = (DefaultTableModel) enterpriseAdminJTable.getModel();
 
         model.setRowCount(0);
-        for (Network network : ecosystem.getNetworkList())
+        for (Location network : ecosystem.getLocationList())
         {
             for (Enterprise enterprise : network.getEnterpriseDirectory().getEnterpriseList())
             {
@@ -50,7 +50,7 @@ private EcoSystem ecosystem;
                 {
                     Object[] row = new Object[4];
                     row[0] = enterprise.getName();
-                    row[1] = network.getNetworkname();
+                    row[1] = network.getLocationName();
                     row[2] = userAccount;
                     row[3] = userAccount.getPassword();
 
@@ -63,13 +63,13 @@ private EcoSystem ecosystem;
      private void populateNetworkJComboBox() {
         networkJComboBox.removeAllItems();
 
-        for (Network network : ecosystem.getNetworkList()) 
+        for (Location network : ecosystem.getLocationList()) 
         {
             networkJComboBox.addItem(network);
         }
     }
            
-     private void populateEnterpriseComboBox(Network network) {
+     private void populateEnterpriseComboBox(Location network) {
                enterpriseTypeJComboBox.removeAllItems();
                 for (Enterprise enterprise : network.getEnterpriseDirectory().getEnterpriseList()) 
                 {
@@ -132,7 +132,7 @@ private EcoSystem ecosystem;
                 .addComponent(btnBack)
                 .addGap(267, 267, 267)
                 .addComponent(jLabel1)
-                .addContainerGap(403, Short.MAX_VALUE))
+                .addContainerGap(609, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -151,7 +151,7 @@ private EcoSystem ecosystem;
 
             },
             new String [] {
-                "Enterprise Name", "Network Name", "Enterprise Admin Username ", "Password"
+                "Enterprise Name", "Location", "Enterprise Admin Username ", "Password"
             }
         ));
         jScrollPane1.setViewportView(enterpriseAdminJTable);
@@ -227,7 +227,7 @@ private EcoSystem ecosystem;
                                     .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addGap(18, 18, 18)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(187, Short.MAX_VALUE))
+                .addContainerGap(393, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -265,7 +265,7 @@ private EcoSystem ecosystem;
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 352, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(258, Short.MAX_VALUE))
+                .addContainerGap(281, Short.MAX_VALUE))
         );
 
         jSplitPane1.setRightComponent(jPanel2);
@@ -295,7 +295,7 @@ private EcoSystem ecosystem;
     }//GEN-LAST:event_btnBackActionPerformed
 
     private void networkJComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_networkJComboBoxActionPerformed
-        Network network = (Network) networkJComboBox.getSelectedItem();
+        Location network = (Location) networkJComboBox.getSelectedItem();
         if (network != null) {
             populateEnterpriseComboBox(network);
         }
@@ -328,7 +328,7 @@ private EcoSystem ecosystem;
                     account = enterprise.getUserAccountDirectory().createUserAccount(username, password, employee, new VentureCapitalAdminRole());
                 }
                 else if (enterprise.getEnterpriseType() == Enterprise.EnterpriseType.GlobalCommunity) {
-                    account = enterprise.getUserAccountDirectory().createUserAccount(username, password, employee, new GlobalCommunityEnterpriseAdminRole());
+                    account = enterprise.getUserAccountDirectory().createUserAccount(username, password, employee, new GlobalCommunityAdminRole());
                 }
 
                 populateJTable();
@@ -353,7 +353,7 @@ private EcoSystem ecosystem;
 
             UserAccount p = (UserAccount) enterpriseAdminJTable.getValueAt(selectedRow, 2);
 
-            for (Network network : ecosystem.getNetworkList())
+            for (Location network : ecosystem.getLocationList())
             {
                 for (Enterprise enterprise : network.getEnterpriseDirectory().getEnterpriseList())
                 {

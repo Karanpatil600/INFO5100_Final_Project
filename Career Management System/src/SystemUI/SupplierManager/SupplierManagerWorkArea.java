@@ -7,16 +7,18 @@ package SystemUI.SupplierManager;
 import SystemModel.Supplier.Supplier;
 import SystemModel.Supplier.Supply;
 import SystemModel.EcoSystem;
-import SystemModel.Enterprise.Enterprise;
-import SystemModel.Organization.SupplierServiceOrganization;
+import SystemModel.EnterpriseManagement.Enterprise;
+import SystemModel.Organization.SupplierOrganization;
 import SystemModel.Organization.Organization;
 import SystemModel.UserAccount.UserAccount;
-import SystemModel.WorkQueue.DonationWorkReq;
-import SystemModel.WorkQueue.GCOSupplyWorkReq ;
-import SystemModel.WorkQueue.WorkQueue;
-import SystemModel.WorkQueue.WorkReq;
+import SystemModel.WorkFlow.SponsorWorkReqest;
+import SystemModel.WorkFlow.GCOSupplyWorkRequest ;
+import SystemModel.WorkFlow.WorkRequestList;
+import SystemModel.WorkFlow.WorkRequest;
 //import com.sun.glass.events.KeyEvent;
 import java.awt.event.KeyEvent;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -44,30 +46,10 @@ public class SupplierManagerWorkArea extends javax.swing.JPanel {
         this.ESystem=ESystem;
         completeBtn.setEnabled(false);
         
-     /*    System.out.println("Supplier List size" +((SupplierServiceOrganization) org).getSupplierList().getSupplierList().size());
-          for (Supplier supplier : ((SupplierServiceOrganization)org).getSupplierList().getSupplierList()) {
-              System.out.println("Supplier List" + supplier.getSupplierName());
-            if (UserAccount.getEmployee().getEmpname().equals(supplier.getSupplierName())) {
-                 s=supplier;
-                System.out.println("Supplier Name" + s.getSupplierName());
-            }
-        }
-        System.out.println("busi" + s.getWorkqueue().getWorkRequestList().size());
-        if (s.getWorkqueue() == null) {
-            WorkQueue w = new WorkQueue();
-            s.setWorkqueue(w);
-        }*/
         
-        //populateSupplyTable();
-        //populateCreateTable();
+        populateSupplyTable();
+        populateCreateTable();
       
-        
-        
-        
-         
-        
-         
-        
     }
 
     /**
@@ -81,7 +63,6 @@ public class SupplierManagerWorkArea extends javax.swing.JPanel {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        backBtn = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         supplierRequestJTable = new javax.swing.JTable();
         comboReqType = new javax.swing.JComboBox<>();
@@ -96,6 +77,7 @@ public class SupplierManagerWorkArea extends javax.swing.JPanel {
         jLabel4 = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
         createJTable = new javax.swing.JTable();
+        lblCheckReq = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -106,22 +88,12 @@ public class SupplierManagerWorkArea extends javax.swing.JPanel {
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Supplier Work Area");
 
-        backBtn.setFont(new java.awt.Font("Century Gothic", 0, 13)); // NOI18N
-        backBtn.setText("BACK");
-        backBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                backBtnActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(21, 21, 21)
-                .addComponent(backBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(289, 289, 289)
+                .addGap(401, 401, 401)
                 .addComponent(jLabel1)
                 .addContainerGap(370, Short.MAX_VALUE))
         );
@@ -129,9 +101,7 @@ public class SupplierManagerWorkArea extends javax.swing.JPanel {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
-                    .addComponent(backBtn))
+                .addComponent(jLabel1)
                 .addContainerGap(15, Short.MAX_VALUE))
         );
 
@@ -192,6 +162,9 @@ public class SupplierManagerWorkArea extends javax.swing.JPanel {
         add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(266, 366, -1, -1));
 
         reqTxt.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                reqTxtKeyReleased(evt);
+            }
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 reqTxtKeyTyped(evt);
             }
@@ -222,7 +195,7 @@ public class SupplierManagerWorkArea extends javax.swing.JPanel {
 
             },
             new String [] {
-                "Request Type", "Requirement", "Quantity", "Status", "Donor"
+                "Request Type", "Requirement", "Quantity", "Status", "Sponsor"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -236,11 +209,8 @@ public class SupplierManagerWorkArea extends javax.swing.JPanel {
         jScrollPane3.setViewportView(createJTable);
 
         add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(581, 327, 401, 215));
+        add(lblCheckReq, new org.netbeans.lib.awtextra.AbsoluteConstraints(43, 370, 210, 20));
     }// </editor-fold>//GEN-END:initComponents
-
-    private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed
-
-    }//GEN-LAST:event_backBtnActionPerformed
 
     private void assignBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_assignBtnActionPerformed
         int selectedRow = supplierRequestJTable.getSelectedRow();
@@ -248,7 +218,7 @@ public class SupplierManagerWorkArea extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null, "Please select the row to assign the account", "Warning", JOptionPane.WARNING_MESSAGE);
         } else {
 
-            GCOSupplyWorkReq nswr = (GCOSupplyWorkReq) supplierRequestJTable.getValueAt(selectedRow, 3);
+            GCOSupplyWorkRequest nswr = (GCOSupplyWorkRequest) supplierRequestJTable.getValueAt(selectedRow, 3);
 
             nswr.setStatus("Pending");
             nswr.setReciever(UserAccount);
@@ -265,26 +235,21 @@ public class SupplierManagerWorkArea extends javax.swing.JPanel {
         int selectedRow = supplierRequestJTable.getSelectedRow();
         int selectedRow1 = createJTable.getSelectedRow();
 
-       
+        GCOSupplyWorkRequest p = (GCOSupplyWorkRequest) supplierRequestJTable.getValueAt(selectedRow, 3);
+        SponsorWorkReqest d = (SponsorWorkReqest) createJTable.getValueAt(selectedRow1, 3);
 
-            GCOSupplyWorkReq p = (GCOSupplyWorkReq) supplierRequestJTable.getValueAt(selectedRow, 3);
-            DonationWorkReq d = (DonationWorkReq) createJTable.getValueAt(selectedRow1, 3);
-            
-            if (p.getReqType().equals(d.getRequestType()) && (p.getRequest().equals(d.getRequirements()) && (p.getQuantity() <= d.getQuantity()))&&  (d.getStatus().equalsIgnoreCase("Completed & Available in Stock")))
-            {
-                 int diff = d.getQuantity()- p.getQuantity();
-                d.setQuantity(diff);
-                p.setStatus("Complete");
-            }
-            else
-            {
-               
-               JOptionPane.showMessageDialog(null, "Please", "Warning", JOptionPane.WARNING_MESSAGE);
-            }
-            
-                    populateSupplyTable();
-                 populateCreateTable();
-              completeBtn.setEnabled(false);
+        if (p.getReqType().equals(d.getRequestType()) && (p.getRequest().equals(d.getRequirements()) && (p.getQuantity() <= d.getQuantity())) && (d.getStatus().equalsIgnoreCase("Completed & Available in Stock"))) {
+            int diff = d.getQuantity() - p.getQuantity();
+            d.setQuantity(diff);
+            p.setStatus("Complete");
+        } else {
+
+            JOptionPane.showMessageDialog(null, "Please", "Warning", JOptionPane.WARNING_MESSAGE);
+        }
+
+        populateSupplyTable();
+        populateCreateTable();
+        completeBtn.setEnabled(false);
 
         
 
@@ -302,45 +267,28 @@ public class SupplierManagerWorkArea extends javax.swing.JPanel {
             return;
         }
 
-      /* Supply supply = s.getSupplyDirectory().addSupply();
+        SponsorWorkReqest request = new SponsorWorkReqest();
+        request.setRequestType(type);
+        request.setRequirements(req);
+        request.setQuantity(quantity);
+        request.setStatus("Requested To Donors");
 
-        supply.setReqType(type);
-        supply.setReq(req);
-        supply.setQuantity(quantity);
-          populateCreateTable();
-
-       // reqTypeTxt.setText("");
+        //request.setStatus("Requested");request.setSender(account);
+        org.getWorkRequestList().getWorkRequestList().add(request);
+        UserAccount.getWorkQueue().getWorkRequestList().add(request);
+        ESystem.getWorkRequestList().getWorkRequestList().add(request);
+        populateCreateTable();
         reqTxt.setText("");
-        qtyTxt.setText(""); */
-        
-        DonationWorkReq request = new DonationWorkReq();
-                request.setRequestType(type);
-                request.setRequirements(req);
-                request.setQuantity(quantity);
-                request.setStatus("Requested To Donors");
-                
-
-                //request.setStatus("Requested");request.setSender(account);
-                org.getWorkQueue().getWorkRequestList().add(request);
-                UserAccount.getWorkQueue().getWorkRequestList().add(request);
-                ESystem.getWorkQueue().getWorkRequestList().add(request);
-                populateCreateTable();
-                reqTxt.setText("");
-                qtyTxt.setText("");
-        
-        
-        
- 
-      
+        qtyTxt.setText("");
 
     }//GEN-LAST:event_addBtnActionPerformed
 
     private void reqTxtKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_reqTxtKeyTyped
-        char c= evt.getKeyChar();
+        /*char c= evt.getKeyChar();
         if(!(Character.isAlphabetic(c)) || (c==KeyEvent.VK_DELETE) || (c==KeyEvent.VK_BACK_SPACE))
         {
             evt.consume();
-        }
+        }*/
     }//GEN-LAST:event_reqTxtKeyTyped
 
     private void qtyTxtKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_qtyTxtKeyTyped
@@ -351,11 +299,26 @@ public class SupplierManagerWorkArea extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_qtyTxtKeyTyped
 
+    private void reqTxtKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_reqTxtKeyReleased
+        // TODO add your handling code here:
+        String validReq = "^[A-Za-z0-9\\s]{1,150}$";
+        Pattern pattern = Pattern.compile(validReq);
+        Matcher match = pattern.matcher(reqTxt.getText());
+
+        if (!match.matches()) {
+            lblCheckReq.setText("Please Enter Valid Requiments!!");
+
+        } else {
+            lblCheckReq.setText(null);
+
+        }
+        
+    }//GEN-LAST:event_reqTxtKeyReleased
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addBtn;
     private javax.swing.JButton assignBtn;
-    private javax.swing.JButton backBtn;
     private javax.swing.JComboBox<String> comboReqType;
     private javax.swing.JButton completeBtn;
     private javax.swing.JTable createJTable;
@@ -367,6 +330,7 @@ public class SupplierManagerWorkArea extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JLabel lblCheckReq;
     private javax.swing.JTextField qtyTxt;
     private javax.swing.JTextField reqTxt;
     private javax.swing.JTable supplierRequestJTable;
@@ -374,55 +338,49 @@ public class SupplierManagerWorkArea extends javax.swing.JPanel {
 
     private void populateSupplyTable() {
         DefaultTableModel model = (DefaultTableModel) supplierRequestJTable.getModel();
-        
+
         model.setRowCount(0);
-        if(ESystem.getWorkQueue().getWorkRequestList().isEmpty()){
+        if (ESystem.getWorkRequestList().getWorkRequestList().isEmpty()) {
             System.out.println("SystemUI.SupplierManager.SupplierManagerWorkArea.populateSupplyTable() is Empty!!!");
+        } else {
+            System.out.println(ESystem.getWorkRequestList().getWorkRequestList());
         }
-        else{
-            System.out.println(ESystem.getWorkQueue().getWorkRequestList());
-        }
-        for (WorkReq work : ESystem.getWorkQueue().getWorkRequestList()){
-           if(work instanceof  GCOSupplyWorkReq ){ 
-            Object[] row = new Object[5];
-               System.out.println(((GCOSupplyWorkReq) work).getReqType());
-               System.out.println(((GCOSupplyWorkReq) work).getRequest());
-               System.out.println(((GCOSupplyWorkReq) work).getQuantity());
-               System.out.println(work);
-               System.out.println(work.getSender());
-            row[0] = ((GCOSupplyWorkReq) work).getReqType();
-            row[1] = ((GCOSupplyWorkReq) work).getRequest();
-            row[2] = ((GCOSupplyWorkReq) work).getQuantity();
-            row[3] = work;
-            row[4] = work.getSender();   
-           
-            
-            model.addRow(row);
-           }
+        for (WorkRequest work : ESystem.getWorkRequestList().getWorkRequestList()) {
+            if (work instanceof GCOSupplyWorkRequest) {
+                Object[] row = new Object[5];
+                
+                row[0] = ((GCOSupplyWorkRequest) work).getReqType();
+                row[1] = ((GCOSupplyWorkRequest) work).getRequest();
+                row[2] = ((GCOSupplyWorkRequest) work).getQuantity();
+                row[3] = work;
+                row[4] = work.getSender();
+
+                model.addRow(row);
+            }
         } //To change body of generated methods, choose Tools | Templates.
     }
 
     private void populateCreateTable()
     {
-    DefaultTableModel model = (DefaultTableModel) createJTable.getModel();
-        
+        DefaultTableModel model = (DefaultTableModel) createJTable.getModel();
+
         model.setRowCount(0);
-        
-        
-        for (WorkReq work : org.getWorkQueue().getWorkRequestList()){
-           if(work instanceof DonationWorkReq){ 
-            Object[] row = new Object[5];
-            row[0] = ((DonationWorkReq) work).getRequestType();
-            row[1] = ((DonationWorkReq) work).getRequirements();
-          
-            row[2] = ((DonationWorkReq) work).getQuantity();
-            row[3] = work;
-            row[4] = work.getReciever();
-            
-            model.addRow(row);
-           }
-        }}
-    
+
+        for (WorkRequest work : org.getWorkRequestList().getWorkRequestList()) {
+            if (work instanceof SponsorWorkReqest) {
+                Object[] row = new Object[5];
+                row[0] = ((SponsorWorkReqest) work).getRequestType();
+                row[1] = ((SponsorWorkReqest) work).getRequirements();
+
+                row[2] = ((SponsorWorkReqest) work).getQuantity();
+                row[3] = work;
+                row[4] = work.getReciever();
+
+                model.addRow(row);
+            }
+        }
     }
+    
+}
 
 

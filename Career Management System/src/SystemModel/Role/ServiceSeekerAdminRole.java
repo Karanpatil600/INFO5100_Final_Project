@@ -5,8 +5,7 @@
  */
 package SystemModel.Role;
 import SystemModel.EcoSystem;
-import SystemModel.Enterprise.Enterprise;
-import SystemModel.Organization.ServiceSeekerOrganization;
+import SystemModel.EnterpriseManagement.Enterprise;
 import SystemModel.Organization.Organization;
 import SystemModel.UserAccount.UserAccount;
 import SystemUI.ServiceSeeker.ServiceSeekerAdminWorkArea;

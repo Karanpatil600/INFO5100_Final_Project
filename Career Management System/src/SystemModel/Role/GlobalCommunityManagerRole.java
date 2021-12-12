@@ -5,7 +5,7 @@
  */
 package SystemModel.Role; 
 
-import SystemModel.Enterprise.Enterprise;
+import SystemModel.EnterpriseManagement.Enterprise;
 import SystemModel.Organization.GlobalCommunityOrganization;
 import SystemModel.Organization.Organization;
 import SystemModel.UserAccount.UserAccount;

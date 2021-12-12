@@ -7,7 +7,7 @@ package SystemModel.UserAccount;
 
 import SystemModel.Employee.Employee;
 import SystemModel.Role.Role;
-import SystemModel.WorkQueue.WorkQueue;
+import SystemModel.WorkFlow.WorkRequestList;
 
 /**
  *
@@ -16,70 +16,59 @@ import SystemModel.WorkQueue.WorkQueue;
 
 public class UserAccount 
 {
-    private String username;
+    private String userName;
     private String password;
-   private Employee employee;
-    private Role role; 
-    private WorkQueue workQueue;
-    
-    public UserAccount()
-    {
-       workQueue = new WorkQueue();
+    private Employee employee;
+    private Role role;
+    private WorkRequestList workQueue;
+
+    public UserAccount() {
+        workQueue = new WorkRequestList();
     }
 
-    public String getUsername() 
-    {
-        return username;
+    public String getUserName() {
+        return userName;
     }
 
-    public void setUsername(String username)
-    {
-        this.username = username;
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 
-    public String getPassword() 
-    {
+    public String getPassword() {
         return password;
     }
 
-    public void setPassword(String password)
-    {
+    public void setPassword(String password) {
         this.password = password;
     }
 
-   public Employee getEmployee() 
-    {
+    public Employee getEmployee() {
         return employee;
     }
 
-    public void setEmployee(Employee employee) 
-    {
-       this.employee = employee;
-   }
+    public void setEmployee(Employee employee) {
+        this.employee = employee;
+    }
 
-   public Role getRole() 
-    {
+    public Role getRole() {
         return role;
     }
 
-    public void setRole(Role role)
-   {
-       this.role = role;
+    public void setRole(Role role) {
+        this.role = role;
     }
 
-    public WorkQueue getWorkQueue() 
-    {
+    public WorkRequestList getWorkQueue() {
         return workQueue;
     }
 
-   public void setWorkQueue(WorkQueue workQueue) 
-    {
+    public void setWorkQueue(WorkRequestList workQueue) {
         this.workQueue = workQueue;
     }
-    
+
     @Override
-    public String toString(){
-        return username;
+    public String toString() {
+        return userName;
     }
     
 }

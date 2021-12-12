@@ -34,20 +34,8 @@ public class ManageOrganization extends javax.swing.JPanel {
 
     private void populateJComboBox(){
         organizationJComboBox.removeAllItems();
-      //  for (Type type : Organization.Type.values()){
-            //if (!type.getValue().equals(Type.Clinic.getValue()))
-                //for(Organization.Type type:Organization.Type.values()){
-                  //  if(!type.getValue().equals(Organization.Type.ChangeMaker.getValue())){
-                      //  organizationJComboBox.addItem(Organization.Type.HelpProvider);
-                    //}
-                    //else if(!type.getValue().equals(Organization.Type.ChangeSeeker.getValue())){
-                     //   organizationJComboBox.addItem(Organization.Type.HelpSeeker);
-                        organizationJComboBox.addItem(Organization.Type.VentureCapital);
-                      //  organizationJComboBox.addItem(Organization.Type.Volunteer);
-                   // }
-               // }
-                
-      //  }
+        organizationJComboBox.addItem(Organization.Type.VentureCapital);
+       
     }
      
     private void populateJTable(){
@@ -57,9 +45,11 @@ public class ManageOrganization extends javax.swing.JPanel {
         System.out.println(organizationDirectory.getOrganizationList());
         for (Organization organization : organizationDirectory.getOrganizationList()){
             Object[] row = new Object[3];
-            row[2] = organization.getOrganizationCode();
+            
             row[0] = organization.getOrganizationName();
             row[1]=  organization.getName();
+            row[2] = organization.getOrganizationCode();
+            
             model.addRow(row);
         }
     }
@@ -130,8 +120,8 @@ public class ManageOrganization extends javax.swing.JPanel {
         jLabel2.setText("Type of Organization: ");
         add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 173, -1, -1));
 
-        jLabel3.setText("Name: ");
-        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(226, 218, -1, -1));
+        jLabel3.setText("Organisation Name: ");
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(151, 218, 100, 20));
 
         organizationJComboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -180,7 +170,6 @@ public class ManageOrganization extends javax.swing.JPanel {
         }else{
             Type type = (Type) organizationJComboBox.getSelectedItem();
             organizationDirectory.createOrganization(type,nameTextField.getText());
-           // System.out.println(organizationDirectory.createOrganization(type,nameTextField.getText()));
             populateJTable();
         nameTextField.setText("");}
     }//GEN-LAST:event_addBtnActionPerformed
