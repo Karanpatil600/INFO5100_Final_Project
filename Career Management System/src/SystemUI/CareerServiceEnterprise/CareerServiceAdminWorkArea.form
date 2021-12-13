@@ -21,7 +21,7 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <EmptySpace min="0" pref="1200" max="32767" attributes="0"/>
+          <EmptySpace min="0" pref="1350" max="32767" attributes="0"/>
           <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
               <Component id="jPanel1" alignment="0" max="32767" attributes="0"/>
           </Group>
@@ -57,12 +57,12 @@
         <Container class="javax.swing.JPanel" name="jPanel2">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="ec" green="a0" red="42" type="rgb"/>
+              <Color blue="ff" green="ff" id="cyan" palette="1" red="0" type="palette"/>
             </Property>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="0" y="0" width="1200" height="-1"/>
+              <AbsoluteConstraints x="0" y="0" width="1350" height="-1"/>
             </Constraint>
           </Constraints>
 
@@ -72,16 +72,16 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="332" max="-2" attributes="0"/>
                       <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="491" max="32767" attributes="0"/>
+                      <EmptySpace pref="607" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                       <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="75" max="32767" attributes="0"/>
+                      <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -89,11 +89,11 @@
           <SubComponents>
             <Component class="javax.swing.JLabel" name="jLabel1">
               <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Malayalam MN" size="24" style="1"/>
-                </Property>
-                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                </Property>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Georgia" size="24" style="1"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Career Service Admin Enterprise"/>
               </Properties>
@@ -102,40 +102,58 @@
         </Container>
         <Component class="javax.swing.JButton" name="btnManageOrganisation">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Manage Organization"/>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="80" green="80" id="gray" palette="1" red="80" type="palette"/>
+            </Property>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Georgia" size="14" style="1"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Organization"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnManageOrganisationActionPerformed"/>
           </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="356" y="230" width="213" height="53"/>
+              <AbsoluteConstraints x="360" y="230" width="370" height="53"/>
             </Constraint>
           </Constraints>
         </Component>
         <Component class="javax.swing.JButton" name="btnManageEmployee">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Manage Organization&apos;s Employee"/>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="80" green="80" id="gray" palette="1" red="80" type="palette"/>
+            </Property>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Georgia" size="14" style="1"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Organization&apos;s Employee"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnManageEmployeeActionPerformed"/>
           </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="356" y="301" width="210" height="46"/>
+              <AbsoluteConstraints x="360" y="310" width="370" height="50"/>
             </Constraint>
           </Constraints>
         </Component>
         <Component class="javax.swing.JButton" name="btnManageUserAccount">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Manage User Account"/>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="80" green="80" id="gray" palette="1" red="80" type="palette"/>
+            </Property>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Georgia" size="14" style="1"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="User Account"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnManageUserAccountActionPerformed"/>
           </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="356" y="365" width="213" height="52"/>
+              <AbsoluteConstraints x="360" y="390" width="370" height="52"/>
             </Constraint>
           </Constraints>
         </Component>

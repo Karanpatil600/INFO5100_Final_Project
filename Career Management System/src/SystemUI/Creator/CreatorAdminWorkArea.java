@@ -42,20 +42,17 @@ public class CreatorAdminWorkArea extends javax.swing.JPanel {
         setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(66, 160, 236));
+        jPanel1.setBackground(java.awt.Color.cyan);
 
-        jLabel1.setFont(new java.awt.Font("Malayalam MN", 1, 24)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Creator Organization ");
+        jLabel1.setFont(new java.awt.Font("Georgia", 1, 24)); // NOI18N
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("Creator Deck");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(356, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(366, 366, 366))
+            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1200, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -65,25 +62,27 @@ public class CreatorAdminWorkArea extends javax.swing.JPanel {
                 .addContainerGap(27, Short.MAX_VALUE))
         );
 
-        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1200, -1));
 
-        manageEmployeeJBtn.setFont(new java.awt.Font("Century Gothic", 0, 13)); // NOI18N
-        manageEmployeeJBtn.setText("MANAGE EMPLOYEE");
+        manageEmployeeJBtn.setBackground(java.awt.Color.gray);
+        manageEmployeeJBtn.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
+        manageEmployeeJBtn.setText("Employee");
         manageEmployeeJBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 manageEmployeeJBtnActionPerformed(evt);
             }
         });
-        add(manageEmployeeJBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 204, 258, 70));
+        add(manageEmployeeJBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 200, 258, 60));
 
-        manageUserAccountJBtn.setFont(new java.awt.Font("Century Gothic", 0, 13)); // NOI18N
-        manageUserAccountJBtn.setText("MANAGE USER ACCOUNT");
+        manageUserAccountJBtn.setBackground(java.awt.Color.gray);
+        manageUserAccountJBtn.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
+        manageUserAccountJBtn.setText("User Account");
         manageUserAccountJBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 manageUserAccountJBtnActionPerformed(evt);
             }
         });
-        add(manageUserAccountJBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 292, 258, 71));
+        add(manageUserAccountJBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 320, 258, 60));
     }// </editor-fold>//GEN-END:initComponents
 
     private void manageEmployeeJBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manageEmployeeJBtnActionPerformed

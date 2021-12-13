@@ -49,48 +49,49 @@ public class ServiceSeekerAdminWorkArea extends javax.swing.JPanel {
         setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        manageUserAccountBtn.setFont(new java.awt.Font("Century Gothic", 0, 13)); // NOI18N
-        manageUserAccountBtn.setText("MANAGE USER ACCOUNT");
+        manageUserAccountBtn.setBackground(java.awt.Color.gray);
+        manageUserAccountBtn.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
+        manageUserAccountBtn.setText("User Account");
         manageUserAccountBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 manageUserAccountBtnActionPerformed(evt);
             }
         });
-        add(manageUserAccountBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(322, 300, 266, 55));
+        add(manageUserAccountBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 370, 266, 55));
 
-        manageEmployeeBtn.setFont(new java.awt.Font("Century Gothic", 0, 13)); // NOI18N
-        manageEmployeeBtn.setText("MANAGE EMPLOYEE");
+        manageEmployeeBtn.setBackground(java.awt.Color.gray);
+        manageEmployeeBtn.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
+        manageEmployeeBtn.setText("Employee");
         manageEmployeeBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 manageEmployeeBtnActionPerformed(evt);
             }
         });
-        add(manageEmployeeBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(322, 227, 266, 55));
+        add(manageEmployeeBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 250, 266, 55));
 
-        jPanel3.setBackground(new java.awt.Color(66, 160, 236));
+        jPanel3.setBackground(java.awt.Color.cyan);
 
-        jLabel3.setFont(new java.awt.Font("Malayalam MN", 1, 24)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setFont(new java.awt.Font("Georgia", 1, 24)); // NOI18N
         jLabel3.setText("Service Seeker Organization");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(313, 313, 313)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addContainerGap(445, Short.MAX_VALUE)
                 .addComponent(jLabel3)
-                .addContainerGap(356, Short.MAX_VALUE))
+                .addGap(404, 404, 404))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(38, 38, 38)
+                .addGap(26, 26, 26)
                 .addComponent(jLabel3)
-                .addContainerGap(52, Short.MAX_VALUE))
+                .addGap(26, 26, 26))
         );
 
-        add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 994, -1));
+        add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1200, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void manageUserAccountBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manageUserAccountBtnActionPerformed

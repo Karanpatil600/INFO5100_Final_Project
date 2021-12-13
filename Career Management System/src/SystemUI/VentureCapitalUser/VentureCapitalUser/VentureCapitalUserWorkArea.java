@@ -81,27 +81,26 @@ public class VentureCapitalUserWorkArea extends javax.swing.JPanel {
         setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(66, 160, 236));
+        jPanel1.setBackground(java.awt.Color.cyan);
 
-        jLabel1.setFont(new java.awt.Font("Malayalam MN", 1, 24)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Venture Capital User Work Area");
+        jLabel1.setFont(new java.awt.Font("Georgia", 1, 24)); // NOI18N
+        jLabel1.setText("Venture Capital User Dashboard");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(390, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(333, 333, 333)
                 .addComponent(jLabel1)
-                .addGap(373, 373, 373))
+                .addContainerGap(430, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(27, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(26, 26, 26)
                 .addComponent(jLabel1)
-                .addGap(25, 25, 25))
+                .addGap(26, 26, 26))
         );
 
         add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
@@ -126,14 +125,15 @@ public class VentureCapitalUserWorkArea extends javax.swing.JPanel {
 
         add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(161, 133, 757, 230));
 
-        completeWorkBtn.setFont(new java.awt.Font("Century Gothic", 0, 13)); // NOI18N
-        completeWorkBtn.setText("COMPLETE");
+        completeWorkBtn.setBackground(java.awt.Color.gray);
+        completeWorkBtn.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
+        completeWorkBtn.setText("Complete!");
         completeWorkBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 completeWorkBtnActionPerformed(evt);
             }
         });
-        add(completeWorkBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(161, 370, 757, 36));
+        add(completeWorkBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 420, 220, 36));
     }// </editor-fold>//GEN-END:initComponents
 
     private void completeWorkBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_completeWorkBtnActionPerformed

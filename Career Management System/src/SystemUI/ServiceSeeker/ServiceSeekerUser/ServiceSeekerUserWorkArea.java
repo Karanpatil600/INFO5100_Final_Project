@@ -66,27 +66,26 @@ public class ServiceSeekerUserWorkArea extends javax.swing.JPanel {
         setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(66, 160, 236));
+        jPanel1.setBackground(java.awt.Color.cyan);
 
-        jLabel1.setFont(new java.awt.Font("Malayalam MN", 1, 24)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Service Seeker Work Area");
+        jLabel1.setFont(new java.awt.Font("Georgia", 1, 24)); // NOI18N
+        jLabel1.setText("Service Seeker Dashboard");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(291, 291, 291)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(342, Short.MAX_VALUE)
                 .addComponent(jLabel1)
-                .addContainerGap(403, Short.MAX_VALUE))
+                .addGap(329, 329, 329))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(24, 24, 24)
+                .addGap(25, 25, 25)
                 .addComponent(jLabel1)
-                .addContainerGap(28, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 994, -1));
@@ -109,43 +108,44 @@ public class ServiceSeekerUserWorkArea extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(requestJTable);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 128, 982, 230));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 140, 770, 150));
 
-        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel3.setText("REQUEST HISTORY ");
-        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 100, -1, -1));
+        jLabel3.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
+        jLabel3.setText("Request :");
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 100, -1, -1));
 
-        jLabel4.setFont(new java.awt.Font("Century Gothic", 0, 13)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
         jLabel4.setText("Subject : ");
-        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(212, 373, -1, -1));
-        add(subjectTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(311, 371, 222, -1));
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 360, -1, -1));
+        add(subjectTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 360, 222, -1));
 
         descriptionJTextArea.setColumns(20);
         descriptionJTextArea.setRows(5);
         jScrollPane3.setViewportView(descriptionJTextArea);
 
-        add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(311, 411, 222, 54));
+        add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 400, 222, 54));
 
+        jLabel2.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
         jLabel2.setText("Description :");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(199, 411, -1, -1));
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 410, -1, -1));
 
-        jLabel6.setFont(new java.awt.Font("Century Gothic", 0, 13)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
         jLabel6.setText("Location    :");
-        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(194, 474, -1, -1));
-        add(locationTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(311, 472, 222, -1));
+        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 470, -1, -1));
+        add(locationTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 470, 222, -1));
 
-        postRequestBtn.setFont(new java.awt.Font("Century Gothic", 0, 13)); // NOI18N
+        postRequestBtn.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
         postRequestBtn.setText("Post Request");
         postRequestBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 postRequestBtnActionPerformed(evt);
             }
         });
-        add(postRequestBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(311, 501, 222, -1));
+        add(postRequestBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 510, 140, -1));
 
-        jLabel5.setFont(new java.awt.Font("Lucida Grande", 2, 10)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Georgia", 2, 10)); // NOI18N
         jLabel5.setText("*Please input \"Funding\" as subject for Venture Capital related Help. ");
-        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(545, 376, -1, -1));
+        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 320, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
     public void populateWorkQueueTable(){
          DefaultTableModel model = (DefaultTableModel) requestJTable.getModel();

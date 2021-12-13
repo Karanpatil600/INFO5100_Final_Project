@@ -113,11 +113,10 @@ public class ServiceProviderUserWorkArea extends javax.swing.JPanel {
         setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(66, 160, 236));
+        jPanel1.setBackground(java.awt.Color.cyan);
 
-        jLabel1.setFont(new java.awt.Font("Malayalam MN", 1, 24)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Service Provider User Work Area");
+        jLabel1.setFont(new java.awt.Font("Georgia", 1, 24)); // NOI18N
+        jLabel1.setText("Service Provider Dashboard");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -126,17 +125,17 @@ public class ServiceProviderUserWorkArea extends javax.swing.JPanel {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(356, 356, 356)
                 .addComponent(jLabel1)
-                .addContainerGap(260, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(36, 36, 36)
+                .addGap(26, 26, 26)
                 .addComponent(jLabel1)
-                .addContainerGap(49, Short.MAX_VALUE))
+                .addGap(26, 26, 26))
         );
 
-        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 994, -1));
+        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1200, -1));
 
         WorkReqJTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -156,71 +155,77 @@ public class ServiceProviderUserWorkArea extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(WorkReqJTable);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 150, 970, 214));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 140, 780, 170));
 
-        assignWorkBtn.setFont(new java.awt.Font("Century Gothic", 0, 13)); // NOI18N
-        assignWorkBtn.setText("ASSIGN TO ME");
+        assignWorkBtn.setBackground(java.awt.Color.gray);
+        assignWorkBtn.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
+        assignWorkBtn.setText("Assign to me");
         assignWorkBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 assignWorkBtnActionPerformed(evt);
             }
         });
-        add(assignWorkBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 372, 152, 35));
+        add(assignWorkBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 450, 152, 30));
 
-        completeWorkBtn.setFont(new java.awt.Font("Century Gothic", 0, 13)); // NOI18N
-        completeWorkBtn.setText("COMPLETE");
+        completeWorkBtn.setBackground(java.awt.Color.gray);
+        completeWorkBtn.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
+        completeWorkBtn.setText("Complete");
         completeWorkBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 completeWorkBtnActionPerformed(evt);
             }
         });
-        add(completeWorkBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(182, 371, 221, 36));
+        add(completeWorkBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 510, 150, 30));
 
-        reqNGOBtn.setFont(new java.awt.Font("Century Gothic", 0, 13)); // NOI18N
-        reqNGOBtn.setText("FORWARD REQUEST TO GCO");
+        reqNGOBtn.setBackground(java.awt.Color.gray);
+        reqNGOBtn.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
+        reqNGOBtn.setText("Forward request to GCO");
         reqNGOBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 reqNGOBtnActionPerformed(evt);
             }
         });
-        add(reqNGOBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(421, 371, 316, 36));
+        add(reqNGOBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 400, 250, 36));
 
-        reqDocBtn.setText("FORWARD REQUEST TO VENTURE BELT");
+        reqDocBtn.setBackground(java.awt.Color.gray);
+        reqDocBtn.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
+        reqDocBtn.setText("Forward Request to VC Belt");
         reqDocBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 reqDocBtnActionPerformed(evt);
             }
         });
-        add(reqDocBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(755, 372, -1, 36));
-        add(locationTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(182, 557, 221, -1));
+        add(reqDocBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 480, 250, 36));
+        add(locationTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 520, 221, 30));
 
-        jLabel6.setFont(new java.awt.Font("Century Gothic", 0, 13)); // NOI18N
-        jLabel6.setText("Location    :");
-        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(87, 559, -1, -1));
+        jLabel6.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
+        jLabel6.setText("Location :");
+        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 530, -1, -1));
 
-        jLabel5.setFont(new java.awt.Font("Century Gothic", 0, 13)); // NOI18N
-        jLabel5.setText("Description:");
-        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(88, 479, -1, -1));
+        jLabel5.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
+        jLabel5.setText("Description :");
+        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 440, -1, -1));
 
         descriptionTxt.setColumns(20);
         descriptionTxt.setRows(5);
         jScrollPane2.setViewportView(descriptionTxt);
 
-        add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(182, 479, 221, 71));
-        add(subjectTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(182, 433, 221, -1));
+        add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 430, 221, 60));
+        add(subjectTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 370, 221, 30));
 
-        jLabel4.setFont(new java.awt.Font("Century Gothic", 0, 13)); // NOI18N
-        jLabel4.setText("Subject: ");
-        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(109, 435, -1, -1));
+        jLabel4.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
+        jLabel4.setText("Subject :  ");
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 370, -1, -1));
 
-        viewBtn.setFont(new java.awt.Font("Century Gothic", 0, 13)); // NOI18N
-        viewBtn.setText("VIEW");
+        viewBtn.setBackground(java.awt.Color.gray);
+        viewBtn.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
+        viewBtn.setText("View");
         viewBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 viewBtnActionPerformed(evt);
             }
         });
-        add(viewBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(596, 426, 141, 35));
+        add(viewBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 390, 150, 35));
     }// </editor-fold>//GEN-END:initComponents
 
     private void assignWorkBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_assignWorkBtnActionPerformed
@@ -287,7 +292,7 @@ public class ServiceProviderUserWorkArea extends javax.swing.JPanel {
         // TODO add your handling code here:
         int selectedRow = WorkReqJTable.getSelectedRow();
         if (selectedRow < 0) {
-            JOptionPane.showMessageDialog(null, "Please request to forward to the Doctor", "Warning", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Please request to forward to the VC Belt", "Warning", JOptionPane.WARNING_MESSAGE);
         } else {
 
             ServiceSeekerWorkReqest hswr = (ServiceSeekerWorkReqest) WorkReqJTable.getValueAt(selectedRow, 5);

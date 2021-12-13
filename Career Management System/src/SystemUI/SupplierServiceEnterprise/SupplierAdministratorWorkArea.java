@@ -50,10 +50,9 @@ public class SupplierAdministratorWorkArea extends javax.swing.JPanel {
         setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(66, 160, 236));
+        jPanel1.setBackground(java.awt.Color.cyan);
 
-        jLabel1.setFont(new java.awt.Font("Malayalam MN", 1, 24)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setFont(new java.awt.Font("Georgia", 1, 24)); // NOI18N
         jLabel1.setText("Supplier Enterprise");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -68,36 +67,42 @@ public class SupplierAdministratorWorkArea extends javax.swing.JPanel {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(25, 25, 25)
+                .addGap(26, 26, 26)
                 .addComponent(jLabel1)
-                .addContainerGap(29, Short.MAX_VALUE))
+                .addContainerGap(26, Short.MAX_VALUE))
         );
 
-        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 994, -1));
+        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1200, -1));
 
-        mngOrganisationBtn.setText("Manage Organization");
+        mngOrganisationBtn.setBackground(java.awt.Color.gray);
+        mngOrganisationBtn.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
+        mngOrganisationBtn.setText("Organization");
         mngOrganisationBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 mngOrganisationBtnActionPerformed(evt);
             }
         });
-        add(mngOrganisationBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(378, 278, 213, 55));
+        add(mngOrganisationBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 230, 280, 55));
 
-        mngEmployeeBtn.setText("Manage Organization Employee");
+        mngEmployeeBtn.setBackground(java.awt.Color.gray);
+        mngEmployeeBtn.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
+        mngEmployeeBtn.setText("Employee");
         mngEmployeeBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 mngEmployeeBtnActionPerformed(evt);
             }
         });
-        add(mngEmployeeBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(378, 340, 210, 52));
+        add(mngEmployeeBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 330, 280, 52));
 
-        mngUserAccountBtn.setText("Manage User Account");
+        mngUserAccountBtn.setBackground(java.awt.Color.gray);
+        mngUserAccountBtn.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
+        mngUserAccountBtn.setText("User Account");
         mngUserAccountBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 mngUserAccountBtnActionPerformed(evt);
             }
         });
-        add(mngUserAccountBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(378, 405, 213, 53));
+        add(mngUserAccountBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 430, 280, 53));
     }// </editor-fold>//GEN-END:initComponents
 
     private void mngOrganisationBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mngOrganisationBtnActionPerformed

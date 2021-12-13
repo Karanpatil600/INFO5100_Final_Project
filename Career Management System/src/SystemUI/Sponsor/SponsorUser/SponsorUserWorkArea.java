@@ -71,11 +71,10 @@ public class SponsorUserWorkArea extends javax.swing.JPanel {
         setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(66, 160, 236));
+        jPanel1.setBackground(java.awt.Color.cyan);
 
-        jLabel1.setFont(new java.awt.Font("Malayalam MN", 1, 24)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Sponsor User Work Area");
+        jLabel1.setFont(new java.awt.Font("Georgia", 1, 24)); // NOI18N
+        jLabel1.setText("Sponsor User Dashboard");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -89,9 +88,9 @@ public class SponsorUserWorkArea extends javax.swing.JPanel {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(21, 21, 21)
+                .addGap(26, 26, 26)
                 .addComponent(jLabel1)
-                .addContainerGap(31, Short.MAX_VALUE))
+                .addGap(26, 26, 26))
         );
 
         add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
@@ -114,15 +113,17 @@ public class SponsorUserWorkArea extends javax.swing.JPanel {
         });
         jScrollPane3.setViewportView(createJTable);
 
-        add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(156, 118, 746, 215));
+        add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 130, 746, 160));
 
+        jButton1.setBackground(java.awt.Color.gray);
+        jButton1.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
         jButton1.setText("Accept and Provide Supplies Request");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
-        add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(156, 340, 746, 41));
+        add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 350, 310, 41));
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed

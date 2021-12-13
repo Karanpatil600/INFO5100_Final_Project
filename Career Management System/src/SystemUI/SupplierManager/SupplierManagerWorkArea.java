@@ -82,11 +82,10 @@ public class SupplierManagerWorkArea extends javax.swing.JPanel {
         setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(66, 160, 236));
+        jPanel1.setBackground(java.awt.Color.cyan);
 
-        jLabel1.setFont(new java.awt.Font("Malayalam MN", 1, 24)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Supplier Work Area");
+        jLabel1.setFont(new java.awt.Font("Georgia", 1, 24)); // NOI18N
+        jLabel1.setText("Supplier Dashboard");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -95,17 +94,17 @@ public class SupplierManagerWorkArea extends javax.swing.JPanel {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGap(401, 401, 401)
                 .addComponent(jLabel1)
-                .addContainerGap(370, Short.MAX_VALUE))
+                .addContainerGap(550, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(26, 26, 26)
                 .addComponent(jLabel1)
-                .addContainerGap(15, Short.MAX_VALUE))
+                .addGap(26, 26, 26))
         );
 
-        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1200, -1));
 
         supplierRequestJTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -125,41 +124,45 @@ public class SupplierManagerWorkArea extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(supplierRequestJTable);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 73, 970, 156));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 110, 880, 130));
 
         comboReqType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "None", "Food", "Clothes", "Medicine", "Education", "Furniture" }));
-        add(comboReqType, new org.netbeans.lib.awtextra.AbsoluteConstraints(361, 327, 213, -1));
+        add(comboReqType, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 360, 213, -1));
 
-        assignBtn.setFont(new java.awt.Font("Century Gothic", 0, 13)); // NOI18N
+        assignBtn.setBackground(java.awt.Color.gray);
+        assignBtn.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
         assignBtn.setText("Assign");
         assignBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 assignBtnActionPerformed(evt);
             }
         });
-        add(assignBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(837, 236, 145, 35));
+        add(assignBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 270, 145, 35));
 
-        completeBtn.setFont(new java.awt.Font("Century Gothic", 0, 13)); // NOI18N
+        completeBtn.setBackground(java.awt.Color.gray);
+        completeBtn.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
         completeBtn.setText("Complete");
         completeBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 completeBtnActionPerformed(evt);
             }
         });
-        add(completeBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(664, 237, 155, 33));
+        add(completeBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 270, 155, 33));
 
-        addBtn.setFont(new java.awt.Font("Century Gothic", 0, 13)); // NOI18N
+        addBtn.setBackground(java.awt.Color.gray);
+        addBtn.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
         addBtn.setText("Request to Donors");
         addBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 addBtnActionPerformed(evt);
             }
         });
-        add(addBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(361, 434, 213, -1));
+        add(addBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 490, 170, -1));
 
-        jLabel2.setFont(new java.awt.Font("Century Gothic", 0, 13)); // NOI18N
-        jLabel2.setText("Requirement: ");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(266, 366, -1, -1));
+        jLabel2.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        jLabel2.setText("Requirement : ");
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 400, -1, -1));
 
         reqTxt.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
@@ -169,26 +172,28 @@ public class SupplierManagerWorkArea extends javax.swing.JPanel {
                 reqTxtKeyTyped(evt);
             }
         });
-        add(reqTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(361, 364, 213, -1));
+        add(reqTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 400, 213, -1));
 
         qtyTxt.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 qtyTxtKeyTyped(evt);
             }
         });
-        add(qtyTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(361, 399, 213, -1));
+        add(qtyTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 440, 213, -1));
 
-        jLabel3.setFont(new java.awt.Font("Century Gothic", 0, 13)); // NOI18N
-        jLabel3.setText("Quantity    :");
-        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(265, 401, -1, -1));
+        jLabel3.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        jLabel3.setText("Quantity :");
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 440, -1, -1));
 
-        jLabel5.setFont(new java.awt.Font("Century Gothic", 0, 13)); // NOI18N
-        jLabel5.setText("Request Type: ");
-        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(265, 329, -1, -1));
+        jLabel5.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
+        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        jLabel5.setText("Request Type : ");
+        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 360, -1, -1));
 
-        jLabel4.setFont(new java.awt.Font("Century Gothic", 1, 15)); // NOI18N
-        jLabel4.setText("AVAILABLE  STOCKS & STATUS : ");
-        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(694, 300, -1, -1));
+        jLabel4.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
+        jLabel4.setText("Availability: ");
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 310, -1, -1));
 
         createJTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -208,7 +213,7 @@ public class SupplierManagerWorkArea extends javax.swing.JPanel {
         });
         jScrollPane3.setViewportView(createJTable);
 
-        add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(581, 327, 401, 215));
+        add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 340, 401, 215));
         add(lblCheckReq, new org.netbeans.lib.awtextra.AbsoluteConstraints(43, 370, 210, 20));
     }// </editor-fold>//GEN-END:initComponents
 

@@ -66,7 +66,6 @@ public class ManageOrganization extends javax.swing.JPanel {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        backBtn = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         organizationTable = new javax.swing.JTable();
         jLabel2 = new javax.swing.JLabel();
@@ -74,43 +73,31 @@ public class ManageOrganization extends javax.swing.JPanel {
         addBtn = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         organizationName = new javax.swing.JTextField();
+        backBtn = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(66, 160, 236));
+        jPanel1.setBackground(java.awt.Color.cyan);
 
-        jLabel1.setFont(new java.awt.Font("Malayalam MN", 1, 24)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setFont(new java.awt.Font("Georgia", 1, 24)); // NOI18N
         jLabel1.setText("Manage Organization");
-
-        backBtn.setFont(new java.awt.Font("Century Gothic", 0, 13)); // NOI18N
-        backBtn.setText("BACK");
-        backBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                backBtnActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(18, 18, 18)
-                .addComponent(backBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(371, Short.MAX_VALUE)
                 .addComponent(jLabel1)
-                .addGap(301, 301, 301))
+                .addGap(355, 355, 355))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(42, 42, 42)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(backBtn))
-                .addContainerGap(78, Short.MAX_VALUE))
+                .addGap(26, 26, 26)
+                .addComponent(jLabel1)
+                .addGap(26, 26, 26))
         );
 
         add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 994, -1));
@@ -133,33 +120,46 @@ public class ManageOrganization extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(organizationTable);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(504, 165, 478, 598));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 150, 460, 120));
 
-        jLabel2.setFont(new java.awt.Font("Century Gothic", 0, 13)); // NOI18N
-        jLabel2.setText("Organization Type: ");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(84, 165, -1, -1));
+        jLabel2.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        jLabel2.setText("Organization Type :   ");
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 320, 180, -1));
 
-        add(organizationJComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(226, 165, 271, -1));
+        add(organizationJComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 320, 271, -1));
 
-        addBtn.setFont(new java.awt.Font("Century Gothic", 0, 13)); // NOI18N
+        addBtn.setBackground(java.awt.Color.gray);
+        addBtn.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
         addBtn.setText("Add");
         addBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 addBtnActionPerformed(evt);
             }
         });
-        add(addBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(226, 241, 271, -1));
+        add(addBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 430, 140, -1));
 
-        jLabel3.setFont(new java.awt.Font("Century Gothic", 0, 13)); // NOI18N
-        jLabel3.setText("Name Of Organisation:");
-        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(58, 205, 150, 22));
+        jLabel3.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        jLabel3.setText("Name of Organisation :");
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 370, 190, 22));
 
         organizationName.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 organizationNameKeyTyped(evt);
             }
         });
-        add(organizationName, new org.netbeans.lib.awtextra.AbsoluteConstraints(226, 206, 271, -1));
+        add(organizationName, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 370, 271, -1));
+
+        backBtn.setBackground(java.awt.Color.gray);
+        backBtn.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
+        backBtn.setText("Back");
+        backBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                backBtnActionPerformed(evt);
+            }
+        });
+        add(backBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 120, 89, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed

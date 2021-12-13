@@ -49,11 +49,10 @@ public class ServiceProviderWorkArea extends javax.swing.JPanel {
         setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(66, 160, 236));
+        jPanel1.setBackground(java.awt.Color.cyan);
 
-        jLabel1.setFont(new java.awt.Font("Malayalam MN", 1, 24)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("SERVICE PROVIDER ORGANIZATION");
+        jLabel1.setFont(new java.awt.Font("Georgia", 1, 24)); // NOI18N
+        jLabel1.setText("Service Provider Organization");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -67,24 +66,26 @@ public class ServiceProviderWorkArea extends javax.swing.JPanel {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(40, 40, 40)
+                .addGap(26, 26, 26)
                 .addComponent(jLabel1)
-                .addContainerGap(50, Short.MAX_VALUE))
+                .addGap(26, 26, 26))
         );
 
         add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
-        manageUserAccountBtn.setFont(new java.awt.Font("Century Gothic", 0, 13)); // NOI18N
-        manageUserAccountBtn.setText("MANAGE USER ACCOUNT");
+        manageUserAccountBtn.setBackground(java.awt.Color.gray);
+        manageUserAccountBtn.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
+        manageUserAccountBtn.setText("User Account");
         manageUserAccountBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 manageUserAccountBtnActionPerformed(evt);
             }
         });
-        add(manageUserAccountBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(353, 277, 266, 55));
+        add(manageUserAccountBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 330, 266, 55));
 
-        manageEmployeeBtn.setFont(new java.awt.Font("Century Gothic", 0, 13)); // NOI18N
-        manageEmployeeBtn.setText("MANAGE EMPLOYEE");
+        manageEmployeeBtn.setBackground(java.awt.Color.gray);
+        manageEmployeeBtn.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
+        manageEmployeeBtn.setText("Employee");
         manageEmployeeBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 manageEmployeeBtnActionPerformed(evt);
