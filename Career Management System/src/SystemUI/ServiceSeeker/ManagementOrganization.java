@@ -28,21 +28,17 @@ public class ManagementOrganization extends javax.swing.JPanel {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        backBtn = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
+        backBtn = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(66, 160, 236));
+        jPanel1.setBackground(java.awt.Color.cyan);
 
-        backBtn.setFont(new java.awt.Font("Century Gothic", 0, 13)); // NOI18N
-        backBtn.setText("BACK");
-
-        jLabel1.setFont(new java.awt.Font("Malayalam MN", 1, 24)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setFont(new java.awt.Font("Georgia", 1, 24)); // NOI18N
         jLabel1.setText("Manage Organization");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -50,19 +46,15 @@ public class ManagementOrganization extends javax.swing.JPanel {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(backBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(281, 281, 281)
+                .addGap(378, 378, 378)
                 .addComponent(jLabel1)
                 .addContainerGap(370, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(29, 29, 29)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(backBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1))
+                .addGap(40, 40, 40)
+                .addComponent(jLabel1)
                 .addContainerGap(32, Short.MAX_VALUE))
         );
 
@@ -86,7 +78,11 @@ public class ManagementOrganization extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(jTable1);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 113, -1, 650));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 170, -1, 220));
+
+        backBtn.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
+        backBtn.setText("Back");
+        add(backBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 140, 80, 30));
     }// </editor-fold>//GEN-END:initComponents
 
 

@@ -144,11 +144,10 @@ public class ManagerWorkArea extends javax.swing.JPanel {
         setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(255, 102, 102));
+        jPanel1.setBackground(java.awt.Color.cyan);
 
-        jLabel1.setFont(new java.awt.Font("Malayalam MN", 1, 24)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Global Community Manager Work Area");
+        jLabel1.setFont(new java.awt.Font("Georgia", 1, 24)); // NOI18N
+        jLabel1.setText("Global Community Manager Dashboard");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -162,9 +161,9 @@ public class ManagerWorkArea extends javax.swing.JPanel {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(13, 13, 13)
+                .addGap(24, 24, 24)
                 .addComponent(jLabel1)
-                .addContainerGap(32, Short.MAX_VALUE))
+                .addGap(24, 24, 24))
         );
 
         add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
@@ -187,80 +186,84 @@ public class ManagerWorkArea extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(gcEventTbl);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 127, 1035, 133));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 130, 920, 133));
 
-        requestBtn.setFont(new java.awt.Font("Century Gothic", 0, 13)); // NOI18N
+        requestBtn.setBackground(java.awt.Color.gray);
+        requestBtn.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
         requestBtn.setText("Request for Supplies");
         requestBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 requestBtnActionPerformed(evt);
             }
         });
-        add(requestBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(887, 84, -1, 36));
+        add(requestBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 380, 190, 36));
 
-        jLabel7.setFont(new java.awt.Font("Century Gothic", 0, 13)); // NOI18N
-        jLabel7.setText("Volunteers Required: ");
-        add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 338, -1, -1));
-        add(vRequiredTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(658, 335, 217, 25));
+        jLabel7.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
+        jLabel7.setText("Creators Required : ");
+        add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 320, -1, -1));
+        add(vRequiredTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 320, 217, 25));
 
-        createBtn.setFont(new java.awt.Font("Century Gothic", 0, 13)); // NOI18N
+        createBtn.setBackground(java.awt.Color.gray);
+        createBtn.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
         createBtn.setText("Create Event");
         createBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 createBtnActionPerformed(evt);
             }
         });
-        add(createBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 305, -1, 41));
+        add(createBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 280, 190, 40));
 
-        jLabel6.setFont(new java.awt.Font("Century Gothic", 0, 13)); // NOI18N
-        jLabel6.setText("Date:     ");
-        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 305, -1, -1));
+        jLabel6.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
+        jLabel6.setText("Date :     ");
+        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 280, -1, -1));
 
-        jLabel4.setFont(new java.awt.Font("Century Gothic", 0, 13)); // NOI18N
-        jLabel4.setText("Location: ");
-        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(574, 369, 72, -1));
-        add(locationTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(658, 367, 217, -1));
-        add(titleTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 305, 168, -1));
+        jLabel4.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
+        jLabel4.setText("Location : ");
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 370, 80, -1));
+        add(locationTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 370, 217, -1));
+        add(titleTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 280, 168, 20));
 
-        jLabel3.setFont(new java.awt.Font("Century Gothic", 0, 13)); // NOI18N
-        jLabel3.setText("Event Title: ");
-        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 307, 78, -1));
+        jLabel3.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
+        jLabel3.setText("Event Title : ");
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 280, 100, -1));
 
-        jLabel8.setFont(new java.awt.Font("Century Gothic", 1, 15)); // NOI18N
+        jLabel8.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
         jLabel8.setText("CREATE EVENT: ");
-        add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 278, -1, -1));
+        add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 100, 140, -1));
 
-        jLabel5.setFont(new java.awt.Font("Century Gothic", 0, 13)); // NOI18N
-        jLabel5.setText("Description: ");
-        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 334, -1, -1));
+        jLabel5.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
+        jLabel5.setText("Description : ");
+        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 320, -1, -1));
 
         descTxt.setColumns(20);
         descTxt.setRows(5);
         jScrollPane3.setViewportView(descTxt);
 
-        add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(202, 334, -1, 66));
+        add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 330, 170, 50));
 
-        jLabel9.setFont(new java.awt.Font("Century Gothic", 1, 15)); // NOI18N
+        jLabel9.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
         jLabel9.setText("PENDING REQUESTS:");
-        add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(359, 413, -1, -1));
+        add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 410, -1, -1));
 
-        completeBtn.setFont(new java.awt.Font("Century Gothic", 0, 13)); // NOI18N
+        completeBtn.setBackground(java.awt.Color.gray);
+        completeBtn.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
         completeBtn.setText("Complete");
         completeBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 completeBtnActionPerformed(evt);
             }
         });
-        add(completeBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(892, 544, 155, 38));
+        add(completeBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 540, 155, 38));
 
-        AssignTomeBtn.setFont(new java.awt.Font("Century Gothic", 0, 13)); // NOI18N
+        AssignTomeBtn.setBackground(java.awt.Color.gray);
+        AssignTomeBtn.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
         AssignTomeBtn.setText("Assign to Me");
         AssignTomeBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 AssignTomeBtnActionPerformed(evt);
             }
         });
-        add(AssignTomeBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 544, 160, 38));
+        add(AssignTomeBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 540, 160, 38));
 
         requestJTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -280,17 +283,18 @@ public class ManagerWorkArea extends javax.swing.JPanel {
         });
         jScrollPane5.setViewportView(requestJTable);
 
-        add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 446, 1035, 91));
+        add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 440, 930, 91));
 
-        volunteerBtn.setFont(new java.awt.Font("Century Gothic", 0, 13)); // NOI18N
+        volunteerBtn.setBackground(java.awt.Color.gray);
+        volunteerBtn.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
         volunteerBtn.setText(" Creator Analysis");
         volunteerBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 volunteerBtnActionPerformed(evt);
             }
         });
-        add(volunteerBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(716, 84, 159, 36));
-        add(dateChooser, new org.netbeans.lib.awtextra.AbsoluteConstraints(658, 305, 217, -1));
+        add(volunteerBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 330, 190, 36));
+        add(dateChooser, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 280, 217, -1));
     }// </editor-fold>//GEN-END:initComponents
     
     

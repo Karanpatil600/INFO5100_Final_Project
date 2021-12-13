@@ -100,7 +100,6 @@ public class CreatorDashboard extends javax.swing.JPanel {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        backBtn = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         gcEventTbl = new javax.swing.JTable();
         vRequiredTxt = new javax.swing.JTextField();
@@ -120,42 +119,27 @@ public class CreatorDashboard extends javax.swing.JPanel {
         setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(66, 160, 236));
+        jPanel1.setBackground(java.awt.Color.cyan);
 
-        jLabel1.setFont(new java.awt.Font("Malayalam MN", 1, 24)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Volunteer Dashboard");
-
-        backBtn.setFont(new java.awt.Font("Century Gothic", 0, 13)); // NOI18N
-        backBtn.setText("BACK");
-        backBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                backBtnActionPerformed(evt);
-            }
-        });
+        jLabel1.setFont(new java.awt.Font("Georgia", 1, 24)); // NOI18N
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("Creator Dashboard");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(19, 19, 19)
-                .addComponent(backBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 264, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(378, 378, 378))
+            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(42, 42, 42)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(backBtn))
-                .addContainerGap(58, Short.MAX_VALUE))
+                .addGap(26, 26, 26)
+                .addComponent(jLabel1)
+                .addGap(26, 26, 26))
         );
 
-        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1200, -1));
 
         gcEventTbl.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -180,60 +164,75 @@ public class CreatorDashboard extends javax.swing.JPanel {
             gcEventTbl.getColumnModel().getColumn(6).setMaxWidth(0);
         }
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 174, 970, 265));
-        add(vRequiredTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(169, 619, 241, 25));
-        add(dateTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(169, 584, 241, -1));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 120, 860, 130));
+        add(vRequiredTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 510, 241, 30));
 
-        jLabel3.setFont(new java.awt.Font("Century Gothic", 0, 13)); // NOI18N
-        jLabel3.setText("Event Title                : ");
-        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 461, 152, -1));
+        dateTxt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dateTxtActionPerformed(evt);
+            }
+        });
+        add(dateTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 460, 241, 30));
 
-        viewBtn.setFont(new java.awt.Font("Century Gothic", 0, 13)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Georgia", 1, 12)); // NOI18N
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        jLabel3.setText("Event Title : ");
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 290, 152, 20));
+
+        viewBtn.setBackground(java.awt.Color.gray);
+        viewBtn.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
         viewBtn.setText("View");
         viewBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 viewBtnActionPerformed(evt);
             }
         });
-        add(viewBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(428, 457, 135, -1));
-        add(titleTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(169, 459, 241, -1));
+        add(viewBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 300, 135, -1));
+
+        titleTxt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                titleTxtActionPerformed(evt);
+            }
+        });
+        add(titleTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 290, 241, 30));
 
         descTxt.setColumns(20);
         descTxt.setRows(5);
         jScrollPane3.setViewportView(descTxt);
 
-        add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(169, 489, 241, 53));
+        add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 340, 241, 50));
 
-        jLabel5.setFont(new java.awt.Font("Century Gothic", 0, 13)); // NOI18N
-        jLabel5.setText("Description              : ");
-        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 489, 152, -1));
+        jLabel5.setFont(new java.awt.Font("Georgia", 1, 12)); // NOI18N
+        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        jLabel5.setText("Description : ");
+        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 350, 152, -1));
 
-        jLabel4.setFont(new java.awt.Font("Century Gothic", 0, 13)); // NOI18N
-        jLabel4.setText("Location                  : ");
-        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 551, 152, -1));
-        add(locationTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(169, 549, 241, -1));
+        jLabel4.setFont(new java.awt.Font("Georgia", 1, 12)); // NOI18N
+        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        jLabel4.setText("Location : ");
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 420, 152, -1));
+        add(locationTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 410, 241, 30));
 
-        jLabel6.setFont(new java.awt.Font("Century Gothic", 0, 13)); // NOI18N
-        jLabel6.setText("Date                        :     ");
-        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 586, -1, -1));
+        jLabel6.setFont(new java.awt.Font("Georgia", 1, 12)); // NOI18N
+        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        jLabel6.setText("Date :");
+        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 470, 50, -1));
 
-        jLabel7.setFont(new java.awt.Font("Century Gothic", 0, 13)); // NOI18N
-        jLabel7.setText("Volunteers Required: ");
-        add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 622, 152, -1));
+        jLabel7.setFont(new java.awt.Font("Georgia", 1, 12)); // NOI18N
+        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        jLabel7.setText("No. Creators Required : ");
+        add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 520, 160, -1));
 
-        joinBtn.setFont(new java.awt.Font("Century Gothic", 0, 13)); // NOI18N
+        joinBtn.setBackground(java.awt.Color.gray);
+        joinBtn.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
         joinBtn.setText("Join this event");
         joinBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 joinBtnActionPerformed(evt);
             }
         });
-        add(joinBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(845, 457, 137, -1));
+        add(joinBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 300, 160, -1));
     }// </editor-fold>//GEN-END:initComponents
-
-    private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed
-
-    }//GEN-LAST:event_backBtnActionPerformed
 
     private void viewBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewBtnActionPerformed
         int selectedRow = gcEventTbl.getSelectedRow();
@@ -254,7 +253,7 @@ public class CreatorDashboard extends javax.swing.JPanel {
     private void joinBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_joinBtnActionPerformed
         int selectedRow = gcEventTbl.getSelectedRow();
         if (selectedRow < 0) {
-            JOptionPane.showMessageDialog(null, "Please select the row to assign the account", "Warning", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Please select the row to assign", "Warning", JOptionPane.WARNING_MESSAGE);
         } else {
             GCOWorkRequest p = (GCOWorkRequest) gcEventTbl.getValueAt(selectedRow, 6);
            
@@ -269,9 +268,16 @@ public class CreatorDashboard extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_joinBtnActionPerformed
 
+    private void dateTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dateTxtActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_dateTxtActionPerformed
+
+    private void titleTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_titleTxtActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_titleTxtActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton backBtn;
     private javax.swing.JTextField dateTxt;
     private javax.swing.JTextArea descTxt;
     private javax.swing.JTable gcEventTbl;

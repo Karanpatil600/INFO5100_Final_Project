@@ -52,10 +52,10 @@ public class CareerServiceAdminWorkArea extends javax.swing.JPanel {
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel2.setBackground(new java.awt.Color(66, 160, 236));
+        jPanel2.setBackground(java.awt.Color.cyan);
 
-        jLabel1.setFont(new java.awt.Font("Malayalam MN", 1, 24)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel1.setFont(new java.awt.Font("Georgia", 1, 24)); // NOI18N
         jLabel1.setText("Career Service Admin Enterprise");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -65,47 +65,53 @@ public class CareerServiceAdminWorkArea extends javax.swing.JPanel {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(332, 332, 332)
                 .addComponent(jLabel1)
-                .addContainerGap(491, Short.MAX_VALUE))
+                .addContainerGap(607, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(49, 49, 49)
+                .addGap(26, 26, 26)
                 .addComponent(jLabel1)
-                .addContainerGap(75, Short.MAX_VALUE))
+                .addGap(26, 26, 26))
         );
 
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1200, -1));
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1350, -1));
 
-        btnManageOrganisation.setText("Manage Organization");
+        btnManageOrganisation.setBackground(java.awt.Color.gray);
+        btnManageOrganisation.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
+        btnManageOrganisation.setText("Organization");
         btnManageOrganisation.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnManageOrganisationActionPerformed(evt);
             }
         });
-        jPanel1.add(btnManageOrganisation, new org.netbeans.lib.awtextra.AbsoluteConstraints(356, 230, 213, 53));
+        jPanel1.add(btnManageOrganisation, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 230, 370, 53));
 
-        btnManageEmployee.setText("Manage Organization's Employee");
+        btnManageEmployee.setBackground(java.awt.Color.gray);
+        btnManageEmployee.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
+        btnManageEmployee.setText("Organization's Employee");
         btnManageEmployee.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnManageEmployeeActionPerformed(evt);
             }
         });
-        jPanel1.add(btnManageEmployee, new org.netbeans.lib.awtextra.AbsoluteConstraints(356, 301, 210, 46));
+        jPanel1.add(btnManageEmployee, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 310, 370, 50));
 
-        btnManageUserAccount.setText("Manage User Account");
+        btnManageUserAccount.setBackground(java.awt.Color.gray);
+        btnManageUserAccount.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
+        btnManageUserAccount.setText("User Account");
         btnManageUserAccount.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnManageUserAccountActionPerformed(evt);
             }
         });
-        jPanel1.add(btnManageUserAccount, new org.netbeans.lib.awtextra.AbsoluteConstraints(356, 365, 213, 52));
+        jPanel1.add(btnManageUserAccount, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 390, 370, 52));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1200, Short.MAX_VALUE)
+            .addGap(0, 1350, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );

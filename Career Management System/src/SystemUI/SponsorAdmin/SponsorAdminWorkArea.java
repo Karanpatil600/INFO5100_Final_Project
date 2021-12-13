@@ -46,10 +46,9 @@ public class SponsorAdminWorkArea extends javax.swing.JPanel {
         setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(66, 160, 236));
+        jPanel1.setBackground(java.awt.Color.cyan);
 
-        jLabel1.setFont(new java.awt.Font("Malayalam MN", 1, 24)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setFont(new java.awt.Font("Georgia", 1, 24)); // NOI18N
         jLabel1.setText("Sponsor Organization");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -71,8 +70,9 @@ public class SponsorAdminWorkArea extends javax.swing.JPanel {
 
         add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1025, -1));
 
-        manageEmployeeBtn.setFont(new java.awt.Font("Century Gothic", 0, 13)); // NOI18N
-        manageEmployeeBtn.setText("MANAGE EMPLOYEE");
+        manageEmployeeBtn.setBackground(java.awt.Color.gray);
+        manageEmployeeBtn.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
+        manageEmployeeBtn.setText("Employee");
         manageEmployeeBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 manageEmployeeBtnActionPerformed(evt);
@@ -80,8 +80,9 @@ public class SponsorAdminWorkArea extends javax.swing.JPanel {
         });
         add(manageEmployeeBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(369, 184, 266, 55));
 
-        manageUserAccountBtn.setFont(new java.awt.Font("Century Gothic", 0, 13)); // NOI18N
-        manageUserAccountBtn.setText("MANAGE USER ACCOUNT");
+        manageUserAccountBtn.setBackground(java.awt.Color.gray);
+        manageUserAccountBtn.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
+        manageUserAccountBtn.setText("User Account");
         manageUserAccountBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 manageUserAccountBtnActionPerformed(evt);

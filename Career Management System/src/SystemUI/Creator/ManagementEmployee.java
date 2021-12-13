@@ -80,7 +80,6 @@ public class ManagementEmployee extends javax.swing.JPanel {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        backBtn = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         orgselectComboBox = new javax.swing.JComboBox();
         jLabel4 = new javax.swing.JLabel();
@@ -90,58 +89,47 @@ public class ManagementEmployee extends javax.swing.JPanel {
         empTbl = new javax.swing.JTable();
         orgComboBox = new javax.swing.JComboBox();
         jLabel2 = new javax.swing.JLabel();
+        backBtn = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(66, 160, 236));
+        jPanel1.setBackground(java.awt.Color.cyan);
 
         jLabel1.setBackground(new java.awt.Color(66, 160, 236));
-        jLabel1.setFont(new java.awt.Font("Malayalam MN", 1, 24)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setFont(new java.awt.Font("Georgia", 1, 24)); // NOI18N
         jLabel1.setText("Manage Employee");
-
-        backBtn.setFont(new java.awt.Font("Century Gothic", 0, 13)); // NOI18N
-        backBtn.setText("BACK");
-        backBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                backBtnActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(21, 21, 21)
-                .addComponent(backBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(252, 252, 252)
+                .addGap(361, 361, 361)
                 .addComponent(jLabel1)
                 .addContainerGap(423, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(14, 14, 14)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(backBtn))
-                .addContainerGap(20, Short.MAX_VALUE))
+                .addGap(26, 26, 26)
+                .addComponent(jLabel1)
+                .addGap(27, 27, 27))
         );
 
         add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
-        jLabel3.setFont(new java.awt.Font("Century Gothic", 0, 13)); // NOI18N
-        jLabel3.setText("Organization: ");
-        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(111, 112, -1, -1));
+        jLabel3.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
+        jLabel3.setText("Organization : ");
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 360, -1, -1));
 
         orgselectComboBox.setFont(new java.awt.Font("Century Gothic", 0, 13)); // NOI18N
-        add(orgselectComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(208, 109, 251, -1));
+        add(orgselectComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 360, 251, -1));
 
-        jLabel4.setFont(new java.awt.Font("Century Gothic", 0, 13)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
+        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         jLabel4.setText("Employee Name :");
-        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(83, 145, 120, -1));
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 400, 180, -1));
 
         nameTxt.setFont(new java.awt.Font("Century Gothic", 0, 13)); // NOI18N
         nameTxt.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -149,16 +137,16 @@ public class ManagementEmployee extends javax.swing.JPanel {
                 nameTxtKeyTyped(evt);
             }
         });
-        add(nameTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(208, 145, 251, -1));
+        add(nameTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 400, 251, -1));
 
-        addBtn.setFont(new java.awt.Font("Century Gothic", 0, 13)); // NOI18N
+        addBtn.setFont(new java.awt.Font("Georgia", 1, 12)); // NOI18N
         addBtn.setText("Add");
         addBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 addBtnActionPerformed(evt);
             }
         });
-        add(addBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(208, 175, 251, -1));
+        add(addBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 440, 90, 30));
 
         empTbl.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -178,7 +166,7 @@ public class ManagementEmployee extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(empTbl);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(466, 109, 516, 654));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 170, 516, 140));
 
         orgComboBox.setFont(new java.awt.Font("Century Gothic", 0, 13)); // NOI18N
         orgComboBox.addActionListener(new java.awt.event.ActionListener() {
@@ -186,11 +174,20 @@ public class ManagementEmployee extends javax.swing.JPanel {
                 orgComboBoxActionPerformed(evt);
             }
         });
-        add(orgComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(731, 79, 251, -1));
+        add(orgComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 130, 251, -1));
 
-        jLabel2.setFont(new java.awt.Font("Century Gothic", 0, 13)); // NOI18N
-        jLabel2.setText("Organization: ");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(634, 82, -1, -1));
+        jLabel2.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
+        jLabel2.setText("Organization : ");
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 130, -1, -1));
+
+        backBtn.setFont(new java.awt.Font("Georgia", 1, 12)); // NOI18N
+        backBtn.setText("Back");
+        backBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                backBtnActionPerformed(evt);
+            }
+        });
+        add(backBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, 88, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed

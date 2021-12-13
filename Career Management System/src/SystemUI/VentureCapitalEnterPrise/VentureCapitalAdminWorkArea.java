@@ -50,10 +50,9 @@ public class VentureCapitalAdminWorkArea extends javax.swing.JPanel {
         setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(66, 160, 236));
+        jPanel1.setBackground(java.awt.Color.cyan);
 
-        jLabel1.setFont(new java.awt.Font("Malayalam MN", 1, 24)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setFont(new java.awt.Font("Georgia", 1, 24)); // NOI18N
         jLabel1.setText("Venture Capital Enterprise");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -61,43 +60,49 @@ public class VentureCapitalAdminWorkArea extends javax.swing.JPanel {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(351, 351, 351)
+                .addGap(299, 299, 299)
                 .addComponent(jLabel1)
-                .addContainerGap(452, Short.MAX_VALUE))
+                .addContainerGap(326, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(27, 27, 27)
+                .addGap(26, 26, 26)
                 .addComponent(jLabel1)
-                .addContainerGap(29, Short.MAX_VALUE))
+                .addGap(26, 26, 26))
         );
 
-        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 960, -1));
 
-        mngOrganisationBtn.setText("Manage Organization");
+        mngOrganisationBtn.setBackground(java.awt.Color.gray);
+        mngOrganisationBtn.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
+        mngOrganisationBtn.setText("Organization");
         mngOrganisationBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 mngOrganisationBtnActionPerformed(evt);
             }
         });
-        add(mngOrganisationBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(308, 192, 241, 49));
+        add(mngOrganisationBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 220, 241, 49));
 
-        mngEmployeeBtn.setText("Manage Organization Employee");
+        mngEmployeeBtn.setBackground(java.awt.Color.gray);
+        mngEmployeeBtn.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
+        mngEmployeeBtn.setText("Employee");
         mngEmployeeBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 mngEmployeeBtnActionPerformed(evt);
             }
         });
-        add(mngEmployeeBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(308, 263, 241, 52));
+        add(mngEmployeeBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 310, 241, 52));
 
-        mngUserAccountBtn.setText("Manage User Account");
+        mngUserAccountBtn.setBackground(java.awt.Color.gray);
+        mngUserAccountBtn.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
+        mngUserAccountBtn.setText("User Account");
         mngUserAccountBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 mngUserAccountBtnActionPerformed(evt);
             }
         });
-        add(mngUserAccountBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(308, 333, 241, 52));
+        add(mngUserAccountBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 400, 241, 52));
     }// </editor-fold>//GEN-END:initComponents
 
     private void mngOrganisationBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mngOrganisationBtnActionPerformed

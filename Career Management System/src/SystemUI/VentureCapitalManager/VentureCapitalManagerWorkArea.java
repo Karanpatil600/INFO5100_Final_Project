@@ -48,10 +48,9 @@ public class VentureCapitalManagerWorkArea extends javax.swing.JPanel {
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
-        jPanel2.setBackground(new java.awt.Color(66, 160, 236));
+        jPanel2.setBackground(java.awt.Color.cyan);
 
-        jLabel1.setFont(new java.awt.Font("Malayalam MN", 1, 24)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setFont(new java.awt.Font("Georgia", 1, 24)); // NOI18N
         jLabel1.setText("Venture Capital Manager");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -66,21 +65,23 @@ public class VentureCapitalManagerWorkArea extends javax.swing.JPanel {
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(27, Short.MAX_VALUE)
+                .addGap(26, 26, 26)
                 .addComponent(jLabel1)
-                .addGap(25, 25, 25))
+                .addGap(26, 26, 26))
         );
 
-        manageEmployeeBtn.setFont(new java.awt.Font("Century Gothic", 0, 13)); // NOI18N
-        manageEmployeeBtn.setText("MANAGE EMPLOYEE");
+        manageEmployeeBtn.setBackground(java.awt.Color.gray);
+        manageEmployeeBtn.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
+        manageEmployeeBtn.setText("Employee");
         manageEmployeeBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 manageEmployeeBtnActionPerformed(evt);
             }
         });
 
-        manageUserAccountBtn.setFont(new java.awt.Font("Century Gothic", 0, 13)); // NOI18N
-        manageUserAccountBtn.setText("MANAGE USER ACCOUNT");
+        manageUserAccountBtn.setBackground(java.awt.Color.gray);
+        manageUserAccountBtn.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
+        manageUserAccountBtn.setText("User Account");
         manageUserAccountBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 manageUserAccountBtnActionPerformed(evt);
@@ -96,7 +97,7 @@ public class VentureCapitalManagerWorkArea extends javax.swing.JPanel {
                 .addContainerGap(373, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(manageEmployeeBtn, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(manageUserAccountBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(manageUserAccountBtn, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(351, 351, 351))
         );
         jPanel1Layout.setVerticalGroup(
@@ -105,9 +106,9 @@ public class VentureCapitalManagerWorkArea extends javax.swing.JPanel {
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(216, 216, 216)
                 .addComponent(manageEmployeeBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26)
+                .addGap(42, 42, 42)
                 .addComponent(manageUserAccountBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 334, Short.MAX_VALUE))
+                .addGap(0, 322, Short.MAX_VALUE))
         );
 
         add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 2, 990, 770));

@@ -90,7 +90,6 @@ private EcoSystem ecosystem;
         jSplitPane1 = new javax.swing.JSplitPane();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        btnBack = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         enterpriseAdminJTable = new javax.swing.JTable();
@@ -106,45 +105,41 @@ private EcoSystem ecosystem;
         txtPassword = new javax.swing.JPasswordField();
         btnAdd = new javax.swing.JButton();
         btnDelete = new javax.swing.JButton();
+        btnBack = new javax.swing.JButton();
+        jLabel7 = new javax.swing.JLabel();
 
-        jSplitPane1.setDividerLocation(150);
+        jSplitPane1.setDividerLocation(78);
         jSplitPane1.setOrientation(javax.swing.JSplitPane.VERTICAL_SPLIT);
 
-        jPanel1.setForeground(new java.awt.Color(255, 102, 102));
+        jPanel1.setBackground(java.awt.Color.cyan);
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Georgia", 1, 24)); // NOI18N
         jLabel1.setText("Enterprise Adminstrator");
-
-        btnBack.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        btnBack.setText("Back");
-        btnBack.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBackActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addComponent(btnBack)
-                .addGap(267, 267, 267)
+                .addGap(364, 364, 364)
                 .addComponent(jLabel1)
-                .addContainerGap(609, Short.MAX_VALUE))
+                .addContainerGap(599, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(51, 51, 51)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnBack))
-                .addContainerGap(66, Short.MAX_VALUE))
+                .addGap(26, 26, 26)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(19, Short.MAX_VALUE))
         );
 
         jSplitPane1.setTopComponent(jPanel1);
+
+        jPanel2.setBackground(java.awt.Color.white);
+        jPanel2.setLayout(null);
+
+        jScrollPane1.setBackground(new java.awt.Color(0, 0, 0));
+        jScrollPane1.setForeground(new java.awt.Color(255, 255, 255));
 
         enterpriseAdminJTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -156,117 +151,104 @@ private EcoSystem ecosystem;
         ));
         jScrollPane1.setViewportView(enterpriseAdminJTable);
 
-        jLabel2.setText("Network Name:");
+        jPanel2.add(jScrollPane1);
+        jScrollPane1.setBounds(290, 37, 541, 144);
+
+        jLabel2.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        jLabel2.setText(" Location :");
+        jPanel2.add(jLabel2);
+        jLabel2.setBounds(369, 213, 150, 25);
 
         networkJComboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 networkJComboBoxActionPerformed(evt);
             }
         });
+        jPanel2.add(networkJComboBox);
+        networkJComboBox.setBounds(549, 216, 231, 21);
 
-        jLabel3.setText("Enterprise Name:");
+        jLabel3.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        jLabel3.setText("Enterprise Name :");
+        jPanel2.add(jLabel3);
+        jLabel3.setBounds(369, 263, 150, 25);
 
         enterpriseTypeJComboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 enterpriseTypeJComboBoxActionPerformed(evt);
             }
         });
+        jPanel2.add(enterpriseTypeJComboBox);
+        enterpriseTypeJComboBox.setBounds(549, 266, 231, 21);
 
-        jLabel4.setText("Name:");
+        jLabel4.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
+        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        jLabel4.setText("Name :");
+        jPanel2.add(jLabel4);
+        jLabel4.setBounds(369, 313, 150, 25);
+        jPanel2.add(txtName);
+        txtName.setBounds(549, 317, 231, 19);
 
-        jLabel5.setText("Username:");
+        jLabel5.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
+        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        jLabel5.setText("Username :");
+        jPanel2.add(jLabel5);
+        jLabel5.setBounds(369, 363, 150, 25);
 
-        jLabel6.setText("Password:");
+        txtUsername.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtUsernameActionPerformed(evt);
+            }
+        });
+        jPanel2.add(txtUsername);
+        txtUsername.setBounds(549, 367, 231, 19);
 
-        btnAdd.setFont(new java.awt.Font("Century Gothic", 0, 13)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
+        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        jLabel6.setText("Password :");
+        jPanel2.add(jLabel6);
+        jLabel6.setBounds(369, 413, 150, 25);
+        jPanel2.add(txtPassword);
+        txtPassword.setBounds(549, 417, 231, 19);
+
+        btnAdd.setBackground(java.awt.Color.gray);
+        btnAdd.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
         btnAdd.setText("Add");
         btnAdd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAddActionPerformed(evt);
             }
         });
+        jPanel2.add(btnAdd);
+        btnAdd.setBounds(549, 468, 90, 25);
 
-        btnDelete.setFont(new java.awt.Font("Century Gothic", 0, 13)); // NOI18N
+        btnDelete.setBackground(java.awt.Color.gray);
+        btnDelete.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
         btnDelete.setText("Delete");
         btnDelete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnDeleteActionPerformed(evt);
             }
         });
+        jPanel2.add(btnDelete);
+        btnDelete.setBounds(690, 468, 90, 25);
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(11, 11, 11)
-                        .addComponent(jLabel2)
-                        .addGap(64, 64, 64)
-                        .addComponent(networkJComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGap(146, 146, 146)
-                                .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(7, 7, 7)
-                                .addComponent(btnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(66, 66, 66)
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(enterpriseTypeJComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(18, 18, 18)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(393, Short.MAX_VALUE))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGap(3, 3, 3)
-                                .addComponent(jLabel2))
-                            .addComponent(networkJComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(22, 22, 22)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGap(3, 3, 3)
-                                .addComponent(jLabel3))
-                            .addComponent(enterpriseTypeJComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(26, 26, 26)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel4))
-                        .addGap(25, 25, 25)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel5))
-                        .addGap(28, 28, 28)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel6))
-                        .addGap(42, 42, 42)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 352, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(281, Short.MAX_VALUE))
-        );
+        btnBack.setBackground(java.awt.Color.gray);
+        btnBack.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
+        btnBack.setText("Back");
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackActionPerformed(evt);
+            }
+        });
+        jPanel2.add(btnBack);
+        btnBack.setBounds(38, 37, 67, 25);
+
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/SystemUI/Icon/emp-mgmt.jpg"))); // NOI18N
+        jLabel7.setText("jLabel7");
+        jPanel2.add(jLabel7);
+        jLabel7.setBounds(1, 3, 1270, 630);
 
         jSplitPane1.setRightComponent(jPanel2);
 
@@ -278,7 +260,7 @@ private EcoSystem ecosystem;
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jSplitPane1)
+            .addComponent(jSplitPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 628, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -377,6 +359,10 @@ private EcoSystem ecosystem;
         // TODO add your handling code here:
     }//GEN-LAST:event_enterpriseTypeJComboBoxActionPerformed
 
+    private void txtUsernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUsernameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtUsernameActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAdd;
@@ -390,6 +376,7 @@ private EcoSystem ecosystem;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;

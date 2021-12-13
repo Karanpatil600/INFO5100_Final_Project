@@ -10,6 +10,8 @@ import SystemModel.EcoSystem;
 import java.awt.CardLayout;
 import java.awt.Component;
 import SystemModel.Location.Location;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
@@ -43,7 +45,6 @@ private EcoSystem ecosystem;
         jSplitPane1 = new javax.swing.JSplitPane();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        btnBackManageNetwork = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         networkJTable = new javax.swing.JTable();
@@ -51,45 +52,43 @@ private EcoSystem ecosystem;
         nameTxtField = new javax.swing.JTextField();
         btnAdd = new javax.swing.JButton();
         deleteBtn = new javax.swing.JButton();
+        btnBackManageNetwork = new javax.swing.JButton();
+        lblCheckLocation = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
 
-        jSplitPane1.setDividerLocation(150);
+        setBackground(java.awt.Color.white);
+
+        jSplitPane1.setDividerLocation(78);
         jSplitPane1.setOrientation(javax.swing.JSplitPane.VERTICAL_SPLIT);
 
-        jPanel1.setBackground(new java.awt.Color(255, 102, 102));
+        jPanel1.setBackground(java.awt.Color.cyan);
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Georgia", 1, 24)); // NOI18N
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Location");
-
-        btnBackManageNetwork.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
-        btnBackManageNetwork.setText("Back");
-        btnBackManageNetwork.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBackManageNetworkActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(btnBackManageNetwork, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(282, 282, 282)
-                .addComponent(jLabel1)
-                .addContainerGap(554, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 846, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 738, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(66, 66, 66)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(btnBackManageNetwork))
-                .addContainerGap(58, Short.MAX_VALUE))
+                .addGap(26, 26, 26)
+                .addComponent(jLabel1)
+                .addGap(26, 26, 26))
         );
 
         jSplitPane1.setTopComponent(jPanel1);
+
+        jPanel2.setBackground(java.awt.Color.white);
+
+        jScrollPane1.setBackground(new java.awt.Color(0, 0, 0));
+        jScrollPane1.setForeground(new java.awt.Color(255, 255, 255));
 
         networkJTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -101,8 +100,22 @@ private EcoSystem ecosystem;
         ));
         jScrollPane1.setViewportView(networkJTable);
 
-        jLabel2.setText("Name:");
+        jLabel2.setFont(new java.awt.Font("Georgia", 1, 12)); // NOI18N
+        jLabel2.setText("Name :");
 
+        nameTxtField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nameTxtFieldActionPerformed(evt);
+            }
+        });
+        nameTxtField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                nameTxtFieldKeyReleased(evt);
+            }
+        });
+
+        btnAdd.setBackground(java.awt.Color.gray);
+        btnAdd.setFont(new java.awt.Font("Georgia", 1, 12)); // NOI18N
         btnAdd.setText("Add");
         btnAdd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -110,6 +123,8 @@ private EcoSystem ecosystem;
             }
         });
 
+        deleteBtn.setBackground(java.awt.Color.gray);
+        deleteBtn.setFont(new java.awt.Font("Georgia", 1, 12)); // NOI18N
         deleteBtn.setText("Delete");
         deleteBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -117,42 +132,74 @@ private EcoSystem ecosystem;
             }
         });
 
+        btnBackManageNetwork.setBackground(java.awt.Color.gray);
+        btnBackManageNetwork.setFont(new java.awt.Font("Georgia", 1, 12)); // NOI18N
+        btnBackManageNetwork.setText("Back");
+        btnBackManageNetwork.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackManageNetworkActionPerformed(evt);
+            }
+        });
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/SystemUI/Icon/fix-google-maps-not-updating-location-600x341.png"))); // NOI18N
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addGap(72, 72, 72)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addGap(18, 18, 18)
-                        .addComponent(nameTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(38, 38, 38)
+                        .addComponent(btnBackManageNetwork, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(deleteBtn)))
+                        .addGap(172, 172, 172)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 544, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(310, 310, 310)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(deleteBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(jLabel2)
+                                .addGap(18, 18, 18)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(btnAdd, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(nameTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(lblCheckLocation, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 678, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(jLabel3)
+                .addContainerGap(250, Short.MAX_VALUE))
         );
+
+        jPanel2Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnAdd, btnBackManageNetwork, deleteBtn});
+
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 600, Short.MAX_VALUE)
-                .addContainerGap())
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(nameTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnAdd)
-                    .addComponent(deleteBtn))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(30, 30, 30)
+                .addComponent(btnBackManageNetwork)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(24, 24, 24)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(29, 29, 29)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jLabel2)
+                                .addComponent(nameTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(lblCheckLocation))
+                        .addGap(40, 40, 40)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(deleteBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 373, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(170, Short.MAX_VALUE))
         );
+
+        jPanel2Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btnAdd, btnBackManageNetwork, deleteBtn, jLabel2, lblCheckLocation, nameTxtField});
 
         jSplitPane1.setRightComponent(jPanel2);
 
@@ -185,7 +232,7 @@ private EcoSystem ecosystem;
         // TODO add your handling code here:
         String name = nameTxtField.getText();
         if(name.equals("")){
-            JOptionPane.showMessageDialog(null, "Please enter the Network name!");
+            JOptionPane.showMessageDialog(null, "Please enter the Location name!");
             return;
         }
         else{
@@ -201,7 +248,7 @@ private EcoSystem ecosystem;
         // TODO add your handling code here:
         int selectedRow= networkJTable.getSelectedRow();
         if(selectedRow<0){
-            JOptionPane.showMessageDialog(null, "Please select the row to delete the account", "Warning", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Please select the row to delete", "Warning", JOptionPane.WARNING_MESSAGE);
         }
         else{
 
@@ -214,10 +261,28 @@ private EcoSystem ecosystem;
                 }
             }
 
-            JOptionPane.showMessageDialog(null, "You have successfully deleted the account");
+            JOptionPane.showMessageDialog(null, "You have successfully deleted");
             populateNetworkTable();
         }
     }//GEN-LAST:event_deleteBtnActionPerformed
+
+    private void nameTxtFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nameTxtFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_nameTxtFieldActionPerformed
+
+    private void nameTxtFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_nameTxtFieldKeyReleased
+        // TODO add your handling code here:
+        
+        String ValidLocation = "^[A-Za-z\\s]{2,30}$";
+        Pattern pattern = Pattern.compile(ValidLocation);
+        Matcher match = pattern.matcher(nameTxtField.getText());
+
+        if (!match.matches()) {
+            lblCheckLocation.setText("InValid Input!!!");
+        } else {
+            lblCheckLocation.setText(null);
+        }
+    }//GEN-LAST:event_nameTxtFieldKeyReleased
 
     
        
@@ -238,10 +303,12 @@ private EcoSystem ecosystem;
     private javax.swing.JButton deleteBtn;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSplitPane jSplitPane1;
+    private javax.swing.JLabel lblCheckLocation;
     private javax.swing.JTextField nameTxtField;
     private javax.swing.JTable networkJTable;
     // End of variables declaration//GEN-END:variables

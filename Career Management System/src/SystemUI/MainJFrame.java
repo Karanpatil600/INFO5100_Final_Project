@@ -93,6 +93,10 @@ public class MainJFrame extends javax.swing.JFrame {
         btnlogout = new javax.swing.JButton();
         txtpassword = new javax.swing.JPasswordField();
         workArea = new javax.swing.JPanel();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -101,21 +105,21 @@ public class MainJFrame extends javax.swing.JFrame {
         SplitPane.setDividerLocation(160);
         SplitPane.setOrientation(javax.swing.JSplitPane.VERTICAL_SPLIT);
 
-        controlArea.setBackground(new java.awt.Color(255, 102, 102));
+        controlArea.setBackground(java.awt.Color.black);
         controlArea.setFont(new java.awt.Font("Malayalam MN", 0, 13)); // NOI18N
 
         lblusername.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
+        lblusername.setForeground(new java.awt.Color(255, 255, 255));
         lblusername.setText("Username:");
 
         lblpassword.setBackground(new java.awt.Color(255, 255, 255));
         lblpassword.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
+        lblpassword.setForeground(new java.awt.Color(255, 255, 255));
         lblpassword.setText("Password:");
 
-        txtusername.setBackground(java.awt.Color.black);
         txtusername.setFont(new java.awt.Font("Georgia", 0, 14)); // NOI18N
-        txtusername.setForeground(java.awt.Color.white);
 
-        btnlogin.setBackground(java.awt.Color.gray);
+        btnlogin.setBackground(new java.awt.Color(255, 255, 255));
         btnlogin.setFont(new java.awt.Font("Georgia", 0, 13)); // NOI18N
         btnlogin.setText("Login");
         btnlogin.addActionListener(new java.awt.event.ActionListener() {
@@ -124,7 +128,7 @@ public class MainJFrame extends javax.swing.JFrame {
             }
         });
 
-        btnlogout.setBackground(java.awt.Color.gray);
+        btnlogout.setBackground(new java.awt.Color(255, 255, 255));
         btnlogout.setFont(new java.awt.Font("Georgia", 0, 13)); // NOI18N
         btnlogout.setText("Logout");
         btnlogout.addActionListener(new java.awt.event.ActionListener() {
@@ -133,9 +137,7 @@ public class MainJFrame extends javax.swing.JFrame {
             }
         });
 
-        txtpassword.setBackground(java.awt.Color.black);
         txtpassword.setFont(new java.awt.Font("Georgia", 0, 14)); // NOI18N
-        txtpassword.setForeground(java.awt.Color.white);
 
         javax.swing.GroupLayout controlAreaLayout = new javax.swing.GroupLayout(controlArea);
         controlArea.setLayout(controlAreaLayout);
@@ -154,7 +156,7 @@ public class MainJFrame extends javax.swing.JFrame {
                         .addComponent(btnlogout, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(txtusername)
                     .addComponent(txtpassword, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(1919, Short.MAX_VALUE))
+                .addContainerGap(2563, Short.MAX_VALUE))
         );
 
         controlAreaLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {lblpassword, lblusername});
@@ -174,11 +176,11 @@ public class MainJFrame extends javax.swing.JFrame {
                 .addGroup(controlAreaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtpassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblpassword))
-                .addGap(18, 18, 18)
+                .addGap(25, 25, 25)
                 .addGroup(controlAreaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnlogin)
                     .addComponent(btnlogout))
-                .addContainerGap())
+                .addContainerGap(22, Short.MAX_VALUE))
         );
 
         controlAreaLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {lblpassword, lblusername, txtpassword, txtusername});
@@ -187,8 +189,29 @@ public class MainJFrame extends javax.swing.JFrame {
 
         SplitPane.setTopComponent(controlArea);
 
-        workArea.setBackground(java.awt.Color.white);
+        workArea.setBackground(new java.awt.Color(204, 204, 255));
         workArea.setLayout(new java.awt.CardLayout());
+
+        jPanel1.setBackground(java.awt.Color.white);
+        jPanel1.setLayout(null);
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/SystemUI/Icon/MicrosoftTeams-image.png"))); // NOI18N
+        jPanel1.add(jLabel1);
+        jLabel1.setBounds(420, 190, 660, 390);
+
+        jLabel2.setFont(new java.awt.Font("Georgia", 3, 36)); // NOI18N
+        jLabel2.setText("We solve earth scale problems in Job, Training and Funding!");
+        jPanel1.add(jLabel2);
+        jLabel2.setBounds(200, 110, 1160, 50);
+
+        jLabel3.setFont(new java.awt.Font("Georgia", 3, 48)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 102, 102));
+        jLabel3.setText("\"CareerCircle\"");
+        jPanel1.add(jLabel3);
+        jLabel3.setBounds(550, 30, 450, 70);
+
+        workArea.add(jPanel1, "card2");
+
         SplitPane.setRightComponent(workArea);
 
         getContentPane().add(SplitPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 776));
@@ -330,6 +353,10 @@ public class MainJFrame extends javax.swing.JFrame {
     private javax.swing.JButton btnlogin;
     private javax.swing.JButton btnlogout;
     private javax.swing.JPanel controlArea;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblpassword;
     private javax.swing.JLabel lblusername;
     private javax.swing.JPasswordField txtpassword;

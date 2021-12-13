@@ -96,7 +96,6 @@ public class ManageGCUserAccount extends javax.swing.JPanel {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        backBtn = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         usernameTxtField = new javax.swing.JTextField();
@@ -110,87 +109,83 @@ public class ManageGCUserAccount extends javax.swing.JPanel {
         employeeJComboBox = new javax.swing.JComboBox();
         jScrollPane1 = new javax.swing.JScrollPane();
         userTable = new javax.swing.JTable();
+        backBtn = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(255, 102, 102));
+        jPanel1.setBackground(java.awt.Color.cyan);
 
-        jLabel1.setFont(new java.awt.Font("Malayalam MN", 1, 24)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setFont(new java.awt.Font("Georgia", 1, 24)); // NOI18N
         jLabel1.setText("Manage User Account");
-
-        backBtn.setText("Back");
-        backBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                backBtnActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(38, 38, 38)
-                .addComponent(backBtn)
-                .addGap(264, 264, 264)
+                .addGap(360, 360, 360)
                 .addComponent(jLabel1)
-                .addContainerGap(394, Short.MAX_VALUE))
+                .addContainerGap(390, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(40, 40, 40)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(backBtn))
-                .addContainerGap(36, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(26, 26, 26)
+                .addComponent(jLabel1)
+                .addGap(26, 26, 26))
         );
 
-        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1020, -1));
 
-        jLabel2.setFont(new java.awt.Font("Century Gothic", 0, 13)); // NOI18N
-        jLabel2.setText("Organization: ");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(166, 164, -1, -1));
+        jLabel2.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
+        jLabel2.setText("Organization : ");
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 310, -1, -1));
 
-        jLabel5.setFont(new java.awt.Font("Century Gothic", 0, 13)); // NOI18N
-        jLabel5.setText("Username    :");
-        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(166, 277, -1, -1));
-        add(usernameTxtField, new org.netbeans.lib.awtextra.AbsoluteConstraints(319, 275, 208, -1));
-        add(passwordTxtField, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 315, 207, -1));
+        jLabel5.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
+        jLabel5.setText("Username :");
+        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 430, -1, -1));
 
-        jLabel4.setFont(new java.awt.Font("Century Gothic", 0, 13)); // NOI18N
-        jLabel4.setText("Employee Role            :");
-        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(166, 235, -1, -1));
+        usernameTxtField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                usernameTxtFieldActionPerformed(evt);
+            }
+        });
+        add(usernameTxtField, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 430, 208, -1));
+        add(passwordTxtField, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 470, 207, -1));
 
-        jLabel6.setFont(new java.awt.Font("Century Gothic", 0, 13)); // NOI18N
-        jLabel6.setText("Password     :");
-        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(166, 317, -1, -1));
+        jLabel4.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
+        jLabel4.setText("Employee Role :");
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 390, -1, -1));
 
-        addBtn.setFont(new java.awt.Font("Century Gothic", 0, 13)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
+        jLabel6.setText("Password :");
+        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 470, -1, -1));
+
+        addBtn.setBackground(java.awt.Color.gray);
+        addBtn.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
         addBtn.setText("Add");
         addBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 addBtnActionPerformed(evt);
             }
         });
-        add(addBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 368, 97, -1));
+        add(addBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 520, 97, -1));
 
-        jLabel3.setFont(new java.awt.Font("Century Gothic", 0, 13)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
         jLabel3.setText("Employee Name :");
-        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(166, 195, -1, -1));
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 350, -1, -1));
 
-        add(EmployeeRoleJComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(318, 233, 209, -1));
+        add(EmployeeRoleJComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 390, 209, -1));
 
         organizationJComboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 organizationJComboBoxActionPerformed(evt);
             }
         });
-        add(organizationJComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(318, 164, 209, -1));
+        add(organizationJComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 310, 209, -1));
 
-        add(employeeJComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(318, 193, 209, -1));
+        add(employeeJComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 350, 209, -1));
 
         userTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -210,7 +205,17 @@ public class ManageGCUserAccount extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(userTable);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(569, 164, 357, 331));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 110, 430, 150));
+
+        backBtn.setBackground(java.awt.Color.gray);
+        backBtn.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
+        backBtn.setText("Back");
+        backBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                backBtnActionPerformed(evt);
+            }
+        });
+        add(backBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 110, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed
@@ -249,6 +254,10 @@ public class ManageGCUserAccount extends javax.swing.JPanel {
             populateRoleComboBox(enterprise);
         }
     }//GEN-LAST:event_organizationJComboBoxActionPerformed
+
+    private void usernameTxtFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usernameTxtFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_usernameTxtFieldActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

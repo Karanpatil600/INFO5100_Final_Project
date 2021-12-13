@@ -50,13 +50,15 @@ public class SystemAdministrator extends javax.swing.JPanel {
         jPanel3 = new javax.swing.JPanel();
         lblSystemAdministrator = new javax.swing.JLabel();
         btnManageNetwork = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
+        setBackground(java.awt.Color.white);
         setPreferredSize(new java.awt.Dimension(2353, 776));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btnManageEnterprise.setBackground(java.awt.Color.gray);
         btnManageEnterprise.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
-        btnManageEnterprise.setText("Manage Enterprise");
+        btnManageEnterprise.setText("Enterprise");
         btnManageEnterprise.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnManageEnterpriseActionPerformed(evt);
@@ -66,15 +68,15 @@ public class SystemAdministrator extends javax.swing.JPanel {
 
         btnManageEnterpriseAdministrator.setBackground(java.awt.Color.gray);
         btnManageEnterpriseAdministrator.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
-        btnManageEnterpriseAdministrator.setText("Manage Enterprise Administrator");
+        btnManageEnterpriseAdministrator.setText("Enterprise Administrator");
         btnManageEnterpriseAdministrator.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnManageEnterpriseAdministratorActionPerformed(evt);
             }
         });
-        add(btnManageEnterpriseAdministrator, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 400, -1, 50));
+        add(btnManageEnterpriseAdministrator, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 400, 280, 50));
 
-        jPanel3.setBackground(new java.awt.Color(255, 102, 102));
+        jPanel3.setBackground(java.awt.Color.cyan);
 
         lblSystemAdministrator.setFont(new java.awt.Font("Georgia", 1, 24)); // NOI18N
         lblSystemAdministrator.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -105,6 +107,9 @@ public class SystemAdministrator extends javax.swing.JPanel {
             }
         });
         add(btnManageNetwork, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 230, 280, 50));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/SystemUI/Icon/System-Administrator-Jobs.jpg"))); // NOI18N
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 0, 800, 560));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnManageEnterpriseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageEnterpriseActionPerformed
@@ -138,6 +143,7 @@ public class SystemAdministrator extends javax.swing.JPanel {
     private javax.swing.JButton btnManageEnterprise;
     private javax.swing.JButton btnManageEnterpriseAdministrator;
     private javax.swing.JButton btnManageNetwork;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JLabel lblSystemAdministrator;
     // End of variables declaration//GEN-END:variables
